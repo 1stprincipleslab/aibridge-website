@@ -112,7 +112,7 @@ h6 {
 }
 
 .header .container {
-    max-width: 1200px;
+    max-width: 1140px;
 }
 
 ul, li {
@@ -263,7 +263,7 @@ select:-webkit-autofill:focus {
 .header .header-inner {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .header .header-inner .logo a {
@@ -283,14 +283,15 @@ select:-webkit-autofill:focus {
 }
 
 .header .header-inner .main-nav {
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    left: 31%;
-    padding-left: 5px;
+    position: static;
+    top: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    left: auto;
+    padding-left: 0;
+    margin-left: auto;
 }
 
 @media only screen and (max-width: 1199.99px) {
@@ -539,7 +540,6 @@ select:-webkit-autofill:focus {
     font-weight: 700;
     text-transform: uppercase;
     padding: 8px 30px;
-    margin-left: auto;
     height: 48px;
     border: none;
     border-radius: 30px;
@@ -963,9 +963,12 @@ select:-webkit-autofill:focus {
 .about {
     padding-top: 120px;
 }
+.about .about-info { margin: 0 auto; }
+.about .about-details { text-align: center; }
+.about .about-details li { display: inline-block; text-align: left; margin: 10px 20px; }
 
 .about .main-title {
-    font-size: 42px;
+    font-size: 28px;
     line-height: 1.2;
     margin-bottom: 20px;
 }
@@ -975,7 +978,7 @@ select:-webkit-autofill:focus {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: .6px;
@@ -1992,6 +1995,7 @@ select:-webkit-autofill:focus {
 .footer .footer-bottom { 
 	padding: 20px 0;
     background: #ffffff;
+    display: none;
 }
 
 .footer .footer-bottom .copyright p { 
