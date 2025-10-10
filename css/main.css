@@ -280,6 +280,7 @@ select:-webkit-autofill:focus {
     height: 6rem !important;
     margin-right: 3px;
     width: 49px;
+    margin-left: -1.5rem;
 }
 
 .header .header-inner .main-nav {
