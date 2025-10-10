@@ -167,7 +167,7 @@ select:-webkit-autofill:focus {
     width: 22px;
     height: 22px;
     line-height: 21px;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     color: #fff;
     border-radius: 50%;
     display: inline-block;
@@ -192,8 +192,8 @@ select:-webkit-autofill:focus {
 
 .main-btn {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
-    color: #fff;
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
+    color: #000000;
     min-width: 129px;
     display: inline-block;
     font-size: 16px;
@@ -213,8 +213,8 @@ select:-webkit-autofill:focus {
 }
 
 .main-btn:hover {
-    background: linear-gradient(-267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);;
-    color: #fff;
+    background: linear-gradient(-267deg, #7a66a4 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    color: #000000;
     transform: scale(0.91);
 }
 
@@ -389,7 +389,7 @@ select:-webkit-autofill:focus {
 }
 
 .header .header-inner .main-nav .menu li a:hover {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -510,21 +510,21 @@ select:-webkit-autofill:focus {
 
 .header .header-inner .main-nav .menu li.menu-item-has-children > a:hover::after,
 .header .header-inner .main-nav .menu li.menu-item-has-children > a:hover {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .header .header-inner .main-nav .menu li.menu-item.current > a {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .header .header-inner .main-nav .menu li.menu-item.current > a::after {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -535,8 +535,8 @@ select:-webkit-autofill:focus {
     display: flex;
     align-items: center;
     position: relative;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
-    color: #fff;
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
+    color: #000000;
     font-weight: 700;
     text-transform: uppercase;
     padding: 8px 30px;
@@ -551,7 +551,7 @@ select:-webkit-autofill:focus {
 }
 
 .header .header-inner .header-btn:hover {
-    background: linear-gradient(-267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);;
+    background: linear-gradient(-267deg, #7a66a4 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
 }
 
 @media only screen and (max-width: 991.99px) {
@@ -718,7 +718,7 @@ select:-webkit-autofill:focus {
 }
 
 .home .home-content h1 span {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -774,7 +774,7 @@ select:-webkit-autofill:focus {
 }
 
 .home .home-facts .facts-list li span.number {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -876,7 +876,7 @@ select:-webkit-autofill:focus {
 
 .home2 .owl-carousel .owl-nav .owl-next:hover,
 .home2 .owl-carousel .owl-nav .owl-prev:hover {
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
 }
 
 .home2 .overlay {
@@ -974,7 +974,7 @@ select:-webkit-autofill:focus {
 }
 
 .about .sub-title {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1014,7 +1014,7 @@ select:-webkit-autofill:focus {
     line-height: 24px;
     text-align: center;
     font-size: 13px;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     border-radius: 50%;
 }
 
@@ -1083,7 +1083,7 @@ select:-webkit-autofill:focus {
 
 .services .service-item .service-more a {
     font-size: 16px;
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1142,7 +1142,7 @@ select:-webkit-autofill:focus {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     border: 0.5px solid #27344c;
     width: 5px;
     height: 108%;
@@ -1184,7 +1184,7 @@ select:-webkit-autofill:focus {
     display: inline-block;
     width: 10px;
     height: 10px;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     border-radius: 50%;
     -webkit-transition: all .2s cubic-bezier(.47, 0, .745, .715);
             transition: all .2s cubic-bezier(.47, 0, .745, .715);
@@ -1332,7 +1332,7 @@ select:-webkit-autofill:focus {
 }
 
 .project-box .project-box-btn-content .project-box-btn:hover {
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);;
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);;
     color: #fff;
 }
 
@@ -1369,7 +1369,7 @@ select:-webkit-autofill:focus {
 
 .project-box .project-box-content .project-more a {
     font-size: 16px;
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1444,7 +1444,7 @@ select:-webkit-autofill:focus {
 
 .pricing .pricing-plan .pricing-price .price {
     font-size: 40px;
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1472,7 +1472,7 @@ select:-webkit-autofill:focus {
 
 .pricing .pricing-plan.one .pricing-btn .main-btn span,
 .pricing .pricing-plan.three .pricing-btn .main-btn span {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1510,7 +1510,7 @@ select:-webkit-autofill:focus {
     line-height: 21px;
     text-align: center;
     font-size: 11px;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     border-radius: 50%;
 }
 
@@ -1567,7 +1567,7 @@ select:-webkit-autofill:focus {
     height: 43px;
     line-height: 44px;
     text-align: center;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     border-radius: 24px;
 }
 
@@ -1705,7 +1705,7 @@ select:-webkit-autofill:focus {
 }
 
 .blog .blog-item .post-content h3:hover {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1718,7 +1718,7 @@ select:-webkit-autofill:focus {
 
 .blog .blog-item .blog-more a {
     font-size: 16px;
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1775,7 +1775,7 @@ select:-webkit-autofill:focus {
     height: 60px;
     display: block;
     line-height: 60px;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     border-radius: 50%;
     text-align: center;
     font-size: 22px;
@@ -1980,7 +1980,7 @@ select:-webkit-autofill:focus {
     width: 58px;
     line-height: 58px;
     text-align: center;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     border-radius: 0 24px 24px 0;
 }
 
@@ -2010,7 +2010,7 @@ select:-webkit-autofill:focus {
 
 .footer .footer-bottom .copyright p span { 
 	font-family: 'Poppins', sans-serif;
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -2035,7 +2035,7 @@ select:-webkit-autofill:focus {
 }
 
 .footer .footer-bottom .social-media li:hover {
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
 }
 
 /* --------------------------------------
@@ -2069,7 +2069,7 @@ select:-webkit-autofill:focus {
 }
 
 .scroll-top:hover {
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
 }
 
 /* --------------------------------------
@@ -2174,7 +2174,7 @@ select:-webkit-autofill:focus {
 .pagination ul li .current,
 .pagination ul li a:hover,
 .pagination ul li span:hover {
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
 }
 
 .blog .sidebar .sidebar-widget {
@@ -2231,7 +2231,7 @@ select:-webkit-autofill:focus {
     color: #fff;
     line-height: 40px;
     border-radius: 24px;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     cursor: pointer;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -2268,7 +2268,7 @@ select:-webkit-autofill:focus {
 }
 
 .blog .sidebar .sidebar-category ul li a:hover {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -2306,7 +2306,7 @@ select:-webkit-autofill:focus {
 }
 
 .blog .sidebar .sidebar-recent-posts .post .post-title:hover {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -2340,7 +2340,7 @@ select:-webkit-autofill:focus {
 
 .blog .sidebar .sidebar-tags .tagcloud a:hover {
     color: #fff;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
 }
 
 .blog .blog-item .blog-item-content .post-text {
@@ -2408,7 +2408,7 @@ select:-webkit-autofill:focus {
     line-height: 45px;
     text-align: center;
     font-size: 17px;
-    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     color: #fff;
     border-radius: 10px;
 	-webkit-transition: all .3s ease-in-out;
@@ -2436,7 +2436,7 @@ select:-webkit-autofill:focus {
 }
 
 .blog .blog-item .blog-item-content .post-footer .post-tags ul li a:hover {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -2493,7 +2493,7 @@ select:-webkit-autofill:focus {
 	right: 0;
 	font-size: 16px;
     font-weight: 500;
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    background-image: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -2875,7 +2875,7 @@ body p,
 .scroll-top:hover,
 .blog .blog-item .blog-item-content .post-footer .post-share ul li a,
 .blog .sidebar .sidebar-search .sidebar-search-input button {
-    background: linear-gradient(267deg, var(--color-primary-600) 15%, var(--color-accent-500) 100%);
+    background: linear-gradient(267deg, #9b9b9d 15%, var(--color-accent-500) 100%);
 }
 
 .main-btn:hover,
