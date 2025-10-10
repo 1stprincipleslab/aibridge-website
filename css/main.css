@@ -280,6 +280,7 @@ select:-webkit-autofill:focus {
     height: 6rem !important;
     margin-right: 3px;
     width: 49px;
+    margin-left: -1.5rem;
 }
 
 .header .header-inner .main-nav {
@@ -2823,4 +2824,128 @@ select:-webkit-autofill:focus {
         flex-wrap: wrap!important;
     }
 
+}
+
+/* --------------------------------------
+   Theme Tweaks: Higher Contrast + Subtle Palette
+   (visual-only overrides; no layout/functionality changes)
+-----------------------------------------*/
+
+:root {
+    --color-text: #1f2937;            /* slate-800 */
+    --color-text-muted: #475569;      /* slate-600 */
+    --color-heading: #0b1124;         /* keeps brand heading */
+    --color-border: #d7deeb;          /* subtle but clearer than #edf0f7 */
+    --color-surface: #ffffff;         /* base surface */
+    --color-surface-weak: #f6f7fb;    /* existing body background */
+    --color-primary-600: #4f46e5;     /* softened indigo */
+    --color-accent-500: #06b6d4;      /* softened cyan */
+}
+
+/* Typography and body copy contrast */
+body p,
+.home .home-content p,
+.features .feature-item p,
+.services .service-item p,
+.roadmap-item-inner p,
+.footer .footer-top .footer-menu p,
+.blog .blog-item .blog-item-content .post-text p,
+.blog .blog-item .blog-item-content .more-details p {
+    color: var(--color-text);
+}
+
+/* Card borders and section containers for clearer delineation */
+.feature-item,
+.service-item,
+.roadmap-item-inner,
+.blog .blog-item .blog-item-content,
+.footer,
+.footer .footer-top,
+.footer .footer-top .footer-item .footer-newsletter input {
+    border-color: var(--color-border);
+}
+
+/* Primary buttons: softer gradient, higher contrast, calmer hover */
+.main-btn,
+.header .header-inner .header-btn,
+.project-box .project-box-btn-content .project-box-btn:hover,
+.pagination ul li .current,
+.pagination ul li a:hover,
+.pagination ul li span:hover,
+.footer .footer-top .footer-item .footer-newsletter .submit,
+.scroll-top:hover,
+.blog .blog-item .blog-item-content .post-footer .post-share ul li a,
+.blog .sidebar .sidebar-search .sidebar-search-input button {
+    background: linear-gradient(267deg, var(--color-primary-600) 15%, var(--color-accent-500) 100%);
+}
+
+.main-btn:hover,
+.header .header-inner .header-btn:hover,
+.footer .footer-top .footer-newsletter .submit:hover,
+.blog .sidebar .sidebar-search .sidebar-search-input button:hover {
+    filter: brightness(1.03);
+    transform: translateY(-1px);
+}
+
+/* Secondary/ghost buttons: clearer contrast on light backgrounds */
+.custom-btn,
+.home .home-content .custom-btn {
+    color: var(--color-heading);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+}
+
+.custom-btn:hover,
+.home .home-content .custom-btn:hover {
+    color: var(--color-primary-600);
+    background: #eef2ff; /* very light indigo */
+    border-color: #c7d2fe;
+}
+
+/* Footer readability on light surface */
+.footer .footer-top .footer-item h4 {
+    color: var(--color-heading);
+}
+
+.footer .footer-top ul li,
+.footer .footer-top .footer-item ul li a {
+    color: var(--color-text-muted);
+}
+
+.footer .footer-top .footer-item ul li a:hover {
+    color: var(--color-primary-600);
+}
+
+/* Footer newsletter input readable text/placeholder on light bg */
+.footer .footer-top .footer-item .footer-newsletter input {
+    color: var(--color-text);
+}
+
+.footer .footer-top .footer-item .footer-newsletter input::placeholder {
+    color: var(--color-text-muted);
+}
+
+/* Form controls in contact: improve contrast */
+.contact .contact-form .form-group .form-control,
+.contact .contact-form .form-group .form-control::placeholder {
+    color: var(--color-text);
+    border-color: #cbd5e1; /* slate-300 */
+}
+
+/* Links and interactive focus states (keyboard accessibility) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--color-primary-600);
+    outline-offset: 2px;
+}
+
+/* Header nav links: keep brand color but ensure hover remains readable */
+.header .header-inner .main-nav .menu li a {
+    color: var(--color-heading);
+}
+
+.header .header-inner .main-nav .menu li a:hover {
+    -webkit-text-fill-color: initial; /* reset webkit fill to allow gradient to render cleanly */
 }
