@@ -16,7 +16,7 @@ const EMAIL_CONFIG = {
   serviceID: 'service_tyewaog',             // e.g., 'service_xxxxxxx'
   adminTemplateID: 'template_54po3eq',// e.g., 'template_admin123'
   userTemplateID: 'template_3wysbvw',  // e.g., 'template_user123'
-  adminEmail: 'rahul@1stprincipleslab.com'   // where admin notifications go
+  adminEmail: 'sales@aibridge.co.nz'   // where admin notifications go
 };
 
 // 3) Helper to control the submit button state
