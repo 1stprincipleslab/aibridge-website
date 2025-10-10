@@ -1854,6 +1854,40 @@ select:-webkit-autofill:focus {
 	background-color: #f54033;
 }
 
+/* Form Message Styles */
+.form-message {
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 14px;
+    animation: slideDown 0.3s ease;
+}
+
+.form-message i {
+    margin-right: 10px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading spinner */
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* --------------------------------------
    13. Footer
 -----------------------------------------*/
