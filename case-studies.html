@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="aibridge - Case Studies">
+        <meta name="keywords" content="IT Services, AI Development, Technology, Architecture Advisory, CTO Services">
+        
+        <!-- Title -->
+        <title>Case Studies - aibridge</title>
+        <!-- Favicon -->
+        <link rel="icon" href="https://via.placeholder.com/80x80">
+        <!-- Google Fonts -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma:wght@400;500;600;700;800&display=swap">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+ 
+        <!-- Font Awesome Css -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <!-- Bootstrap 4 Css -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Main Style Css -->
+        <link rel="stylesheet" href="css/main.css">
+        
+        <style>
+            .case-study-item {
+                background: #ffffff;
+                border: 1px solid #edf0f7;
+                padding: 30px 20px;
+                border-radius: 24px;
+                -webkit-transition: all 0.3s ease;
+                -moz-transition: all 0.3s ease;
+                -ms-transition: all 0.3s ease;
+                -o-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .case-study-item:hover {
+                border: 1px solid #cfd7ff;
+                transform: translateY(-10px);
+            }
+
+            .case-study-logo {
+                width: 80px;
+                height: 80px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+                object-fit: contain;
+                object-position: center;
+                border: 1px solid #edf0f7;
+                background: #fff;
+                padding: 8px;
+            }
+
+            .case-study-title {
+                font-size: 18px;
+                color: #0b1124;
+                line-height: 1.4;
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
+
+            .case-study-description {
+                color: #3c445a;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 1.6;
+                margin-bottom: 20px;
+                flex-grow: 1;
+            }
+
+            .case-study-metrics {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+            }
+
+            .metric-item {
+                background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%);
+                color: #fff;
+                padding: 8px 12px;
+                border-radius: 16px;
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+            .case-study-more {
+                overflow: hidden;
+            }
+
+            .case-study-more a {
+                font-size: 16px;
+                background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: flex;
+                align-items: center;
+                font-weight: 600;
+                -webkit-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+            }
+
+            .case-study-more a i {
+                margin-left: 8px;
+                -webkit-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+            }
+
+            .case-study-item:hover .case-study-more a i {
+                margin-left: 12px;
+            }
+
+            .coming-soon {
+                opacity: 0.6;
+                cursor: default;
+            }
+
+            .coming-soon:hover {
+                transform: none;
+                border: 1px solid #edf0f7;
+            }
+
+            .coming-soon .case-study-more a {
+                color: #9ca3af;
+                background: none;
+                -webkit-text-fill-color: #9ca3af;
+                cursor: default;
+            }
+        </style>
+        
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+       
+    </head>
+    <body>
+        
+        <!-- ========== Start Navbar ========== -->   
+
+        <header class="header">
+			<div class="container">
+				<div class="header-inner">
+					<div class="logo">
+                        <a href="index.html" aria-label="aibridge"><img src="images/airbridge.png" alt="aibridge logo" style="height:40px; width:auto;"/></a>
+					</div>
+					<nav class="main-nav">
+                        <ul class="menu">
+                            <li class="menu-item"><a href="index.html">Home</a></li>
+                            <li class="menu-item"><a href="about.html">About us</a></li>
+                            <li class="menu-item"><a href="services.html">Services</a></li>
+                            <li class="menu-item current"><a href="case-studies.html">Case Studies</a></li>
+                        </ul>
+					</nav>
+                    <a class="header-btn" href="contact.html">Start your project</a>
+					<div class="mobile-button"><span></span></div>
+				</div>
+			</div>
+		</header>
+        
+        <!-- ========== End Navbar ========== -->
+
+		<!-- ========== Start Page Title ========== -->
+		<section class="page-title">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<ul class="list-unstyled">
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ========== Start Case Studies ========== -->
+		<section class="services">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h4 class="sub-title" style="background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 28px; font-weight: 700; margin-bottom: 8px;">Success Stories</h4>
+						<h3 class="main-title">Real results from real partnerships</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-6 item">
+						<div class="case-study-item">
+							<img src="https://resupply.co.nz/cdn/shop/files/RESUPPLY_Logo_Icon_06d00c2a-eea7-4bab-acf1-73c0823179c1.png?v=1736510421" alt="Resupply Logo" class="case-study-logo">
+							<h3 class="case-study-title">Resupply: Agritech E-commerce Transformation</h3>
+							<p class="case-study-description">How we helped Ravensdown turn Shopify into a $1M revenue engine through AI-powered automation and scalable architecture.</p>
+							<div class="case-study-metrics">
+								<span class="metric-item">$1M+ Revenue</span>
+								<span class="metric-item">40% Faster</span>
+								<span class="metric-item">60% Less Dev Time</span>
+							</div>
+							<div class="case-study-more">
+								<a href="case-study-resupply.html">Read Case Study <i class="fa fa-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 item">
+						<div class="case-study-item coming-soon">
+							<img src="https://via.placeholder.com/80x80/e5e7eb/9ca3af?text=?" alt="Coming Soon" class="case-study-logo">
+							<h3 class="case-study-title">FinTech Platform Modernization</h3>
+							<p class="case-study-description">Transforming legacy financial systems with AI-native architecture and modern cloud infrastructure for enhanced performance.</p>
+							<div class="case-study-metrics">
+								<span class="metric-item" style="background: #9ca3af;">Coming Soon</span>
+							</div>
+							<div class="case-study-more">
+								<a href="#0">Coming Soon</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 item">
+						<div class="case-study-item coming-soon">
+							<img src="https://via.placeholder.com/80x80/e5e7eb/9ca3af?text=?" alt="Coming Soon" class="case-study-logo">
+							<h3 class="case-study-title">Mental Health Platform Development</h3>
+							<p class="case-study-description">Building AI-powered mental health platforms with intelligent matching, personalized therapy recommendations, and real-time wellness monitoring.</p>
+							<div class="case-study-metrics">
+								<span class="metric-item" style="background: #9ca3af;">Coming Soon</span>
+							</div>
+							<div class="case-study-more">
+								<a href="#0">Coming Soon</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ========== End Case Studies ========== -->
+
+        <!-- ========== Start Footer ========== -->
+        
+		<footer class="footer">
+            <div class="footer-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 col-sm-6 col-12 footer-menu">
+							<div class="footer-logo">
+                                <a class="my-logo" href="index.html" aria-label="aibridge"><img src="images/airbridge.png" alt="aibridge logo" style="height:40px; width:auto;"/></a>
+							</div>
+							<p>Headquartered in New Zealand with a presence in India, we serve as a strategic partner for our clients, empowering them with innovative solutions that keep them ahead of the curve.</p>
+						</div>
+						<div class="col-lg-2 col-sm-6 col-12 footer-menu">
+							<div class="footer-item">
+								<h4>Site map</h4>
+                                <ul class="list-unstyled">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About us</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="case-studies.html">Case Studies</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+							</div>
+						</div>
+						<div class="col-lg-2 col-sm-6 col-12 footer-menu">
+							<div class="footer-item">
+								<h4>Company</h4>
+								<ul class="list-unstyled">
+                                    <li><a href="terms.html">Terms & Conditions</a></li>
+                                    <li><a href="policy.html">Privacy Policy</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4 col-sm-6 col-12 footer-menu">
+							<div class="footer-item">
+								<h4>Subscribe Newsletter</h4>
+								<div class="footer-newsletter">
+									<input type="text" name="text" placeholder="Email address" required="">
+									<a class="submit" href="#0"><i class="fa fa-send"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom text-center">
+				<div class="container">
+                    <div class="copyright d-flex align-items-center justify-content-md-between flex-sm-wrap justify-content-sm-center">
+                        <p>Copyright &copy; 2024, <span>aibridge</span> All Rights Reserved.</p>
+						<ul class="list-unstyled social-media d-flex align-items-center">
+							<li><a href="#0"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#0"><i class="fa fa-pinterest"></i></a></li>
+							<li><a href="#0"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="#0"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#0"><i class="fa fa-behance"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+        </footer>
+
+        <!-- ========== End Footer ========== -->
+        
+        <!-- ========== Start Scroll To Top  ========== -->
+        
+        <a href="#0" class="scroll-top">
+            <span><i class="fa fa-arrow-up"></i></span>
+        </a>
+        
+        <!-- ========== End Scroll To Top  ========== -->
+        
+        <!-- ========== Js ========== -->
+
+        <!-- jQuery -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+		<!-- Popper Js  -->
+    	<script src="js/popper.min.js"></script>
+        <!-- Bootstrap 4 Js -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Custom Js -->
+        <script src="js/custom.js"></script>
+    </body>
+</html>

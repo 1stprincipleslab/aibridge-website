@@ -26,6 +26,106 @@
             /* page-specific tweaks aligned to light theme */
             p, li { color: #3c445a !important; }
             h3 { color: #0b1124 !important; }
+            
+            /* Service Modal Styles */
+            .service-item {
+                cursor: pointer;
+                position: relative;
+            }
+            
+            .service-learn-more {
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%);
+                color: #fff;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 13px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            
+            .service-item:hover .service-learn-more {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+
+            
+            .service-modal {
+                display: none;
+                position: fixed;
+                top: 120px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 120px);
+                background: rgba(0, 0, 0, 0.3);
+                z-index: 1000;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+            
+            .service-modal-content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #fff;
+                border-radius: 24px;
+                padding: 50px;
+                max-width: 1200px;
+                width: 90%;
+                max-height: 75vh;
+                overflow-y: auto;
+            }
+            
+            .service-modal-close {
+                position: absolute;
+                top: 20px;
+                right: 25px;
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: #666;
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .service-modal h3 {
+                color: #0b1124;
+                margin-bottom: 20px;
+                padding-right: 40px;
+            }
+            
+            .service-modal-topic {
+                margin-bottom: 25px;
+                padding: 20px;
+                background: #f8fafc;
+                border-radius: 16px;
+                border-left: 4px solid;
+                border-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%) 1;
+            }
+            
+            .service-modal-topic h4 {
+                color: #0b1124;
+                font-size: 18px;
+                margin-bottom: 10px;
+                font-weight: 600;
+            }
+            
+            .service-modal-topic p {
+                color: #3c445a;
+                margin: 0;
+                line-height: 1.6;
+            }
         </style>
         
         <!--[if lt IE 9]>
@@ -49,6 +149,7 @@
                             <li class="menu-item"><a href="index.html">Home</a></li>
                             <li class="menu-item"><a href="about.html">About us</a></li>
                             <li class="menu-item current"><a href="services.html">Services</a></li>
+                            <li class="menu-item"><a href="case-studies.html">Case Studies</a></li>
                         </ul>
 					</nav>
                     <a class="header-btn" href="contact.html">Start your project</a>
@@ -87,75 +188,51 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
+						<div class="service-item" onclick="openServiceModal('ai-teams')">
 							<div class="service-icon">
-								<i class="fa fa-sitemap"></i>
-							</div>
-							<div class="service-content">
-								<h3>Rapid Prototyping</h3>
-								<p>Validate your ideas fast. We help you go from concept to clickable prototype in days  not weeks. Ideal for MVPs, product-market fit testing, or stakeholder alignment.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-sitemap"></i>
+								<i class="fa fa-users"></i>
 							</div>
 							<div class="service-content">
 								<h3>AI-Based Development Teams</h3>
-								<p>Build smarter products with our dedicated AI-powered development squads. We integrate advanced tools like LLMs, automation frameworks, and ML pipelines to scale solutions quickly and efficiently.
-								</p>
+								<p>Build smarter products with our dedicated AI-powered development squads using LLMs, automation frameworks, and ML pipelines.</p>
 							</div>
+							<button class="service-learn-more">Learn More</button>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-sitemap"></i>
-							</div>
-							<div class="service-content">
-								<h3>Fractional CTO Services</h3>
-								<p>Get executive-level tech leadership without the full-time overhead. We provide strategic oversight, vendor alignment, and product direction tailored to your growth stage.</p>
-								
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
+						<div class="service-item" onclick="openServiceModal('enterprise-arch')">
 							<div class="service-icon">
 								<i class="fa fa-sitemap"></i>
 							</div>
 							<div class="service-content">
 								<h3>Enterprise Architecture</h3>
-								<p>DFrom cloud-native designs to secure, scalable ecosystems  we craft enterprise-grade architecture that supports innovation, governance, and long-term agility.
-								</p>
-								
+								<p>From cloud-native designs to secure, scalable ecosystems — we craft enterprise-grade architecture that supports innovation and agility.</p>
 							</div>
+							<button class="service-learn-more">Learn More</button>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
+						<div class="service-item" onclick="openServiceModal('custom-ai')">
 							<div class="service-icon">
-								<i class="fa fa-sitemap"></i>
-							</div>
-							<div class="service-content">
-								<h3>AI Advisory & Roadmapping</h3>
-								<p>Not sure where to start with AI? We work with your leadership to define a practical AI roadmap that aligns with business outcomes  from PoCs to full-scale implementation.</p>
-								
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-user-tie"></i>
+								<i class="fa fa-cogs"></i>
 							</div>
 							<div class="service-content">
 								<h3>Custom AI Solutions & LLM Fine-Tuning</h3>
-								<p>We develop bespoke AI models, fine-tune large language models, and build domain-specific intelligence that gives your business a competitive edge  all with data privacy and performance at the core.</p>
-								
+								<p>We develop bespoke AI models and build domain-specific intelligence that gives your business a competitive edge.</p>
 							</div>
+							<button class="service-learn-more">Learn More</button>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 item">
+						<div class="service-item" onclick="openServiceModal('ai-native')">
+							<div class="service-icon">
+								<i class="fa fa-rocket"></i>
+							</div>
+							<div class="service-content">
+								<h3>AI-Native Consultancy</h3>
+								<p>Experience game-changing productivity gains with faster decisions, smarter execution, and better outcomes.</p>
+							</div>
+							<button class="service-learn-more">Learn More</button>
 						</div>
 					</div>
 				</div>
@@ -230,6 +307,7 @@
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About us</a></li>
                                     <li><a href="services.html">Services</a></li>
+                                    <li><a href="case-studies.html">Case Studies</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
 							</div>
@@ -292,5 +370,377 @@
         <script src="js/bootstrap.min.js"></script>
         <!-- Custom Js -->
         <script src="js/custom.js"></script>
+        
+        <!-- Service Modals -->
+        <div id="serviceModal" class="service-modal">
+            <div class="service-modal-content">
+                <button class="service-modal-close" onclick="closeServiceModal()">&times;</button>
+                <div id="modalContent"></div>
+            </div>
+        </div>
+        
+        <script>
+            const serviceData = {
+                'ai-teams': {
+                    title: 'AI-Based Development Teams',
+                    topics: [
+                        {
+                            title: 'What Makes a Development Team Truly AI-Native?',
+                            description: `<p>Traditional development teams rely on manual processes, static workflows, and reactive problem-solving. AI-native teams fundamentally reimagine how software is built by integrating intelligent automation at every stage.</p>
+                            
+                            <h5>Key Differentiators:</h5>
+                            <ul>
+                                <li><strong>Intelligent Code Generation:</strong> Teams use LLMs like GPT-4 and Claude for rapid prototyping, boilerplate generation, and complex algorithm development</li>
+                                <li><strong>Automated Testing & QA:</strong> AI-powered testing frameworks that generate test cases, identify edge cases, and predict potential failures</li>
+                                <li><strong>Predictive DevOps:</strong> ML models that anticipate deployment issues, optimize resource allocation, and automate scaling decisions</li>
+                                <li><strong>Real-time Code Review:</strong> AI assistants that provide instant feedback on code quality, security vulnerabilities, and performance optimizations</li>
+                            </ul>
+                            
+                            <p>Our teams achieve 3x faster development cycles while maintaining 99.9% uptime through this integrated approach. We've seen clients reduce their time-to-market from months to weeks.</p>
+                            
+                            <div style="background: #f0f9ff; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <strong>Case Example:</strong> For a fintech client, our AI-native team built a fraud detection system in 2 weeks that would have taken traditional teams 3 months. The system now processes 1M+ transactions daily with 99.7% accuracy.
+                            </div>`
+                        },
+                        {
+                            title: 'How We Use AI to Accelerate Product Velocity — Without Sacrificing Quality',
+                            description: `<p>Speed without quality is just technical debt. Our approach leverages AI to enhance both velocity and precision through intelligent automation and continuous learning systems.</p>
+                            
+                            <h5>Our Velocity Framework:</h5>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                                <div style="background: #fef3f2; padding: 15px; border-radius: 8px;">
+                                    <h6>Traditional Approach</h6>
+                                    <ul>
+                                        <li>Manual code reviews (2-3 days)</li>
+                                        <li>Static testing protocols</li>
+                                        <li>Reactive bug fixing</li>
+                                        <li>Sequential deployment</li>
+                                    </ul>
+                                </div>
+                                <div style="background: #f0fdf4; padding: 15px; border-radius: 8px;">
+                                    <h6>AI-Native Approach</h6>
+                                    <ul>
+                                        <li>AI-assisted reviews (30 minutes)</li>
+                                        <li>Adaptive testing with ML</li>
+                                        <li>Predictive issue prevention</li>
+                                        <li>Intelligent deployment pipelines</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h5>Quality Assurance Through AI:</h5>
+                            <p>We maintain quality through multi-layered AI systems that continuously monitor, test, and optimize code. Our quality metrics actually improve with speed:</p>
+                            
+                            <ul>
+                                <li><strong>Bug Detection Rate:</strong> 94% of issues caught pre-production</li>
+                                <li><strong>Performance Optimization:</strong> Automatic code optimization suggestions</li>
+                                <li><strong>Security Scanning:</strong> Real-time vulnerability assessment</li>
+                                <li><strong>Documentation:</strong> Auto-generated, always up-to-date technical docs</li>
+                            </ul>`
+                        }
+                    ]
+                },
+                'enterprise-arch': {
+                    title: 'Enterprise Architecture',
+                    topics: [
+                        {
+                            title: 'Why Cloud-Native Isn\'t Enough — You Need AI-Native Architecture',
+                            description: `<p>Cloud-native architecture solved scalability and deployment challenges of the 2010s. But today's enterprises need systems that don't just scale — they need to learn, adapt, and optimize themselves.</p>
+                            
+                            <h5>Evolution of Enterprise Architecture:</h5>
+                            
+                            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                    <span><strong>Monolithic</strong> → <strong>Microservices</strong> → <strong>AI-Native</strong></span>
+                                </div>
+                                <p>Each evolution solved the limitations of the previous: Monoliths couldn't scale, Microservices couldn't self-optimize, AI-Native systems can do both.</p>
+                            </div>
+                            
+                            <h5>AI-Native Architecture Principles:</h5>
+                            <ul>
+                                <li><strong>Intelligent Load Balancing:</strong> ML algorithms that predict traffic patterns and auto-scale resources</li>
+                                <li><strong>Self-Healing Systems:</strong> Automated detection and resolution of system failures</li>
+                                <li><strong>Adaptive Security:</strong> AI-powered threat detection that learns from attack patterns</li>
+                                <li><strong>Data-Driven Decisions:</strong> Every architectural choice backed by real-time analytics</li>
+                                <li><strong>Continuous Optimization:</strong> Systems that improve performance without human intervention</li>
+                            </ul>
+                            
+                            <p>We've helped enterprises reduce infrastructure costs by 40% while improving performance by 60% through AI-native architecture transformations.</p>`
+                        },
+                        {
+                            title: 'Scaling with Confidence: How We Design Architecture for Growth, Governance, and Agility',
+                            description: `<p>Enterprise architecture must balance three critical demands: the ability to scale rapidly, maintain strict governance, and remain agile enough to adapt to changing business needs.</p>
+                            
+                            <h5>Our Three-Pillar Framework:</h5>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0;">
+                                <div style="background: #eff6ff; padding: 15px; border-radius: 8px; text-align: center;">
+                                    <h6 style="color: #1d4ed8;">Growth</h6>
+                                    <p style="font-size: 14px;">Elastic scaling, performance optimization, cost efficiency</p>
+                                </div>
+                                <div style="background: #f0fdf4; padding: 15px; border-radius: 8px; text-align: center;">
+                                    <h6 style="color: #166534;">Governance</h6>
+                                    <p style="font-size: 14px;">Security, compliance, audit trails, data privacy</p>
+                                </div>
+                                <div style="background: #fef3f2; padding: 15px; border-radius: 8px; text-align: center;">
+                                    <h6 style="color: #dc2626;">Agility</h6>
+                                    <p style="font-size: 14px;">Rapid deployment, feature flags, A/B testing</p>
+                                </div>
+                            </div>
+                            
+                            <h5>Real-World Implementation:</h5>
+                            <p>For a Fortune 500 retail client, we designed an architecture that:</p>
+                            
+                            <ul>
+                                <li><strong>Scaled 10x during Black Friday</strong> without manual intervention</li>
+                                <li><strong>Maintained SOC 2 compliance</strong> across 15 different regions</li>
+                                <li><strong>Deployed 50+ features per week</strong> with zero downtime</li>
+                                <li><strong>Reduced operational costs by 35%</strong> through intelligent resource management</li>
+                            </ul>
+                            
+                            <div style="background: #f0f9ff; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <strong>Architecture Highlight:</strong> Our event-driven, AI-orchestrated microservices architecture automatically adjusts to traffic patterns, maintains data consistency across regions, and provides real-time insights to business stakeholders.
+                            </div>`
+                        }
+                    ]
+                },
+                'custom-ai': {
+                    title: 'Custom AI Solutions & LLM Fine-Tuning',
+                    topics: [
+                        {
+                            title: 'Fine-Tuning LLMs for Domain-Specific Intelligence: What Most Teams Miss',
+                            description: `<p>Generic LLMs are powerful, but they lack the nuanced understanding of your specific industry, processes, and data. Most teams either use off-the-shelf models (losing competitive advantage) or attempt fine-tuning without proper methodology (wasting resources).</p>
+                            
+                            <h5>Common Fine-Tuning Mistakes:</h5>
+                            <ul>
+                                <li><strong>Insufficient Data Curation:</strong> Using raw data without domain-specific preprocessing</li>
+                                <li><strong>Wrong Base Model Selection:</strong> Choosing models based on popularity rather than task alignment</li>
+                                <li><strong>Inadequate Evaluation Metrics:</strong> Testing on generic benchmarks instead of domain-specific tasks</li>
+                                <li><strong>Ignoring Deployment Constraints:</strong> Fine-tuning without considering inference costs and latency</li>
+                            </ul>
+                            
+                            <h5>Our Domain-Specific Approach:</h5>
+                            
+                            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <h6>Agritech Example - Crop Disease Detection:</h6>
+                                <p>We fine-tuned a vision-language model for a farming cooperative:</p>
+                                <ul>
+                                    <li>Curated 50K+ images with expert annotations</li>
+                                    <li>Incorporated local climate and soil data</li>
+                                    <li>Achieved 96% accuracy vs 73% with generic models</li>
+                                    <li>Reduced false positives by 80%</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: #f0f9ff; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <h6>E-commerce Example - Product Categorization:</h6>
+                                <p>Custom LLM for fashion retailer:</p>
+                                <ul>
+                                    <li>Trained on 2M+ product descriptions</li>
+                                    <li>Incorporated brand-specific terminology</li>
+                                    <li>Improved categorization accuracy from 82% to 97%</li>
+                                    <li>Reduced manual review time by 90%</li>
+                                </ul>
+                            </div>`
+                        },
+                        {
+                            title: 'Building AI That Understands Your Business — Not Just Your Data',
+                            description: `<p>Data is just the raw material. True business intelligence comes from AI systems that understand your workflows, constraints, objectives, and the subtle nuances that make your business unique.</p>
+                            
+                            <h5>Business Logic Integration Framework:</h5>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                                <div>
+                                    <h6>Technical Layer</h6>
+                                    <ul style="font-size: 14px;">
+                                        <li>Data preprocessing pipelines</li>
+                                        <li>Model architecture design</li>
+                                        <li>Performance optimization</li>
+                                        <li>Scalability considerations</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h6>Business Layer</h6>
+                                    <ul style="font-size: 14px;">
+                                        <li>Domain expertise integration</li>
+                                        <li>Regulatory compliance</li>
+                                        <li>Risk management protocols</li>
+                                        <li>ROI optimization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h5>Privacy-First AI Development:</h5>
+                            <p>We build AI systems that respect data privacy while maximizing business value:</p>
+                            
+                            <ul>
+                                <li><strong>Federated Learning:</strong> Train models without centralizing sensitive data</li>
+                                <li><strong>Differential Privacy:</strong> Add mathematical guarantees for individual privacy</li>
+                                <li><strong>Homomorphic Encryption:</strong> Compute on encrypted data without decryption</li>
+                                <li><strong>Secure Multi-party Computation:</strong> Collaborative AI without data sharing</li>
+                            </ul>
+                            
+                            <div style="background: #fef3f2; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <strong>Healthcare Case Study:</strong> Built an AI diagnostic system for a hospital network that improved diagnosis accuracy by 23% while ensuring HIPAA compliance and maintaining patient privacy through advanced cryptographic techniques.
+                            </div>
+                            
+                            <h5>Performance Optimization:</h5>
+                            <p>Our AI solutions are designed for real-world constraints:</p>
+                            <ul>
+                                <li><strong>Edge Deployment:</strong> Models that run efficiently on mobile and IoT devices</li>
+                                <li><strong>Low-Latency Inference:</strong> Sub-100ms response times for real-time applications</li>
+                                <li><strong>Cost Optimization:</strong> Balancing model complexity with operational costs</li>
+                                <li><strong>Continuous Learning:</strong> Models that improve over time without retraining</li>
+                            </ul>`
+                        }
+                    ]
+                },
+                'ai-native': {
+                    title: 'AI-Native Consultancy',
+                    topics: [
+                        {
+                            title: 'What Is an AI-Native Consultancy — and Why It\'s a Game-Changer for Product Teams',
+                            description: `<p>Traditional consultancies adapt AI tools to existing processes. AI-native consultancies reimagine the entire engagement model around intelligent automation, data-driven insights, and accelerated delivery.</p>
+                            
+                            <h5>Traditional vs AI-Native Consultancy:</h5>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                                <div style="background: #fef3f2; padding: 20px; border-radius: 12px;">
+                                    <h6>Traditional Consultancy</h6>
+                                    <ul style="font-size: 14px;">
+                                        <li>Manual research and analysis</li>
+                                        <li>PowerPoint-heavy deliverables</li>
+                                        <li>Linear project timelines</li>
+                                        <li>Human-only decision making</li>
+                                        <li>Quarterly progress reviews</li>
+                                    </ul>
+                                </div>
+                                <div style="background: #f0fdf4; padding: 20px; border-radius: 12px;">
+                                    <h6>AI-Native Consultancy</h6>
+                                    <ul style="font-size: 14px;">
+                                        <li>AI-powered market analysis</li>
+                                        <li>Interactive, data-rich dashboards</li>
+                                        <li>Parallel, adaptive workflows</li>
+                                        <li>Human + AI collaborative insights</li>
+                                        <li>Real-time progress tracking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h5>Productivity Gains:</h5>
+                            <p>Our AI-native approach delivers measurable improvements:</p>
+                            
+                            <ul>
+                                <li><strong>5x Faster Research:</strong> AI agents gather and synthesize market data in hours, not weeks</li>
+                                <li><strong>3x More Accurate Predictions:</strong> ML models analyze patterns humans miss</li>
+                                <li><strong>50% Faster Decision Making:</strong> Real-time data eliminates waiting for reports</li>
+                                <li><strong>90% Reduction in Busywork:</strong> Automation handles routine tasks</li>
+                            </ul>
+                            
+                            <div style="background: #f0f9ff; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <strong>Client Testimonial:</strong> "Working with aibridge was like having a team of 20 consultants, but they delivered insights in days that would have taken our previous consultancy months to produce." - CTO, Series B SaaS Company
+                            </div>`
+                        },
+                        {
+                            title: 'Working with AI-Native Teams: Faster Decisions, Smarter Execution, Better Outcomes',
+                            description: `<p>AI-native teams don't just work faster — they work fundamentally differently. Every decision is data-informed, every process is optimized, and every outcome is measurable.</p>
+                            
+                            <h5>The AI-Native Workflow:</h5>
+                            
+                            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 30px; height: 30px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">1</div>
+                                    <div>
+                                        <strong>AI-Powered Discovery:</strong> Automated analysis of your market, competitors, and opportunities
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 30px; height: 30px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">2</div>
+                                    <div>
+                                        <strong>Intelligent Strategy:</strong> ML models identify optimal paths and predict outcomes
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 30px; height: 30px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">3</div>
+                                    <div>
+                                        <strong>Rapid Execution:</strong> Automated workflows and AI-assisted development
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 30px; height: 30px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">4</div>
+                                    <div>
+                                        <strong>Continuous Optimization:</strong> Real-time monitoring and adaptive improvements
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h5>ROI Impact Examples:</h5>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 20px 0;">
+                                <div style="background: #eff6ff; padding: 15px; border-radius: 8px;">
+                                    <h6>E-commerce Platform</h6>
+                                    <ul style="font-size: 14px;">
+                                        <li>40% increase in conversion rate</li>
+                                        <li>60% reduction in customer acquisition cost</li>
+                                        <li>3 months to market vs 12 months traditional</li>
+                                    </ul>
+                                </div>
+                                <div style="background: #f0fdf4; padding: 15px; border-radius: 8px;">
+                                    <h6>FinTech Startup</h6>
+                                    <ul style="font-size: 14px;">
+                                        <li>$2M Series A raised in 6 months</li>
+                                        <li>99.9% fraud detection accuracy</li>
+                                        <li>50% faster regulatory approval</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h5>Team Dynamics Transformation:</h5>
+                            <p>Working with AI-native teams changes how your internal teams operate:</p>
+                            
+                            <ul>
+                                <li><strong>Data-Driven Culture:</strong> Every decision backed by real-time analytics</li>
+                                <li><strong>Accelerated Learning:</strong> AI identifies knowledge gaps and suggests training</li>
+                                <li><strong>Enhanced Creativity:</strong> AI handles routine tasks, humans focus on innovation</li>
+                                <li><strong>Predictive Planning:</strong> Anticipate challenges before they become problems</li>
+                            </ul>`
+                        }
+                    ]
+                }
+            };
+            
+            function openServiceModal(serviceId) {
+                const service = serviceData[serviceId];
+                const modal = document.getElementById('serviceModal');
+                const content = document.getElementById('modalContent');
+                
+                let html = `<h3>${service.title}</h3>`;
+                service.topics.forEach(topic => {
+                    html += `
+                        <div class="service-modal-topic">
+                            <h4>${topic.title}</h4>
+                            <p>${topic.description}</p>
+                        </div>
+                    `;
+                });
+                
+                content.innerHTML = html;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeServiceModal() {
+                document.getElementById('serviceModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Close modal when clicking outside
+            document.getElementById('serviceModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeServiceModal();
+                }
+            });
+        </script>
     </body>
 </html>
