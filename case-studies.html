@@ -155,6 +155,7 @@
                             <li class="menu-item"><a href="about.html">About us</a></li>
                             <li class="menu-item"><a href="services.html">Services</a></li>
                             <li class="menu-item current"><a href="case-studies.html">Case Studies</a></li>
+                            <li class="menu-item"><a href="blog.html">Blog</a></li>
                         </ul>
 					</nav>
                     <a class="header-btn" href="contact.html">Start your project</a>
@@ -197,37 +198,13 @@
 								<span class="metric-item">40% Faster</span>
 								<span class="metric-item">60% Less Dev Time</span>
 							</div>
-							<div class="case-study-more">
+							<div class="case-study-more" style="display: flex; align-items: center; justify-content: space-between;">
 								<a href="case-study-resupply.html">Read Case Study <i class="fa fa-arrow-right"></i></a>
+								<button onclick="downloadResupplyCaseStudy()" style="width: 35px; height: 35px; border-radius: 50%; background: white; color: #641ff9; border: 2px solid #641ff9; display: flex; align-items: center; justify-content: center; font-size: 14px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#641ff9'; this.style.color='white'" onmouseout="this.style.background='white'; this.style.color='#641ff9'"><i class="fa fa-download"></i></button>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-6 item">
-						<div class="case-study-item coming-soon">
-							<img src="https://via.placeholder.com/80x80/e5e7eb/9ca3af?text=?" alt="Coming Soon" class="case-study-logo">
-							<h3 class="case-study-title">FinTech Platform Modernization</h3>
-							<p class="case-study-description">Transforming legacy financial systems with AI-native architecture and modern cloud infrastructure for enhanced performance.</p>
-							<div class="case-study-metrics">
-								<span class="metric-item" style="background: #9ca3af;">Coming Soon</span>
-							</div>
-							<div class="case-study-more">
-								<a href="#0">Coming Soon</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 item">
-						<div class="case-study-item coming-soon">
-							<img src="https://via.placeholder.com/80x80/e5e7eb/9ca3af?text=?" alt="Coming Soon" class="case-study-logo">
-							<h3 class="case-study-title">Mental Health Platform Development</h3>
-							<p class="case-study-description">Building AI-powered mental health platforms with intelligent matching, personalized therapy recommendations, and real-time wellness monitoring.</p>
-							<div class="case-study-metrics">
-								<span class="metric-item" style="background: #9ca3af;">Coming Soon</span>
-							</div>
-							<div class="case-study-more">
-								<a href="#0">Coming Soon</a>
-							</div>
-						</div>
-					</div>
+
 				</div>
 			</div>
 		</section>
@@ -313,7 +290,138 @@
     	<script src="js/popper.min.js"></script>
         <!-- Bootstrap 4 Js -->
         <script src="js/bootstrap.min.js"></script>
+        <!-- jsPDF for PDF generation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <!-- Custom Js -->
         <script src="js/custom.js"></script>
+        
+        <script>
+            function downloadResupplyCaseStudy() {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF();
+                let yPos = 20;
+                
+                // Header
+                pdf.setFontSize(18);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('RESUPPLY CASE STUDY', 20, yPos);
+                yPos += 15;
+                
+                // Company info
+                pdf.setFontSize(12);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('Resupply (Ravensdown)', 20, yPos);
+                yPos += 8;
+                pdf.setFontSize(10);
+                pdf.setFont(undefined, 'normal');
+                pdf.text('Agritech • E-commerce • New Zealand', 20, yPos);
+                yPos += 15;
+                
+                // Project title
+                pdf.setFontSize(14);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('From Manual Chaos to $1M Revenue Engine', 20, yPos);
+                yPos += 12;
+                
+                // Description
+                pdf.setFontSize(10);
+                pdf.setFont(undefined, 'normal');
+                const description = 'How we transformed Ravensdown\'s Shopify platform with AI-powered automation, scalable architecture, and intelligent workflows that empowered non-technical teams and delivered exceptional business results.';
+                const descLines = pdf.splitTextToSize(description, 170);
+                descLines.forEach(line => {
+                    pdf.text(line, 20, yPos);
+                    yPos += 6;
+                });
+                yPos += 10;
+                
+                // Key Results section
+                pdf.setFontSize(12);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('KEY RESULTS', 20, yPos);
+                yPos += 10;
+                
+                pdf.setFontSize(10);
+                pdf.setFont(undefined, 'normal');
+                pdf.text('• $1M+ Revenue Generated', 25, yPos);
+                yPos += 7;
+                pdf.text('• 40% Faster Campaign Deployment', 25, yPos);
+                yPos += 7;
+                pdf.text('• 60% Reduction in Development Hours', 25, yPos);
+                yPos += 7;
+                pdf.text('• 100% Team Adoption Rate', 25, yPos);
+                yPos += 15;
+                
+                // Detailed content sections
+                const sections = [
+                    {
+                        title: 'How We Helped Ravensdown Turn Shopify into a $1M Revenue Engine',
+                        content: 'Ravensdown faced significant challenges with their existing e-commerce platform. Manual processes were slowing down campaign launches, technical bottlenecks were limiting growth, and non-technical team members struggled to make updates without developer intervention.\n\nOur approach focused on three key areas: automation of repetitive tasks, implementation of intelligent workflows, and creation of user-friendly interfaces that empowered business teams to operate independently.\n\nKey Improvements:\n• Automated pricing logic and inventory management\n• Streamlined campaign creation and deployment\n• Self-service content management for marketing teams\n• Real-time analytics and performance monitoring\n\nThe result was a 40% reduction in campaign launch time and the ability for non-technical teams to manage complex e-commerce operations independently, directly contributing to over $1M in additional revenue.'
+                    },
+                    {
+                        title: 'From Manual Chaos to Scalable Automation: The Resupply Transformation Story',
+                        content: 'The transformation began with a comprehensive audit of existing processes. We identified critical pain points in pricing logic, gift card management, and site navigation that were creating friction for both customers and internal teams.\n\nOur solution involved rebuilding core systems with automation at the center, implementing AI-driven recommendations, and creating modular architecture that could scale with business growth.\n\nTechnical Innovations:\n• AI-powered pricing optimization engine\n• Automated gift card and promotion management\n• Intelligent product recommendation system\n• Modular, API-first architecture for future scalability\n\nThis transformation eliminated manual bottlenecks, reduced development overhead by 60%, and created a resilient platform capable of handling increased traffic and complex business logic without constant technical intervention.'
+                    },
+                    {
+                        title: 'What Agritech Brands Can Learn from Resupply\'s Ecom Overhaul',
+                        content: 'The Resupply project offers valuable insights for other agritech companies looking to scale their e-commerce operations. Here are the five key lessons that can be applied across the industry:\n\n1. Automation is Non-Negotiable\nManual processes don\'t scale. Investing in automation early prevents bottlenecks and enables rapid growth without proportional increases in operational overhead.\n\n2. Empower Non-Technical Teams\nThe most successful platforms enable business users to make changes independently. This reduces dependency on development resources and accelerates time-to-market for new initiatives.\n\n3. AI-Driven Personalization Drives Revenue\nIntelligent product recommendations and dynamic pricing can significantly impact conversion rates and average order values in the agritech space.\n\n4. Modular Architecture Enables Agility\nBuilding with modularity in mind allows for rapid adaptation to changing business requirements and integration with new technologies as they emerge.\n\n5. Data-Driven Decision Making\nReal-time analytics and performance monitoring provide the insights needed to continuously optimize operations and identify new growth opportunities.'
+                    }
+                ];
+                
+                sections.forEach(section => {
+                    if (yPos > 240) {
+                        pdf.addPage();
+                        yPos = 20;
+                    }
+                    
+                    // Section title
+                    pdf.setFontSize(11);
+                    pdf.setFont(undefined, 'bold');
+                    const titleLines = pdf.splitTextToSize(section.title, 170);
+                    titleLines.forEach(line => {
+                        if (yPos > 270) {
+                            pdf.addPage();
+                            yPos = 20;
+                        }
+                        pdf.text(line, 20, yPos);
+                        yPos += 7;
+                    });
+                    yPos += 5;
+                    
+                    // Section content
+                    pdf.setFontSize(9);
+                    pdf.setFont(undefined, 'normal');
+                    const paragraphs = section.content.split('\n\n');
+                    
+                    paragraphs.forEach(paragraph => {
+                        if (!paragraph.trim()) return;
+                        
+                        const lines = pdf.splitTextToSize(paragraph.trim(), 170);
+                        lines.forEach(line => {
+                            if (yPos > 275) {
+                                pdf.addPage();
+                                yPos = 20;
+                            }
+                            pdf.text(line, 20, yPos);
+                            yPos += 5;
+                        });
+                        yPos += 3;
+                    });
+                    
+                    yPos += 8;
+                });
+                
+                // Footer
+                const pageCount = pdf.internal.getNumberOfPages();
+                for (let i = 1; i <= pageCount; i++) {
+                    pdf.setPage(i);
+                    pdf.setFontSize(8);
+                    pdf.setFont(undefined, 'normal');
+                    pdf.text('aibridge - Resupply Case Study', 20, 285);
+                    pdf.text(`Page ${i} of ${pageCount}`, 170, 285);
+                }
+                
+                pdf.save('resupply_case_study.pdf');
+            }
+        </script>
     </body>
 </html>
