@@ -21,11 +21,53 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- Main Style Css -->
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/animations.css">
         
         <!--[if lt IE 9]>
         <script src="js/html5shiv.min.js"></script>
         <script src="js/respond.min.js"></script>
         <![endif]-->
+        <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+        <style>
+            .bg-container {
+          position: relative;
+          width: 100%;
+          height: 400px; /* Set your desired height */
+          overflow: hidden;
+        }
+        
+        .lottie-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0; /* Behind content */
+          pointer-events: none; /* Avoid blocking clicks */
+        }
+        
+        .content {
+          position: relative;
+          z-index: 1; /* In front */
+          color: white; /* Optional */
+        }
+        @media screen and (max-width: 733px) {
+            .animation-aboutus{
+                width: auto !important;
+                height: auto !important;
+            }
+            .bg-container{
+                height: auto;
+            }
+            .home .home-content h1{
+                font-size: 26px;
+            }
+            .right-box{
+                padding-top: 0px !important;
+            }
+        }
+        
+            </style>
        
     </head>
     <body>
@@ -45,6 +87,8 @@
                             <li class="menu-item current"><a href="index.html">Home</a></li>
                             <li class="menu-item"><a href="about.html">About us</a></li>
                             <li class="menu-item"><a href="services.html">Services</a></li>
+                            <li class="menu-item"><a href="case-studies.html">Case STUDIES</a></li>
+                            <li class="menu-item"><a href="blog.html">BLOGS</a></li>
                         </ul>
 					</nav>
                     <a class="header-btn" href="contact.html">Start your project</a>
@@ -75,6 +119,7 @@
 					<div class="col-lg-6">
 						<div class="right-box">
 							
+<dotlottie-wc src="https://lottie.host/eb351a3b-b0b0-4dfd-890b-3ee4e2e0497b/Il4yTmvjyQ.lottie" style="opacity: 0.5;" autoplay loop></dotlottie-wc>
 						</div>
 					</div>
 				</div>
@@ -160,6 +205,13 @@
 						</div>
 					</div>
 					<div class="col-lg-6">
+                        <dotlottie-wc
+  src="https://lottie.host/705cc250-723d-4aa9-9fc8-ca44f134e032/TNJI8IynLr.lottie"
+  style="width: 500px;height: 500px"
+  autoplay
+  loop
+  class="animation-aboutus"
+></dotlottie-wc>
 						
 					</div>
 				</div>
@@ -172,11 +224,20 @@
 
         <section class="services">
 			<div class="container">
+                <div class="bg-container">
+                    <dotlottie-wc
+                    src="https://lottie.host/9d34b524-cf00-4cc1-bf2d-381f67459b09/8GgKBYgzRx.lottie"
+    autoplay
+    loop
+    class="lottie-bg"
+  ></dotlottie-wc>
+                
 				<div class="row">
 					<div class="col-12">
 						<h3 class="main-title">Our Core Services</h3>
 					</div>
 				</div>
+                <div class="content">
 				<div class="row">
 					<div class="col-lg-4 col-md-6 item">
 						<div class="service-item">
@@ -227,11 +288,14 @@
 						</div>
 					</div>
 				</div>
+                </div>
 				<a href="services.html">
 					<button style="background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%); color: #fff; border: none; padding: 10px 20px; border-radius: 15px; font-size: 16px; cursor: pointer; transition: background-color 0.3s; margin-top: 1rem;">
 						Show More
 					</button>
 				</a>
+                </div>
+            </div>
 			</div>
 		</section>
 
@@ -455,4 +519,4 @@
         <!-- Custom Js -->
         <script src="js/custom.js"></script>
     </body>
-</html> 
+</html>

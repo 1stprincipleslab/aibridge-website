@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="aibridge - Case Studies">
+        <meta name="keywords" content="IT Services, AI Development, Technology, Architecture Advisory, CTO Services">
+        
+        <!-- Title -->
+        <title>Case Studies - aibridge</title>
+        <!-- Favicon -->
+        <link rel="icon" href="https://via.placeholder.com/80x80">
+        <!-- Google Fonts -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma:wght@400;500;600;700;800&display=swap">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+ 
+        <!-- Font Awesome Css -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <!-- Bootstrap 4 Css -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Main Style Css -->
+        <link rel="stylesheet" href="css/main.css">
+        
+        <style>
+            .case-study-item {
+                background: #ffffff;
+                border: 1px solid #edf0f7;
+                padding: 30px 20px;
+                border-radius: 24px;
+                -webkit-transition: all 0.3s ease;
+                -moz-transition: all 0.3s ease;
+                -ms-transition: all 0.3s ease;
+                -o-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .case-study-item:hover {
+                border: 1px solid #cfd7ff;
+                transform: translateY(-10px);
+            }
+
+            .case-study-logo {
+                width: 80px;
+                height: 80px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+                object-fit: contain;
+                object-position: center;
+                border: 1px solid #edf0f7;
+                background: #fff;
+                padding: 8px;
+            }
+
+            .case-study-title {
+                font-size: 18px;
+                color: #0b1124;
+                line-height: 1.4;
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
+
+            .case-study-description {
+                color: #3c445a;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 1.6;
+                margin-bottom: 20px;
+                flex-grow: 1;
+            }
+
+            .case-study-metrics {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+            }
+
+            .metric-item {
+                background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%);
+                color: #fff;
+                padding: 8px 12px;
+                border-radius: 16px;
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+            .case-study-more {
+                overflow: hidden;
+            }
+
+            .case-study-more a {
+                font-size: 16px;
+                background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: flex;
+                align-items: center;
+                font-weight: 600;
+                -webkit-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+            }
+
+            .case-study-more a i {
+                margin-left: 8px;
+                -webkit-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+            }
+
+            .case-study-item:hover .case-study-more a i {
+                margin-left: 12px;
+            }
+
+            .coming-soon {
+                opacity: 0.6;
+                cursor: default;
+            }
+
+            .coming-soon:hover {
+                transform: none;
+                border: 1px solid #edf0f7;
+            }
+
+            .coming-soon .case-study-more a {
+                color: #9ca3af;
+                background: none;
+                -webkit-text-fill-color: #9ca3af;
+                cursor: default;
+            }
+        </style>
+        
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+       
+    </head>
+    <body>
+        
+        <!-- ========== Start Navbar ========== -->   
+        <div id="header-placeholder"></div>
+        
+        <!-- ========== End Navbar ========== -->
+
+		<!-- ========== Start Page Title ========== -->
+		<section class="page-title">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<ul class="list-unstyled">
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ========== Start Case Studies ========== -->
+		<section class="services">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h4 class="sub-title" style="background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 28px; font-weight: 700; margin-bottom: 8px;">Success Stories</h4>
+						<h3 class="main-title">Real results from real partnerships</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-6 item">
+						<div class="case-study-item">
+							<img src="https://resupply.co.nz/cdn/shop/files/RESUPPLY_Logo_Icon_06d00c2a-eea7-4bab-acf1-73c0823179c1.png?v=1736510421" alt="Resupply Logo" class="case-study-logo">
+							<h3 class="case-study-title">Resupply: Agritech E-commerce Transformation</h3>
+							<p class="case-study-description">How we helped Ravensdown turn Shopify into a $1M revenue engine through AI-powered automation and scalable architecture.</p>
+							<div class="case-study-metrics">
+								<span class="metric-item">$1M+ Revenue</span>
+								<span class="metric-item">40% Faster</span>
+								<span class="metric-item">60% Less Dev Time</span>
+							</div>
+							<div class="case-study-more" style="display: flex; align-items: center; justify-content: space-between;">
+								<a href="case-study-resupply.html">Read Case Study <i class="fa fa-arrow-right"></i></a>
+								<button onclick="downloadResupplyCaseStudy()" style="width: 35px; height: 35px; border-radius: 50%; background: white; color: #641ff9; border: 2px solid #641ff9; display: flex; align-items: center; justify-content: center; font-size: 14px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#641ff9'; this.style.color='white'" onmouseout="this.style.background='white'; this.style.color='#641ff9'"><i class="fa fa-download"></i></button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- ========== End Case Studies ========== -->
+
+        <!-- ========== Start Footer ========== -->
+        <div id="footer-placeholder"></div>
+
+        <!-- ========== End Footer ========== -->
+        
+        <!-- ========== Start Scroll To Top  ========== -->
+        
+        <a href="#0" class="scroll-top">
+            <span><i class="fa fa-arrow-up"></i></span>
+        </a>
+        
+        <!-- ========== End Scroll To Top  ========== -->
+        
+        <!-- ========== Js ========== -->
+
+        <!-- jQuery -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+		<!-- Popper Js  -->
+    	<script src="js/popper.min.js"></script>
+        <!-- Bootstrap 4 Js -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- jsPDF for PDF generation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <!-- Custom Js -->
+        <script src="js/custom.js"></script>
+        <!-- Components Js -->
+        <script src="js/components.js"></script>
+        
+        <script>
+            function downloadResupplyCaseStudy() {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF();
+                let yPos = 20;
+                
+                // Header
+                pdf.setFontSize(18);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('RESUPPLY CASE STUDY', 20, yPos);
+                yPos += 15;
+                
+                // Company info
+                pdf.setFontSize(12);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('Resupply (Ravensdown)', 20, yPos);
+                yPos += 8;
+                pdf.setFontSize(10);
+                pdf.setFont(undefined, 'normal');
+                pdf.text('Agritech • E-commerce • New Zealand', 20, yPos);
+                yPos += 15;
+                
+                // Project title
+                pdf.setFontSize(14);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('From Manual Chaos to $1M Revenue Engine', 20, yPos);
+                yPos += 12;
+                
+                // Description
+                pdf.setFontSize(10);
+                pdf.setFont(undefined, 'normal');
+                const description = 'How we transformed Ravensdown\'s Shopify platform with AI-powered automation, scalable architecture, and intelligent workflows that empowered non-technical teams and delivered exceptional business results.';
+                const descLines = pdf.splitTextToSize(description, 170);
+                descLines.forEach(line => {
+                    pdf.text(line, 20, yPos);
+                    yPos += 6;
+                });
+                yPos += 10;
+                
+                // Key Results section
+                pdf.setFontSize(12);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('KEY RESULTS', 20, yPos);
+                yPos += 10;
+                
+                pdf.setFontSize(10);
+                pdf.setFont(undefined, 'normal');
+                pdf.text('• $1M+ Revenue Generated', 25, yPos);
+                yPos += 7;
+                pdf.text('• 40% Faster Campaign Deployment', 25, yPos);
+                yPos += 7;
+                pdf.text('• 60% Reduction in Development Hours', 25, yPos);
+                yPos += 7;
+                pdf.text('• 100% Team Adoption Rate', 25, yPos);
+                yPos += 15;
+                
+                // Detailed content sections
+                const sections = [
+                    {
+                        title: 'How We Helped Ravensdown Turn Shopify into a $1M Revenue Engine',
+                        content: 'Ravensdown faced significant challenges with their existing e-commerce platform. Manual processes were slowing down campaign launches, technical bottlenecks were limiting growth, and non-technical team members struggled to make updates without developer intervention.\n\nOur approach focused on three key areas: automation of repetitive tasks, implementation of intelligent workflows, and creation of user-friendly interfaces that empowered business teams to operate independently.\n\nKey Improvements:\n• Automated pricing logic and inventory management\n• Streamlined campaign creation and deployment\n• Self-service content management for marketing teams\n• Real-time analytics and performance monitoring\n\nThe result was a 40% reduction in campaign launch time and the ability for non-technical teams to manage complex e-commerce operations independently, directly contributing to over $1M in additional revenue.'
+                    },
+                    {
+                        title: 'From Manual Chaos to Scalable Automation: The Resupply Transformation Story',
+                        content: 'The transformation began with a comprehensive audit of existing processes. We identified critical pain points in pricing logic, gift card management, and site navigation that were creating friction for both customers and internal teams.\n\nOur solution involved rebuilding core systems with automation at the center, implementing AI-driven recommendations, and creating modular architecture that could scale with business growth.\n\nTechnical Innovations:\n• AI-powered pricing optimization engine\n• Automated gift card and promotion management\n• Intelligent product recommendation system\n• Modular, API-first architecture for future scalability\n\nThis transformation eliminated manual bottlenecks, reduced development overhead by 60%, and created a resilient platform capable of handling increased traffic and complex business logic without constant technical intervention.'
+                    },
+                    {
+                        title: 'What Agritech Brands Can Learn from Resupply\'s Ecom Overhaul',
+                        content: 'The Resupply project offers valuable insights for other agritech companies looking to scale their e-commerce operations. Here are the five key lessons that can be applied across the industry:\n\n1. Automation is Non-Negotiable\nManual processes don\'t scale. Investing in automation early prevents bottlenecks and enables rapid growth without proportional increases in operational overhead.\n\n2. Empower Non-Technical Teams\nThe most successful platforms enable business users to make changes independently. This reduces dependency on development resources and accelerates time-to-market for new initiatives.\n\n3. AI-Driven Personalization Drives Revenue\nIntelligent product recommendations and dynamic pricing can significantly impact conversion rates and average order values in the agritech space.\n\n4. Modular Architecture Enables Agility\nBuilding with modularity in mind allows for rapid adaptation to changing business requirements and integration with new technologies as they emerge.\n\n5. Data-Driven Decision Making\nReal-time analytics and performance monitoring provide the insights needed to continuously optimize operations and identify new growth opportunities.'
+                    }
+                ];
+                
+                sections.forEach(section => {
+                    if (yPos > 240) {
+                        pdf.addPage();
+                        yPos = 20;
+                    }
+                    
+                    // Section title
+                    pdf.setFontSize(11);
+                    pdf.setFont(undefined, 'bold');
+                    const titleLines = pdf.splitTextToSize(section.title, 170);
+                    titleLines.forEach(line => {
+                        if (yPos > 270) {
+                            pdf.addPage();
+                            yPos = 20;
+                        }
+                        pdf.text(line, 20, yPos);
+                        yPos += 7;
+                    });
+                    yPos += 5;
+                    
+                    // Section content
+                    pdf.setFontSize(9);
+                    pdf.setFont(undefined, 'normal');
+                    const paragraphs = section.content.split('\n\n');
+                    
+                    paragraphs.forEach(paragraph => {
+                        if (!paragraph.trim()) return;
+                        
+                        const lines = pdf.splitTextToSize(paragraph.trim(), 170);
+                        lines.forEach(line => {
+                            if (yPos > 275) {
+                                pdf.addPage();
+                                yPos = 20;
+                            }
+                            pdf.text(line, 20, yPos);
+                            yPos += 5;
+                        });
+                        yPos += 3;
+                    });
+                    
+                    yPos += 8;
+                });
+                
+                // Footer
+                const pageCount = pdf.internal.getNumberOfPages();
+                for (let i = 1; i <= pageCount; i++) {
+                    pdf.setPage(i);
+                    pdf.setFontSize(8);
+                    pdf.setFont(undefined, 'normal');
+                    pdf.text('aibridge - Resupply Case Study', 20, 285);
+                    pdf.text(`Page ${i} of ${pageCount}`, 170, 285);
+                }
+                
+                pdf.save('resupply_case_study.pdf');
+            }
+        </script>
+    </body>
+</html>
