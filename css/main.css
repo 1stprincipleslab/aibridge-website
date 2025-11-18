@@ -913,6 +913,7 @@ select:-webkit-autofill:focus {
 
 .features {
     padding-top: 120px;
+    overflow: visible !important;
 }
 
 .features .item:nth-of-type(n+4) .feature-item {
