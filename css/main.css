@@ -684,7 +684,6 @@ select:-webkit-autofill:focus {
 .home {
     position: relative;
     overflow: hidden;
-    background: radial-gradient(1200px 400px at 20% 0%, #ffd3b6 0%, #ffb4e1 40%, #b9c6ff 80%), #ffffff;
     padding-top: 115px;
 }
 
@@ -707,7 +706,6 @@ select:-webkit-autofill:focus {
     content: "";
     width: 200px;
     height: 200px;
-    background: linear-gradient(180deg, #109b9b -43.08%, #052a2a -7.55%, #2b7a7a 33.87%, #27c793 82.91%);
     filter: blur(40px);
     display: inline-block;
     position: absolute;
@@ -719,7 +717,7 @@ select:-webkit-autofill:focus {
 }
 
 .home .home-content h1 span {
-    background-image: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
+    
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1867,10 +1865,26 @@ select:-webkit-autofill:focus {
 
 .footer .footer-top { 
     background: radial-gradient(1000px 300px at 10% 0%, #ffd3b6 0%, #ffb4e1 40%, #b9c6ff 80%), #ffffff;
-	padding-top: 80px;
+    background-size: 200% 200%;  /* Make gradient larger so animation looks smooth */
+    animation: gradientMove 8s ease-in-out infinite alternate;
+    
+    padding-top: 80px;
     padding-bottom: 80px;
     border-bottom: 1px solid #edf0f7;
 }
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
 
 .footer .footer-top .footer-menu {
     position: relative;
