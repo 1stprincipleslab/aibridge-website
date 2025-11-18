@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					<li class="menu-item"><a href="about.html">About us</a></li>
 					<li class="menu-item"><a href="services.html">Services</a></li>
 					<li class="menu-item"><a href="case-studies.html">Case Studies</a></li>
-					<li class="menu-item"><a href="blog.html">Blog</a></li>
+					<li class="menu-item"><a href="blog.html">Blogs</a></li>
 				</ul>
 			</nav>
 			<a class="header-btn" href="contact.html">Start your project</a>
