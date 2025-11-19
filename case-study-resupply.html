@@ -101,24 +101,255 @@
                 border-radius: 24px;
                 padding: 40px 30px;
                 margin-bottom: 30px;
-                cursor: pointer;
                 -webkit-transition: all 0.3s ease;
                 transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .case-study-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 100%;
+                background: linear-gradient(180deg, #641ff9 0%, #02c5f7 100%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
             }
 
             .case-study-section:hover {
                 border: 1px solid #cfd7ff;
-                transform: translateY(-5px);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(100, 31, 249, 0.1);
+            }
+
+            .case-study-section:hover::before {
+                opacity: 1;
             }
 
             .case-study-section h3 {
                 color: #0b1124;
-                font-size: 20px;
-                font-weight: 600;
-                margin-bottom: 15px;
+                font-size: 24px;
+                font-weight: 700;
+                margin-bottom: 20px;
                 display: flex;
                 align-items: center;
+                position: relative;
+            }
+
+            .case-study-section h3::before {
+                content: '';
+                width: 40px;
+                height: 3px;
+                background: linear-gradient(90deg, #641ff9 0%, #02c5f7 100%);
+                margin-right: 15px;
+                border-radius: 2px;
+            }
+
+            .section-number {
+                background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%);
+                color: white;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                font-weight: 700;
+                margin-right: 15px;
+                flex-shrink: 0;
+            }
+
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin: 15px 0;
+            }
+
+            .tech-tag {
+                background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+                color: #641ff9;
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 600;
+                border: 1px solid #e2e8f0;
+            }
+
+            .highlight-box {
+                background: linear-gradient(135deg, #f8fafc 0%, #e8f4fd 100%);
+                border: 1px solid #cfd7ff;
+                border-radius: 12px;
+                padding: 20px;
+                margin: 20px 0;
+                position: relative;
+            }
+
+            .highlight-box::before {
+                content: '💡';
+                position: absolute;
+                top: -10px;
+                left: 20px;
+                background: white;
+                padding: 0 8px;
+                font-size: 18px;
+            }
+
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 10px;
+                margin: 25px 0;
+            }
+
+            .case-study-section:nth-child(6) .stats-grid {
+                display: flex;
+                gap: 0;
+                width: 100%;
+            }
+
+            .case-study-section:nth-child(6) .stat-card {
+                flex: 1;
+                border-radius: 0;
+            }
+
+            @media (max-width: 1200px) {
+                .stats-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+                .case-study-section:nth-child(6) .stats-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 5px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .stats-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 480px) {
+                .stats-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .pillars-container {
+                display: flex;
                 justify-content: space-between;
+                align-items: flex-end;
+                margin: 40px 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #f8fafc 0%, #e8f4fd 100%);
+                border-radius: 20px;
+                overflow-x: auto;
+                gap: 15px;
+            }
+
+            .pillar {
+                flex: 1;
+                min-width: 180px;
+                text-align: center;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .pillar:hover {
+                transform: translateY(-5px);
+            }
+
+            .pillar-base {
+                background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+                border: 2px solid #641ff9;
+                border-radius: 8px 8px 0 0;
+                padding: 15px 10px;
+                margin-bottom: 0;
+                position: relative;
+                box-shadow: 0 4px 15px rgba(100, 31, 249, 0.15);
+            }
+
+            .pillar-foundation {
+                background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%);
+                height: 15px;
+                border-radius: 0 0 12px 12px;
+                margin-top: 0;
+                box-shadow: 0 6px 20px rgba(100, 31, 249, 0.2);
+            }
+
+            .pillar-number {
+                background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%);
+                color: white;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                font-weight: 700;
+                margin: 0 auto 15px;
+                box-shadow: 0 2px 8px rgba(100, 31, 249, 0.3);
+            }
+
+            .pillar-title {
+                color: #000000;
+                font-size: 14px;
+                font-weight: 700;
+                margin-bottom: 10px;
+                line-height: 1.2;
+            }
+
+            .pillar-description {
+                color: #000000;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 1.4;
+                margin: 0;
+            }
+
+            .pillar:nth-child(1) .pillar-base { min-height: 140px; }
+            .pillar:nth-child(2) .pillar-base { min-height: 160px; }
+            .pillar:nth-child(3) .pillar-base { min-height: 180px; }
+            .pillar:nth-child(4) .pillar-base { min-height: 170px; }
+            .pillar:nth-child(5) .pillar-base { min-height: 150px; }
+
+            .stat-card {
+                background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
+                padding: 15px 10px;
+                text-align: center;
+                transition: all 0.3s ease;
+                min-height: 120px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .stat-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(100, 31, 249, 0.1);
+            }
+
+            .stat-number {
+                font-size: 28px;
+                font-weight: 700;
+                background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 8px;
+            }
+
+            .stat-label {
+                color: #3c445a;
+                font-size: 14px;
+                font-weight: 600;
             }
 
             .case-study-section .expand-icon {
@@ -180,6 +411,355 @@
                 background: #f8fafc;
                 transform: translateY(-2px);
             }
+
+            .arch-tree {
+                background: linear-gradient(135deg, #f8fafc 0%, #e8f4fd 100%);
+                border-radius: 20px;
+                padding: 30px;
+                margin: 30px 0;
+                text-align: center;
+            }
+
+            .tree-root {
+                margin-bottom: 30px;
+            }
+
+            .root-node {
+                display: inline-block;
+                background: white;
+                color: #0b1124;
+                padding: 15px 25px;
+                border: 2px solid #641ff9;
+                border-radius: 16px;
+                font-weight: 700;
+                font-size: 16px;
+                box-shadow: 0 4px 15px rgba(100, 31, 249, 0.1);
+            }
+
+            .tree-trunk {
+                width: 4px;
+                height: 30px;
+                background: linear-gradient(180deg, #641ff9, #02c5f7);
+                margin: 0 auto;
+            }
+
+            .tree-branches {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+                margin-top: 20px;
+                position: relative;
+            }
+
+            .tree-branches::before {
+                content: '';
+                position: absolute;
+                top: -20px;
+                left: 10%;
+                right: 10%;
+                height: 2px;
+                background: linear-gradient(90deg, #641ff9, #02c5f7);
+            }
+
+            .branch-node {
+                background: white;
+                border: 2px solid;
+                border-radius: 16px;
+                padding: 20px 15px;
+                min-width: 140px;
+                text-align: center;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            .branch-node::before {
+                content: '';
+                position: absolute;
+                top: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 18px;
+                background: linear-gradient(180deg, #641ff9, #02c5f7);
+            }
+
+            .branch-node:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            }
+
+            .branch-node:nth-child(1) { border-color: #ff6b6b; }
+            .branch-node:nth-child(2) { border-color: #4ecdc4; }
+            .branch-node:nth-child(3) { border-color: #45b7d1; }
+            .branch-node:nth-child(4) { border-color: #96ceb4; }
+            .branch-node:nth-child(5) { border-color: #feca57; }
+
+            .branch-icon {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .branch-node:nth-child(1) .branch-icon { color: #ff6b6b; }
+            .branch-node:nth-child(2) .branch-icon { color: #4ecdc4; }
+            .branch-node:nth-child(3) .branch-icon { color: #45b7d1; }
+            .branch-node:nth-child(4) .branch-icon { color: #96ceb4; }
+            .branch-node:nth-child(5) .branch-icon { color: #feca57; }
+
+            .branch-title {
+                font-size: 14px;
+                font-weight: 700;
+                color: #0b1124;
+                margin-bottom: 5px;
+            }
+
+            .branch-desc {
+                font-size: 13px;
+                color: #1a1a1a;
+                font-weight: 600;
+                line-height: 1.3;
+            }
+
+            .components-showcase {
+                background: linear-gradient(135deg, #f8fafc 0%, #e8f4fd 100%);
+                border-radius: 20px;
+                padding: 30px;
+                margin: 30px 0;
+            }
+
+            .components-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+            }
+
+            .component-card {
+                background: white;
+                border-radius: 16px;
+                padding: 25px;
+                border-left: 4px solid;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .component-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 60px;
+                height: 60px;
+                border-radius: 0 16px 0 60px;
+                opacity: 0.1;
+            }
+
+            .component-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            }
+
+            .component-card:nth-child(1) { border-left-color: #ff6b6b; }
+            .component-card:nth-child(2) { border-left-color: #4ecdc4; }
+            .component-card:nth-child(3) { border-left-color: #45b7d1; }
+            .component-card:nth-child(4) { border-left-color: #96ceb4; }
+
+            .component-card:nth-child(1)::before { background: #ff6b6b; }
+            .component-card:nth-child(2)::before { background: #4ecdc4; }
+            .component-card:nth-child(3)::before { background: #45b7d1; }
+            .component-card:nth-child(4)::before { background: #96ceb4; }
+
+            .component-header {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+
+            .component-icon {
+                width: 50px;
+                height: 50px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                color: white;
+                flex-shrink: 0;
+            }
+
+            .component-card:nth-child(1) .component-icon { background: #ff6b6b; }
+            .component-card:nth-child(2) .component-icon { background: #4ecdc4; }
+            .component-card:nth-child(3) .component-icon { background: #45b7d1; }
+            .component-card:nth-child(4) .component-icon { background: #96ceb4; }
+
+            .component-title {
+                font-size: 18px;
+                font-weight: 700;
+                color: #0b1124;
+                margin: 0;
+            }
+
+            .component-desc {
+                color: #3c445a;
+                font-size: 14px;
+                line-height: 1.5;
+                margin: 0;
+            }
+
+            .showcase-header {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .showcase-title {
+                font-size: 24px;
+                font-weight: 700;
+                color: #0b1124;
+                margin-bottom: 10px;
+            }
+
+            .showcase-subtitle {
+                color: #3c445a;
+                font-size: 16px;
+                margin: 0;
+            }
+
+            .bento-container {
+                background: #fff;
+                border: 2px solid #ff6b6b;
+                border-radius: 12px;
+                padding: 15px;
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 8px;
+                min-height: 120px;
+                margin-bottom: 15px;
+            }
+
+            .bento-section {
+                background: #fff5f5;
+                border: 1px solid #ffcccc;
+                border-radius: 6px;
+                padding: 8px;
+                font-size: 10px;
+                color: #000;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                line-height: 1.2;
+            }
+
+            .bento-section:nth-child(1) {
+                grid-column: 1 / -1;
+                background: #ffe6e6;
+                font-weight: 600;
+            }
+
+            .extension-container {
+                background: #f0fdfc;
+                border: 2px solid #4ecdc4;
+                border-radius: 12px;
+                padding: 15px;
+                min-height: 120px;
+                margin-bottom: 15px;
+                position: relative;
+            }
+
+            .extension-header {
+                background: #4ecdc4;
+                color: white;
+                padding: 6px 10px;
+                border-radius: 6px;
+                font-size: 11px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .extension-content {
+                background: white;
+                border: 1px dashed #4ecdc4;
+                border-radius: 6px;
+                padding: 10px;
+                font-size: 10px;
+                color: #000;
+                font-weight: 600;
+                text-align: center;
+                line-height: 1.3;
+            }
+
+            .giftcard-container {
+                background: linear-gradient(135deg, #45b7d1, #3498db);
+                border-radius: 12px;
+                padding: 15px;
+                min-height: 120px;
+                margin-bottom: 15px;
+                color: white;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .giftcard-container::before {
+                content: '';
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 20px;
+                height: 20px;
+                background: rgba(255,255,255,0.2);
+                border-radius: 50%;
+            }
+
+            .giftcard-header {
+                font-size: 12px;
+                font-weight: 600;
+                margin-bottom: 8px;
+                text-align: center;
+            }
+
+            .giftcard-content {
+                font-size: 10px;
+                line-height: 1.3;
+                text-align: center;
+                color: #fff;
+                font-weight: 600;
+            }
+
+            .discount-container {
+                background: #f0f9f7;
+                border: 2px solid #96ceb4;
+                border-radius: 12px;
+                padding: 15px;
+                min-height: 120px;
+                margin-bottom: 15px;
+                position: relative;
+            }
+
+            .discount-badge {
+                position: absolute;
+                top: -8px;
+                right: 10px;
+                background: #96ceb4;
+                color: white;
+                padding: 4px 8px;
+                border-radius: 12px;
+                font-size: 10px;
+                font-weight: 600;
+            }
+
+            .discount-content {
+                font-size: 10px;
+                color: #000;
+                font-weight: 600;
+                line-height: 1.3;
+                text-align: center;
+                margin-top: 10px;
+            }
         </style>
         
         <!--[if lt IE 9]>
@@ -216,8 +796,8 @@
 							</div>
 						</div>
 						
-						<h1>From Manual Chaos to $1M Revenue Engine</h1>
-						<p style="font-size: 18px; color: #3c445a; line-height: 1.6; max-width: 800px;">How we transformed Ravensdown's Shopify platform with AI-powered automation, scalable architecture, and intelligent workflows that empowered non-technical teams and delivered exceptional business results.</p>
+						<h1>Future-Proofing Agrotech Retail through AI & Shopify (Technical Outlook)</h1>
+						<p style="font-size: 18px; color: #3c445a; line-height: 1.6; max-width: 800px;">How a leading NZ fertilizer company achieved $1M growth in less than a year, through composable architecture & AI-driven customer engagement.</p>
 					</div>
 				</div>
 			</div>
@@ -229,26 +809,26 @@
 				<div class="row">
 					<div class="col-lg-3 col-md-6">
 						<div class="metric-item">
-							<div class="metric-value">$1M+</div>
-							<div class="metric-label">Revenue Generated</div>
+							<div class="metric-value">$2M</div>
+							<div class="metric-label">Revenue Target (Year 1)</div>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6">
 						<div class="metric-item">
-							<div class="metric-value">40%</div>
-							<div class="metric-label">Faster Campaigns</div>
+							<div class="metric-value">30+</div>
+							<div class="metric-label">Features Deployed</div>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6">
 						<div class="metric-item">
-							<div class="metric-value">60%</div>
-							<div class="metric-label">Reduced Dev Hours</div>
+							<div class="metric-value">Zero</div>
+							<div class="metric-label">Downtime Events</div>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6">
 						<div class="metric-item">
-							<div class="metric-value">100%</div>
-							<div class="metric-label">Team Adoption</div>
+							<div class="metric-value">3</div>
+							<div class="metric-label">Environment Setup</div>
 						</div>
 					</div>
 				</div>
@@ -260,72 +840,267 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<div class="case-study-section" onclick="toggleSection(this)">
-							<h3>
-								How We Helped Ravensdown Turn Shopify into a $1M Revenue Engine
-								<i class="fa fa-chevron-down expand-icon"></i>
-							</h3>
-							<div class="section-content">
-								<p>Ravensdown faced significant challenges with their existing e-commerce platform. Manual processes were slowing down campaign launches, technical bottlenecks were limiting growth, and non-technical team members struggled to make updates without developer intervention.</p>
+						<!-- Problem Statement -->
+						<div class="case-study-section">
+							<h3><span class="section-number">1</span>The Problem Statement</h3>
+							<div class="section-content" style="max-height: none; padding-top: 0;">
+								<p>A leading New Zealand fertilizer company, expanding its agronomy commerce platform, struggled to scale its Shopify ecosystem for complex agricultural needs. The storefront suffered from inconsistent design, fragmented layouts, and poor mobile optimization due to the absence of reusable UI components. Product discovery was limited, with weak filtering and no semantic search for agronomy-specific queries.</p>
+								<p>Operationally, Shopify's default setup could not handle bulk fertilizer rules where pricing, discounting, and availability vary by region, customer type, and product mix. The lack of standardized workflows, version control, and CI/CD pipelines led to production conflicts and rework. Key business functions such as bulk gift card generation, logistics coordination, and personalized recommendations were missing. Customers also lacked intelligent digital support for fertilizer selection and common queries, increasing strain on internal teams.</p>
 								
-								<p>Our approach focused on three key areas: automation of repetitive tasks, implementation of intelligent workflows, and creation of user-friendly interfaces that empowered business teams to operate independently.</p>
-								
-								<p><strong>Key Improvements:</strong></p>
-								<ul>
-									<li>Automated pricing logic and inventory management</li>
-									<li>Streamlined campaign creation and deployment</li>
-									<li>Self-service content management for marketing teams</li>
-									<li>Real-time analytics and performance monitoring</li>
-								</ul>
-								
-								<p>The result was a 40% reduction in campaign launch time and the ability for non-technical teams to manage complex e-commerce operations independently, directly contributing to over $1M in additional revenue.</p>
+								<div class="highlight-box">
+									<strong>Key Challenge:</strong> Manual processes and fragmented systems were preventing scalable growth in the competitive agritech market.
+								</div>
 							</div>
 						</div>
 
-						<div class="case-study-section" onclick="toggleSection(this)">
-							<h3>
-								From Manual Chaos to Scalable Automation: The Resupply Transformation Story
-								<i class="fa fa-chevron-down expand-icon"></i>
-							</h3>
-							<div class="section-content">
-								<p>The transformation began with a comprehensive audit of existing processes. We identified critical pain points in pricing logic, gift card management, and site navigation that were creating friction for both customers and internal teams.</p>
+						<!-- Transformation Blueprint -->
+						<div class="case-study-section">
+							<h3><span class="section-number">2</span>The Transformation Blueprint</h3>
+							<div class="section-content" style="max-height: none; padding-top: 0;">
+								<p>The company partnered with aibridge to modernize its Shopify ecosystem into a modular, scalable, and automation-first commerce platform tailored for agrotech. The engagement focused on five transformation pillars:</p>
 								
-								<p>Our solution involved rebuilding core systems with automation at the center, implementing AI-driven recommendations, and creating modular architecture that could scale with business growth.</p>
-								
-								<p><strong>Technical Innovations:</strong></p>
-								<ul>
-									<li>AI-powered pricing optimization engine</li>
-									<li>Automated gift card and promotion management</li>
-									<li>Intelligent product recommendation system</li>
-									<li>Modular, API-first architecture for future scalability</li>
-								</ul>
-								
-								<p>This transformation eliminated manual bottlenecks, reduced development overhead by 60%, and created a resilient platform capable of handling increased traffic and complex business logic without constant technical intervention.</p>
+								<div class="pillars-container">
+									<div class="pillar">
+										<div class="pillar-base">
+											<div class="pillar-number">1</div>
+											<div class="pillar-title">Unified & Responsive UI/UX</div>
+											<p class="pillar-description">A consistent design system and responsive frameworks delivered brand uniformity and seamless mobile/desktop usability.</p>
+										</div>
+										<div class="pillar-foundation"></div>
+									</div>
+									<div class="pillar">
+										<div class="pillar-base">
+											<div class="pillar-number">2</div>
+											<div class="pillar-title">Dynamic Bento Architecture</div>
+											<p class="pillar-description">Reusable "Bento blocks" enabled no-code merchandising, allowing marketing teams to update layouts without developer intervention.</p>
+										</div>
+										<div class="pillar-foundation"></div>
+									</div>
+									<div class="pillar">
+										<div class="pillar-base">
+											<div class="pillar-number">3</div>
+											<div class="pillar-title">Configurable Pricing Engine</div>
+											<p class="pillar-description">A centralized discount logic system handled complex rules across regions, customer types, and product mixes, eliminating manual errors.</p>
+										</div>
+										<div class="pillar-foundation"></div>
+									</div>
+									<div class="pillar">
+										<div class="pillar-base">
+											<div class="pillar-number">4</div>
+											<div class="pillar-title">Custom Admin Applications</div>
+											<p class="pillar-description">Bespoke extensions supported bulk gift card generation, Excel exports, and automated audit logging, improving transparency and efficiency.</p>
+										</div>
+										<div class="pillar-foundation"></div>
+									</div>
+									<div class="pillar">
+										<div class="pillar-base">
+											<div class="pillar-number">5</div>
+											<div class="pillar-title">AI-Driven Engagement</div>
+											<p class="pillar-description">An intelligent chatbot provided agronomy-specific answers, personalized recommendations, and self-service support, reducing strain on internal teams.</p>
+										</div>
+										<div class="pillar-foundation"></div>
+									</div>
+								</div>
+
+								<div class="highlight-box">
+									<strong>Impact:</strong> This blueprint empowered non-technical teams to manage storefront logic and content, while devs focused on governance, CI/CD, and scalability thus establishing a sustainable cycle of innovation.
+								</div>
 							</div>
 						</div>
 
-						<div class="case-study-section" onclick="toggleSection(this)">
-							<h3>
-								What Agritech Brands Can Learn from Resupply's Ecom Overhaul
-								<i class="fa fa-chevron-down expand-icon"></i>
-							</h3>
-							<div class="section-content">
-								<p>The Resupply project offers valuable insights for other agritech companies looking to scale their e-commerce operations. Here are the five key lessons that can be applied across the industry:</p>
+						<!-- Innovation Architecture -->
+						<div class="case-study-section">
+							<h3><span class="section-number">3</span>Innovation Architecture</h3>
+							<div class="section-content" style="max-height: none; padding-top: 0;">
+								<p>The modernization followed a composable, iterative architecture — delivering rapid releases while ensuring stability and scalability. Capabilities were introduced, tested, and refined in short feedback cycles with production telemetry guiding improvements.</p>
 								
-								<p><strong>1. Automation is Non-Negotiable</strong><br>
-								Manual processes don't scale. Investing in automation early prevents bottlenecks and enables rapid growth without proportional increases in operational overhead.</p>
+								<div class="tech-stack">
+									<span class="tech-tag">Shopify Liquid</span>
+									<span class="tech-tag">Polaris Design</span>
+									<span class="tech-tag">Remix Framework</span>
+									<span class="tech-tag">LangChain ReAct</span>
+									<span class="tech-tag">GPT-4o-mini</span>
+									<span class="tech-tag">OpenSearch</span>
+									<span class="tech-tag">BGE Reranker</span>
+									<span class="tech-tag">GitHub Workflows</span>
+									<span class="tech-tag">Robot Framework</span>
+									<span class="tech-tag">Metaobjects</span>
+									<span class="tech-tag">RPA + OCR</span>
+								</div>
 								
-								<p><strong>2. Empower Non-Technical Teams</strong><br>
-								The most successful platforms enable business users to make changes independently. This reduces dependency on development resources and accelerates time-to-market for new initiatives.</p>
+								<div class="arch-tree">
+									<div class="tree-root">
+										<div class="root-node">🛒 Shopify Platform</div>
+									</div>
+									<div class="tree-trunk"></div>
+									<div class="tree-branches">
+										<div class="branch-node">
+											<div class="branch-icon">🎨</div>
+											<div class="branch-title">Frontend</div>
+											<div class="branch-desc">Liquid + Polaris Design</div>
+										</div>
+										<div class="branch-node">
+											<div class="branch-icon">⚙️</div>
+											<div class="branch-title">Backend</div>
+											<div class="branch-desc">Remix + CI/CD</div>
+										</div>
+										<div class="branch-node">
+											<div class="branch-icon">🔧</div>
+											<div class="branch-title">Configuration</div>
+											<div class="branch-desc">Metaobjects + Rules</div>
+										</div>
+										<div class="branch-node">
+											<div class="branch-icon">🤖</div>
+											<div class="branch-title">AI Layer</div>
+											<div class="branch-desc">LangChain + GPT</div>
+										</div>
+										<div class="branch-node">
+											<div class="branch-icon">🔄</div>
+											<div class="branch-title">Automation</div>
+											<div class="branch-desc">RPA + OCR</div>
+										</div>
+									</div>
+								</div>
+
+								<ul style="margin: 20px 0; padding-left: 20px;">
+									<li><strong>Frontend:</strong> Shopify Liquid with Polaris design system and responsive Theme Editor for modular, reusable UI components delivering brand uniformity and seamless mobile/desktop usability.</li>
+									<li><strong>Backend:</strong> Remix framework with Shopify Admin APIs, automated CI/CD via GitHub workflows, and Robot Framework for disciplined deployments with peer review and staging validation.</li>
+									<li><strong>Configuration:</strong> Metaobjects and metafields decoupled business logic, enabling low-code updates and environment-specific rules for complex fertilizer pricing across regions and customer types.</li>
+									<li><strong>AI Layer:</strong> LangChain (ReAct Agent) with GPT-4o-mini, OpenSearch, and BGE Reranker powering contextual search and agronomy-specific fertilizer recommendations with conversational support.</li>
+									<li><strong>Automation:</strong> RPA with OCR for Mainchain logistics sync, workflows for bulk gift card generation, audit trails, and automated tracking status updates.</li>
+								</ul>
+
+
+
+								<div class="highlight-box">
+									<strong>Achievement:</strong> This incremental delivery model enabled continuous innovation—deploying 30+ features in the first year without major rework or downtime.
+								</div>
+							</div>
+						</div>
+
+						<!-- Implementation Process -->
+						<div class="case-study-section">
+							<h3><span class="section-number">4</span>Implementation Process</h3>
+							<div class="section-content" style="max-height: none; padding-top: 0;">
+								<p>Development was restructured around GitHub version control with a disciplined three-environment setup (Dev, Pre-Prod, Production). Feature branches underwent peer review, staging validation, and weekly scheduled deployments with automated sanity checks.</p>
 								
-								<p><strong>3. AI-Driven Personalization Drives Revenue</strong><br>
-								Intelligent product recommendations and dynamic pricing can significantly impact conversion rates and average order values in the agritech space.</p>
+								<p>Modular components were introduced to reduce engineering overhead:</p>
 								
-								<p><strong>4. Modular Architecture Enables Agility</strong><br>
-								Building with modularity in mind allows for rapid adaptation to changing business requirements and integration with new technologies as they emerge.</p>
+								<div class="components-showcase">
+									<div class="showcase-header">
+										<h4 class="showcase-title">Modular Components</h4>
+										<p class="showcase-subtitle">Engineered to reduce development overhead and empower teams</p>
+									</div>
+									<div class="components-grid">
+										<div class="component-card">
+											<div class="bento-container">
+												<div class="bento-section">Full-Width Layout</div>
+												<div class="bento-section">Split View</div>
+												<div class="bento-section">Grid Config</div>
+											</div>
+											<h5 class="component-title">Bento Blocks</h5>
+											<p class="component-desc">Five layout types editable via Theme Editor, supporting full-width, split, and grid configurations for flexible merchandising.</p>
+										</div>
+										<div class="component-card">
+											<div class="extension-container">
+												<div class="extension-header">Checkout Extension</div>
+												<div class="extension-content">"You may also like" block with PDP/Add-to-Cart logic</div>
+											</div>
+											<h5 class="component-title">Checkout Extension</h5>
+											<p class="component-desc">Intelligent recommendation block with PDP/Add-to-Cart logic to boost conversion rates during checkout process.</p>
+										</div>
+										<div class="component-card">
+											<div class="giftcard-container">
+												<div class="giftcard-header">GIFT CARD</div>
+												<div class="giftcard-content">Bulk creation, secure codes, Excel export & audit trails</div>
+											</div>
+											<h5 class="component-title">Gift Card Generator</h5>
+											<p class="component-desc">Bulk gift card creation with secure code generation, Excel export capabilities, and comprehensive audit trails.</p>
+										</div>
+										<div class="component-card">
+											<div class="discount-container">
+												<div class="discount-badge">25% OFF</div>
+												<div class="discount-content">Store-specific rules, cart thresholds, exclusions & caps</div>
+											</div>
+											<h5 class="component-title">Discount Engine</h5>
+											<p class="component-desc">Advanced pricing rules with store-specific logic, cart thresholds, product exclusions, and discount caps.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="stats-grid">
+									<div class="stat-card">
+										<div class="stat-number">3</div>
+										<div class="stat-label">Environments</div>
+										<p style="font-size: 14px; margin-top: 10px;">Dev, Pre-Prod, Production</p>
+									</div>
+									<div class="stat-card">
+										<div class="stat-number">Weekly</div>
+										<div class="stat-label">Deployments</div>
+										<p style="font-size: 14px; margin-top: 10px;">Scheduled with sanity checks</p>
+									</div>
+									<div class="stat-card">
+										<div class="stat-number">Vector</div>
+										<div class="stat-label">Database</div>
+										<p style="font-size: 14px; margin-top: 10px;">Fertilizer data embedding</p>
+									</div>
+									<div class="stat-card">
+										<div class="stat-number">RPA</div>
+										<div class="stat-label">Automation</div>
+										<p style="font-size: 14px; margin-top: 10px;">Shopify-Mainchain sync via OCR</p>
+									</div>
+									<div class="stat-card">
+										<div class="stat-number">RAG</div>
+										<div class="stat-label">AI Chatbot</div>
+										<p style="font-size: 14px; margin-top: 10px;">Agentic RAG with LangChain</p>
+									</div>
+									<div class="stat-card">
+										<div class="stat-number">OCR</div>
+										<div class="stat-label">Tracking Sync</div>
+										<p style="font-size: 14px; margin-top: 10px;">Extract & update metafields</p>
+									</div>
+								</div>
+
+								<p>Automation extended beyond the storefront, with RPA syncing Shopify orders to Mainchain logistics via OCR to extract tracking status and update Shopify metafields, tags, and audit logs.</p>
 								
-								<p><strong>5. Data-Driven Decision Making</strong><br>
-								Real-time analytics and performance monitoring provide the insights needed to continuously optimize operations and identify new growth opportunities.</p>
+								<p>The AI chatbot, built on Agentic RAG, embedded fertilizer data into a vector database for precise retrieval and conversational responses. Langchain's AgentExecutor wrapped the chatbot with message history, safety guardrails, and streaming UI integration.</p>
+							</div>
+						</div>
+
+						<!-- Results & ROI -->
+						<div class="case-study-section">
+							<h3><span class="section-number">5</span>Improved Efficiencies & ROI</h3>
+							<div class="section-content" style="max-height: none; padding-top: 0;">
+								<div class="highlight-box">
+									<strong>Revenue Impact:</strong> Within its first operational year, the storefront is on track to exceed NZD $2M in revenue, with clear efficiency and experience gains across teams and customers through reduced engineering effort, accelerated deployments, enhanced customer satisfaction, and empowered business teams.
+								</div>
+								
+								<div class="stats-grid" style="display: flex !important; gap: 0 !important; width: 100% !important;">
+									<div class="stat-card" style="flex: 1 !important; border-radius: 0 !important;">
+										<div class="stat-number">⚡</div>
+										<div class="stat-label">Engineering Efficiency</div>
+										<p style="font-size: 12px; margin-top: 8px; line-height: 1.3; color: #1a1a1a; font-weight: 500;">Reduced engineering effort for campaign setup, gift cards, and discount configuration.</p>
+									</div>
+									<div class="stat-card" style="flex: 1 !important; border-radius: 0 !important;">
+										<div class="stat-number">🚀</div>
+										<div class="stat-label">Zero Downtime</div>
+										<p style="font-size: 12px; margin-top: 8px; line-height: 1.3; color: #1a1a1a; font-weight: 500;">Accelerated deployments with near-zero downtime through CI/CD discipline.</p>
+									</div>
+									<div class="stat-card" style="flex: 1 !important; border-radius: 0 !important;">
+										<div class="stat-number">👍</div>
+										<div class="stat-label">Customer Satisfaction</div>
+										<p style="font-size: 12px; margin-top: 8px; line-height: 1.3; color: #1a1a1a; font-weight: 500;">Enhanced customer satisfaction via faster checkout, intuitive layouts, responsive AI support.</p>
+									</div>
+									<div class="stat-card" style="flex: 1 !important; border-radius: 0 !important;">
+										<div class="stat-number">💪</div>
+										<div class="stat-label">Team Empowerment</div>
+										<p style="font-size: 12px; margin-top: 8px; line-height: 1.3; color: #1a1a1a; font-weight: 500;">Empowered business teams to manage storefront logic and content directly via Metaobjects.</p>
+									</div>
+								</div>
+
+								<div class="highlight-box">
+									<strong>Long-term Value:</strong> This transformation established a repeatable, data-driven development model, enabling continuous innovation without compromising stability or scalability.
+								</div>
 							</div>
 						</div>
 					</div>

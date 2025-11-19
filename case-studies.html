@@ -171,8 +171,8 @@
 					<div class="col-lg-4 col-md-6 item">
 						<div class="case-study-item">
 							<img src="https://resupply.co.nz/cdn/shop/files/RESUPPLY_Logo_Icon_06d00c2a-eea7-4bab-acf1-73c0823179c1.png?v=1736510421" alt="Resupply Logo" class="case-study-logo">
-							<h3 class="case-study-title">Resupply: Agritech E-commerce Transformation</h3>
-							<p class="case-study-description">How we helped Ravensdown turn Shopify into a $1M revenue engine through AI-powered automation and scalable architecture.</p>
+							<h3 class="case-study-title">Agritech • E-commerce • New Zealand</h3>
+							<p class="case-study-description"><strong>Future-Proofing Agrotech Retail through AI & Shopify (Technical Outlook)</strong><br>How a leading NZ fertilizer company achieved $1M growth in less than a year, through composable architecture & AI-driven customer engagement.</p>
 							<div class="case-study-metrics">
 								<span class="metric-item">$1M+ Revenue</span>
 								<span class="metric-item">40% Faster</span>
@@ -244,50 +244,41 @@
                 // Project title
                 pdf.setFontSize(14);
                 pdf.setFont(undefined, 'bold');
-                pdf.text('From Manual Chaos to $1M Revenue Engine', 20, yPos);
+                pdf.text('Future-Proofing Agrotech Retail through AI & Shopify (Technical Outlook)', 20, yPos);
                 yPos += 12;
                 
                 // Description
                 pdf.setFontSize(10);
                 pdf.setFont(undefined, 'normal');
-                const description = 'How we transformed Ravensdown\'s Shopify platform with AI-powered automation, scalable architecture, and intelligent workflows that empowered non-technical teams and delivered exceptional business results.';
+                const description = 'How a leading NZ fertilizer company achieved $1M growth in less than a year, through composable architecture & AI-driven customer engagement.';
                 const descLines = pdf.splitTextToSize(description, 170);
                 descLines.forEach(line => {
                     pdf.text(line, 20, yPos);
                     yPos += 6;
                 });
-                yPos += 10;
-                
-                // Key Results section
-                pdf.setFontSize(12);
-                pdf.setFont(undefined, 'bold');
-                pdf.text('KEY RESULTS', 20, yPos);
-                yPos += 10;
-                
-                pdf.setFontSize(10);
-                pdf.setFont(undefined, 'normal');
-                pdf.text('• $1M+ Revenue Generated', 25, yPos);
-                yPos += 7;
-                pdf.text('• 40% Faster Campaign Deployment', 25, yPos);
-                yPos += 7;
-                pdf.text('• 60% Reduction in Development Hours', 25, yPos);
-                yPos += 7;
-                pdf.text('• 100% Team Adoption Rate', 25, yPos);
                 yPos += 15;
                 
                 // Detailed content sections
                 const sections = [
                     {
-                        title: 'How We Helped Ravensdown Turn Shopify into a $1M Revenue Engine',
-                        content: 'Ravensdown faced significant challenges with their existing e-commerce platform. Manual processes were slowing down campaign launches, technical bottlenecks were limiting growth, and non-technical team members struggled to make updates without developer intervention.\n\nOur approach focused on three key areas: automation of repetitive tasks, implementation of intelligent workflows, and creation of user-friendly interfaces that empowered business teams to operate independently.\n\nKey Improvements:\n• Automated pricing logic and inventory management\n• Streamlined campaign creation and deployment\n• Self-service content management for marketing teams\n• Real-time analytics and performance monitoring\n\nThe result was a 40% reduction in campaign launch time and the ability for non-technical teams to manage complex e-commerce operations independently, directly contributing to over $1M in additional revenue.'
+                        title: 'The Problem Statement:',
+                        content: 'A leading New Zealand fertilizer company, expanding its agronomy commerce platform, struggled to scale its Shopify ecosystem for complex agricultural needs. The storefront suffered from inconsistent design, fragmented layouts, and poor mobile optimization due to the absence of reusable UI components. Product discovery was limited, with weak filtering and no semantic search for agronomy-specific queries.\n\nOperationally, Shopify\'s default setup could not handle bulk fertilizer rules where pricing, discounting, and availability vary by region, customer type, and product mix. The lack of standardized workflows, version control, and CI/CD pipelines led to production conflicts and rework. Key business functions such as bulk gift card generation, logistics coordination, and personalized recommendations were missing. Customers also lacked intelligent digital support for fertilizer selection and common queries, increasing strain on internal teams.'
                     },
                     {
-                        title: 'From Manual Chaos to Scalable Automation: The Resupply Transformation Story',
-                        content: 'The transformation began with a comprehensive audit of existing processes. We identified critical pain points in pricing logic, gift card management, and site navigation that were creating friction for both customers and internal teams.\n\nOur solution involved rebuilding core systems with automation at the center, implementing AI-driven recommendations, and creating modular architecture that could scale with business growth.\n\nTechnical Innovations:\n• AI-powered pricing optimization engine\n• Automated gift card and promotion management\n• Intelligent product recommendation system\n• Modular, API-first architecture for future scalability\n\nThis transformation eliminated manual bottlenecks, reduced development overhead by 60%, and created a resilient platform capable of handling increased traffic and complex business logic without constant technical intervention.'
+                        title: 'The Transformation Blueprint:',
+                        content: 'The company partnered with aibridge to modernize its Shopify ecosystem into a modular, scalable, and automation-first commerce platform tailored for agrotech. The engagement focused on five transformation pillars:\n\n1. Unified & Responsive UI/UX – A consistent design system and responsive frameworks delivered brand uniformity and seamless mobile/desktop usability.\n\n2. Dynamic Bento Architecture – Reusable "Bento blocks" enabled no-code merchandising, allowing marketing teams to update layouts without developer intervention.\n\n3. Configurable Pricing Engine – A centralized discount logic system handled complex rules across regions, customer types, and product mixes, eliminating manual errors.\n\n4. Custom Admin Applications – Bespoke extensions supported bulk gift card generation, Excel exports, and automated audit logging, improving transparency and efficiency.\n\n5. AI-Driven Engagement – An intelligent chatbot provided agronomy-specific answers, personalized recommendations, and self-service support, reducing strain on internal teams.\n\nThis blueprint empowered non-technical teams to manage storefront logic and content, while devs focused on governance, CI/CD, and scalability thus establishing a sustainable cycle of innovation.'
                     },
                     {
-                        title: 'What Agritech Brands Can Learn from Resupply\'s Ecom Overhaul',
-                        content: 'The Resupply project offers valuable insights for other agritech companies looking to scale their e-commerce operations. Here are the five key lessons that can be applied across the industry:\n\n1. Automation is Non-Negotiable\nManual processes don\'t scale. Investing in automation early prevents bottlenecks and enables rapid growth without proportional increases in operational overhead.\n\n2. Empower Non-Technical Teams\nThe most successful platforms enable business users to make changes independently. This reduces dependency on development resources and accelerates time-to-market for new initiatives.\n\n3. AI-Driven Personalization Drives Revenue\nIntelligent product recommendations and dynamic pricing can significantly impact conversion rates and average order values in the agritech space.\n\n4. Modular Architecture Enables Agility\nBuilding with modularity in mind allows for rapid adaptation to changing business requirements and integration with new technologies as they emerge.\n\n5. Data-Driven Decision Making\nReal-time analytics and performance monitoring provide the insights needed to continuously optimize operations and identify new growth opportunities.'
+                        title: 'Innovation Architecture:',
+                        content: 'The modernization followed a composable, iterative architecture — delivering rapid releases while ensuring stability and scalability. Capabilities were introduced, tested, and refined in short feedback cycles with production telemetry guiding improvements.\n\n• Frontend: Shopify Liquid with Polaris design system and responsive Theme Editor for modular, reusable UI.\n• Backend: Remix framework with Shopify Admin APIs, automated CI/CD via GitHub workflows, and Robot Framework for disciplined deployments.\n• Configuration: Metaobjects and metafields decoupled business logic, enabling low-code updates and environment-specific rules.\n• AI Layer: LangChain (ReAct Agent) with GPT-4o-mini, OpenSearch, and BGE Reranker powering contextual search and fertilizer recommendations.\n• Automation: RPA with OCR for logistics sync, workflows for bulk gift card generation and audit trails.\n\nThis incremental delivery model enabled continuous innovation—deploying 30+ features in the first year without major rework or downtime.'
+                    },
+                    {
+                        title: 'Implementation Process:',
+                        content: 'Development was restructured around GitHub version control with a disciplined three-environment setup (Dev, Pre-Prod, Production). Feature branches underwent peer review, staging validation, and weekly scheduled deployments with automated sanity checks.\n\nModular components were introduced to reduce engineering overhead:\n• Bento Blocks: Five layout types editable via Theme Editor, supporting full-width, split, and grid configurations.\n• Checkout Extension: "You may also like" block with PDP/Add-to-Cart logic.\n• Bulk Gift Card Generator: Secure code creation, Excel export, and audit trail.\n• Discount Engine: Store-specific rules, cart thresholds, exclusions, and caps.\n\nAutomation extended beyond the storefront, with RPA syncing Shopify orders to Mainchain logistics via OCR to extract tracking status and update Shopify metafields, tags, and audit logs. The AI chatbot, built on Agentic RAG, embedded fertilizer data into a vector database for precise retrieval and conversational responses. Langchain\'s AgentExecutor wrapped the chatbot with message history, safety guardrails, and streaming UI integration.'
+                    },
+                    {
+                        title: 'Improved Efficiencies & ROI:',
+                        content: 'Within its first operational year, the storefront is on track to exceed NZD $2M in revenue, with clear efficiency and experience gains across teams and customers:\n\n• Reduced engineering effort for campaign setup, gift cards, and discount configuration.\n• Accelerated deployments with near-zero downtime through CI/CD discipline.\n• Enhanced customer satisfaction via faster checkout, intuitive layouts, responsive AI support.\n• Empowered business teams to manage storefront logic and content directly via Metaobjects.\n\nThis transformation established a repeatable, data-driven development model, enabling continuous innovation without compromising stability or scalability.'
                     }
                 ];
                 
