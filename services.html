@@ -23,6 +23,18 @@
         <link rel="stylesheet" href="css/main.css">
         
         <style>
+            /* Topographic Logic Layers */
+            .topo-canvas {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 300px;
+                pointer-events: none;
+                z-index: -1;
+                opacity: 0.6;
+            }
+            
             /* page-specific tweaks aligned to light theme */
             p, li { color: #3c445a !important; }
             h3 { color: #0b1124 !important; }
@@ -36,6 +48,7 @@
             
             .services-grid .item {
                 display: flex;
+                margin-bottom: 30px;
             }
             
             .service-item {
@@ -211,17 +224,47 @@
 				</div>
 				<div class="row services-grid">
 					<div class="col-lg-4 col-md-6 item">
+						<div class="service-item" onclick="openServiceModal('rapid-prototyping')">
+							<div class="service-icon">
+								<i class="fa fa-flash"></i>
+							</div>
+							<div class="service-content">
+								<h3>Rapid Prototyping</h3>
+								<p>Validate your ideas fast. We help you go from concept to clickable prototype in days not weeks. Ideal for MVPs, product-market fit testing, or stakeholder alignment.</p>
+							</div>
+							<div class="service-buttons">
+								<button class="service-learn-more">Learn More</button>
+								<button class="service-download" onclick="downloadService('rapid-prototyping'); event.stopPropagation();"><i class="fa fa-download"></i></button>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 item">
 						<div class="service-item" onclick="openServiceModal('ai-teams')">
 							<div class="service-icon">
 								<i class="fa fa-users"></i>
 							</div>
 							<div class="service-content">
 								<h3>AI-Based Development Teams</h3>
-								<p>Build smarter products with our dedicated AI-powered development squads using LLMs, automation frameworks, and ML pipelines.</p>
+								<p>Build smarter products with our dedicated AI-powered development squads. We integrate advanced tools like LLMs, automation frameworks, and ML pipelines to scale solutions quickly and efficiently.</p>
 							</div>
 							<div class="service-buttons">
 								<button class="service-learn-more">Learn More</button>
 								<button class="service-download" onclick="downloadService('ai-teams'); event.stopPropagation();"><i class="fa fa-download"></i></button>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 item">
+						<div class="service-item" onclick="openServiceModal('fractional-cto-services')">
+							<div class="service-icon">
+								<i class="fa fa-briefcase"></i>
+							</div>
+							<div class="service-content">
+								<h3>Fractional CTO Services</h3>
+								<p>Get executive-level tech leadership without the full-time overhead. We provide strategic oversight, vendor alignment, and product direction tailored to your growth stage.</p>
+							</div>
+							<div class="service-buttons">
+								<button class="service-learn-more">Learn More</button>
+								<button class="service-download" onclick="downloadService('fractional-cto-services'); event.stopPropagation();"><i class="fa fa-download"></i></button>
 							</div>
 						</div>
 					</div>
@@ -232,11 +275,26 @@
 							</div>
 							<div class="service-content">
 								<h3>Enterprise Architecture</h3>
-								<p>From cloud-native designs to secure, scalable ecosystems — we craft enterprise-grade architecture that supports innovation and agility.</p>
+								<p>From cloud-native designs to secure, scalable ecosystems — we craft enterprise-grade architecture that supports innovation, governance, and long-term agility.</p>
 							</div>
 							<div class="service-buttons">
 								<button class="service-learn-more">Learn More</button>
 								<button class="service-download" onclick="downloadService('enterprise-arch'); event.stopPropagation();"><i class="fa fa-download"></i></button>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 item">
+						<div class="service-item" onclick="openServiceModal('ai-advisory')">
+							<div class="service-icon">
+								<i class="fa fa-map"></i>
+							</div>
+							<div class="service-content">
+								<h3>AI Advisory & Roadmapping</h3>
+								<p>Not sure where to start with AI? We work with your leadership to define a practical AI roadmap that aligns with business outcomes from PoCs to full-scale implementation.</p>
+							</div>
+							<div class="service-buttons">
+								<button class="service-learn-more">Learn More</button>
+								<button class="service-download" onclick="downloadService('ai-advisory'); event.stopPropagation();"><i class="fa fa-download"></i></button>
 							</div>
 						</div>
 					</div>
@@ -247,26 +305,11 @@
 							</div>
 							<div class="service-content">
 								<h3>Custom AI Solutions & LLM Fine-Tuning</h3>
-								<p>We develop bespoke AI models and build domain-specific intelligence that gives your business a competitive edge.</p>
+								<p>We develop bespoke AI models, fine-tune large language models, and build domain-specific intelligence that gives your business a competitive edge — all with data privacy and performance at the core.</p>
 							</div>
 							<div class="service-buttons">
 								<button class="service-learn-more">Learn More</button>
 								<button class="service-download" onclick="downloadService('custom-ai'); event.stopPropagation();"><i class="fa fa-download"></i></button>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item" onclick="openServiceModal('ai-native')">
-							<div class="service-icon">
-								<i class="fa fa-rocket"></i>
-							</div>
-							<div class="service-content">
-								<h3>AI-Native Consultancy</h3>
-								<p>Experience game-changing productivity gains with faster decisions, smarter execution, and better outcomes.</p>
-							</div>
-							<div class="service-buttons">
-								<button class="service-learn-more">Learn More</button>
-								<button class="service-download" onclick="downloadService('ai-native'); event.stopPropagation();"><i class="fa fa-download"></i></button>
 							</div>
 						</div>
 					</div>
@@ -697,6 +740,285 @@
                             </ul>`
                         }
                     ]
+                },
+                'rapid-prototyping': {
+                    title: 'Rapid Prototyping',
+                    topics: [
+                        {
+                            title: 'From Concept to Clickable Prototype in Days',
+                            description: `<p>Traditional prototyping takes weeks or months. Our rapid prototyping approach transforms ideas into functional, testable prototypes within days using modern frameworks and AI-assisted development.</p>
+                            
+                            <h5>Our Rapid Prototyping Process:</h5>
+                            <ul>
+                                <li><strong>Day 1-2:</strong> Requirements gathering and wireframe creation</li>
+                                <li><strong>Day 3-5:</strong> Interactive prototype development</li>
+                                <li><strong>Day 6-7:</strong> User testing and iteration</li>
+                            </ul>
+                            
+                            <h5>Technology Stack:</h5>
+                            <p>We leverage cutting-edge tools and frameworks to accelerate development:</p>
+                            <ul>
+                                <li><strong>Frontend:</strong> React, Vue.js, or Angular with component libraries</li>
+                                <li><strong>Backend:</strong> Node.js, Python FastAPI, or serverless functions</li>
+                                <li><strong>Database:</strong> Firebase, Supabase, or cloud-native solutions</li>
+                                <li><strong>AI Integration:</strong> OpenAI API, Anthropic Claude, or custom models</li>
+                            </ul>
+                            
+                            <div style="background: #f0f9ff; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <strong>Success Story:</strong> Built a fintech mobile app prototype in 5 days that secured $500K seed funding within 2 weeks of presentation. The prototype included user authentication, transaction simulation, and AI-powered spending insights.
+                            </div>`
+                        },
+                        {
+                            title: 'MVP Development & Market Validation',
+                            description: `<p>We build minimum viable products that help you test market assumptions, validate product-market fit, and secure stakeholder buy-in before committing to full development.</p>
+                            
+                            <h5>MVP Features:</h5>
+                            <ul>
+                                <li><strong>Core functionality implementation:</strong> Essential features that solve the primary user problem</li>
+                                <li><strong>User analytics integration:</strong> Track user behavior, engagement, and conversion metrics</li>
+                                <li><strong>A/B testing capabilities:</strong> Test different features and user flows</li>
+                                <li><strong>Feedback collection systems:</strong> In-app surveys, user interviews, and analytics</li>
+                                <li><strong>Performance monitoring:</strong> Real-time error tracking and performance metrics</li>
+                            </ul>
+                            
+                            <h5>Validation Framework:</h5>
+                            <table width="100%" border="0" cellpadding="0" style="margin: 20px 0; border-spacing: 15px 0;">
+                                <tr>
+                                    <td style="background: #eff6ff; padding: 15px; border-radius: 8px; width: 50%;">
+                                        <h6>Problem Validation</h6>
+                                        <ul style="font-size: 14px;">
+                                            <li>User interviews and surveys</li>
+                                            <li>Market research and analysis</li>
+                                            <li>Competitor analysis</li>
+                                            <li>Problem-solution fit assessment</li>
+                                        </ul>
+                                    </td>
+                                    <td style="background: #f0fdf4; padding: 15px; border-radius: 8px; width: 50%;">
+                                        <h6>Solution Validation</h6>
+                                        <ul style="font-size: 14px;">
+                                            <li>Prototype user testing</li>
+                                            <li>Feature usage analytics</li>
+                                            <li>Conversion rate optimization</li>
+                                            <li>Product-market fit metrics</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <div style="background: #fef3f2; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <strong>Case Study:</strong> Developed an MVP for a healthcare startup that validated their telemedicine concept with 1,000+ users in 30 days, leading to a successful Series A funding round of $2.5M.
+                            </div>`
+                        }
+                    ]
+                },
+                'fractional-cto-services': {
+                    title: 'Fractional CTO Services',
+                    topics: [
+                        {
+                            title: 'Executive-Level Tech Leadership Without Full-Time Overhead',
+                            description: `<p>Get access to senior technology leadership without the overhead of a full-time executive. Our fractional CTOs provide strategic oversight, technical direction, and leadership guidance tailored to your growth stage.</p>
+                            
+                            <h5>What We Provide:</h5>
+                            <ul>
+                                <li><strong>Technology strategy and roadmap development:</strong> Long-term vision aligned with business goals</li>
+                                <li><strong>Team leadership and mentoring:</strong> Guide technical teams and foster growth</li>
+                                <li><strong>Architecture reviews and decisions:</strong> Ensure scalable, maintainable systems</li>
+                                <li><strong>Vendor evaluation and management:</strong> Select and manage technology partners</li>
+                                <li><strong>Board-level technology reporting:</strong> Communicate tech progress to stakeholders</li>
+                                <li><strong>Risk assessment and mitigation:</strong> Identify and address technical risks</li>
+                                <li><strong>Budget planning and optimization:</strong> Maximize ROI on technology investments</li>
+                            </ul>
+                            
+                            <h5>Growth Stage Alignment:</h5>
+                            <table width="100%" border="0" cellpadding="0" style="margin: 20px 0; border-spacing: 15px 0;">
+                                <tr>
+                                    <td style="background: #eff6ff; padding: 15px; border-radius: 8px; width: 33%;">
+                                        <h6>Startup (0-50 employees)</h6>
+                                        <ul style="font-size: 14px;">
+                                            <li>MVP architecture design</li>
+                                            <li>Technology stack selection</li>
+                                            <li>Initial team hiring</li>
+                                            <li>Investor pitch support</li>
+                                        </ul>
+                                    </td>
+                                    <td style="background: #f0fdf4; padding: 15px; border-radius: 8px; width: 33%;">
+                                        <h6>Scale-up (50-200 employees)</h6>
+                                        <ul style="font-size: 14px;">
+                                            <li>Scalability planning</li>
+                                            <li>Team structure optimization</li>
+                                            <li>Process standardization</li>
+                                            <li>Security implementation</li>
+                                        </ul>
+                                    </td>
+                                    <td style="background: #fef3f2; padding: 15px; border-radius: 8px; width: 33%;">
+                                        <h6>Enterprise (200+ employees)</h6>
+                                        <ul style="font-size: 14px;">
+                                            <li>Digital transformation</li>
+                                            <li>Legacy system modernization</li>
+                                            <li>Compliance and governance</li>
+                                            <li>Innovation strategy</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>`
+                        },
+                        {
+                            title: 'Strategic Oversight & Team Alignment',
+                            description: `<p>We help align your technical teams, manage vendor relationships, and ensure that all technology initiatives support your business goals and growth objectives.</p>
+                            
+                            <h5>Engagement Models:</h5>
+                            <ul>
+                                <li><strong>Part-time (2-3 days/week):</strong> Ongoing strategic leadership and team management</li>
+                                <li><strong>Project-based:</strong> Specific initiatives like digital transformation or system migrations</li>
+                                <li><strong>Advisory (Monthly sessions):</strong> Strategic guidance and decision support</li>
+                                <li><strong>Interim CTO:</strong> Full-time leadership during transitions or critical periods</li>
+                            </ul>
+                            
+                            <h5>Team Alignment Framework:</h5>
+                            <p>Our approach ensures all technical efforts support business objectives:</p>
+                            
+                            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 30px; height: 30px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">1</div>
+                                    <div>
+                                        <strong>Business-Tech Alignment:</strong> Ensure technology roadmap supports business strategy
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 30px; height: 30px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">2</div>
+                                    <div>
+                                        <strong>Cross-functional Collaboration:</strong> Bridge gaps between technical and business teams
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 30px; height: 30px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">3</div>
+                                    <div>
+                                        <strong>Performance Optimization:</strong> Establish metrics and KPIs for technical success
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 30px; height: 30px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">4</div>
+                                    <div>
+                                        <strong>Continuous Improvement:</strong> Regular assessment and optimization of processes
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="background: #f0f9ff; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <strong>Success Metrics:</strong> Our fractional CTO clients typically see 40% faster product delivery, 60% reduction in technical debt, and 25% improvement in team productivity within the first 6 months.
+                            </div>`
+                        }
+                    ]
+                },
+                'ai-advisory': {
+                    title: 'AI Advisory & Roadmapping',
+                    topics: [
+                        {
+                            title: 'Practical AI Strategy Development',
+                            description: `<p>We work with your leadership team to develop a comprehensive AI strategy that aligns with your business objectives and identifies the most impactful opportunities for AI implementation.</p>
+                            
+                            <h5>Our AI Assessment Framework:</h5>
+                            <ul>
+                                <li><strong>Current state analysis and AI readiness:</strong> Evaluate existing data, infrastructure, and team capabilities</li>
+                                <li><strong>Use case identification and prioritization:</strong> Map business problems to AI solutions with impact scoring</li>
+                                <li><strong>Technology stack recommendations:</strong> Select optimal AI tools, platforms, and frameworks</li>
+                                <li><strong>Implementation timeline and resource planning:</strong> Realistic roadmap with milestones and resource allocation</li>
+                                <li><strong>ROI projections and success metrics:</strong> Define measurable outcomes and business value</li>
+                                <li><strong>Risk assessment and mitigation:</strong> Identify potential challenges and develop contingency plans</li>
+                                <li><strong>Compliance and ethical considerations:</strong> Ensure responsible AI implementation</li>
+                            </ul>
+                            
+                            <h5>AI Maturity Assessment:</h5>
+                            <table width="100%" border="0" cellpadding="0" style="margin: 20px 0; border-spacing: 15px 0;">
+                                <tr>
+                                    <td style="background: #fef3f2; padding: 15px; border-radius: 8px; width: 25%;">
+                                        <h6>Level 1: Reactive</h6>
+                                        <ul style="font-size: 14px;">
+                                            <li>Manual processes</li>
+                                            <li>Limited data usage</li>
+                                            <li>No AI implementation</li>
+                                        </ul>
+                                    </td>
+                                    <td style="background: #fef3f2; padding: 15px; border-radius: 8px; width: 25%;">
+                                        <h6>Level 2: Aware</h6>
+                                        <ul style="font-size: 14px;">
+                                            <li>Basic analytics</li>
+                                            <li>Some automation</li>
+                                            <li>Exploring AI options</li>
+                                        </ul>
+                                    </td>
+                                    <td style="background: #f0fdf4; padding: 15px; border-radius: 8px; width: 25%;">
+                                        <h6>Level 3: Defined</h6>
+                                        <ul style="font-size: 14px;">
+                                            <li>AI pilot projects</li>
+                                            <li>Data infrastructure</li>
+                                            <li>Clear AI strategy</li>
+                                        </ul>
+                                    </td>
+                                    <td style="background: #eff6ff; padding: 15px; border-radius: 8px; width: 25%;">
+                                        <h6>Level 4: Optimized</h6>
+                                        <ul style="font-size: 14px;">
+                                            <li>AI-native operations</li>
+                                            <li>Continuous learning</li>
+                                            <li>Competitive advantage</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <div style="background: #f0f9ff; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <strong>Industry Example:</strong> Helped a retail chain develop an AI strategy that increased customer lifetime value by 35% through personalized recommendations, dynamic pricing, and inventory optimization across 200+ stores.
+                            </div>`
+                        },
+                        {
+                            title: 'From Proof-of-Concept to Production',
+                            description: `<p>Our roadmapping process takes you from initial proof-of-concepts through to full-scale AI implementation, ensuring each phase delivers measurable business value.</p>
+                            
+                            <h5>Implementation Phases:</h5>
+                            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 40px; height: 40px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">1</div>
+                                    <div>
+                                        <strong>Phase 1: PoC Development (2-4 weeks)</strong><br>
+                                        <span style="font-size: 14px;">Rapid prototype development, initial model training, feasibility validation</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 40px; height: 40px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">2</div>
+                                    <div>
+                                        <strong>Phase 2: Pilot Implementation (4-8 weeks)</strong><br>
+                                        <span style="font-size: 14px;">Limited scope deployment, user testing, performance optimization</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <div style="width: 40px; height: 40px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">3</div>
+                                    <div>
+                                        <strong>Phase 3: Full-Scale Deployment (8-16 weeks)</strong><br>
+                                        <span style="font-size: 14px;">Production infrastructure, security implementation, team training</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 40px; height: 40px; background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold;">4</div>
+                                    <div>
+                                        <strong>Phase 4: Optimization & Scaling (Ongoing)</strong><br>
+                                        <span style="font-size: 14px;">Performance monitoring, model retraining, feature expansion</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h5>Success Metrics & KPIs:</h5>
+                            <ul>
+                                <li><strong>Technical Metrics:</strong> Model accuracy, latency, throughput, uptime</li>
+                                <li><strong>Business Metrics:</strong> ROI, cost savings, revenue increase, efficiency gains</li>
+                                <li><strong>User Metrics:</strong> Adoption rate, satisfaction scores, engagement levels</li>
+                                <li><strong>Operational Metrics:</strong> Time to deployment, maintenance costs, scalability</li>
+                            </ul>
+                            
+                            <div style="background: #fef3f2; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                                <strong>Manufacturing Case Study:</strong> Implemented predictive maintenance AI for a manufacturing client, reducing unplanned downtime by 45% and maintenance costs by 30%, with full ROI achieved within 8 months of deployment.
+                            </div>`
+                        }
+                    ]
                 }
             };
             
@@ -826,101 +1148,134 @@
             }
             
             function downloadService(serviceId) {
+                // Open modal invisibly for all service cards
+                const modal = document.getElementById('serviceModal');
+                const content = document.getElementById('modalContent');
+                
                 const service = serviceData[serviceId];
-                
-                const pdfStyles = `
-                    <style>
-                        * {
-                            margin: 0;
-                            padding: 0;
-                            box-sizing: border-box;
-                        }
-                        body { 
-                            font-family: 'Montserrat', sans-serif; 
-                            margin: 0;
-                            padding: 0;
-                        }
-                        h3 { 
-                            font-family: 'Michroma', sans-serif;
-                            color: #0b1124; 
-                            margin: 0 0 15px 0;
-                            border-bottom: 2px solid #641ff9;
-                            padding-bottom: 8px;
-                            font-size: 20px;
-                        }
-                        h4 {
-                            color: #0b1124;
-                            font-size: 16px;
-                            margin: 0 0 8px 0;
-                            font-weight: 600;
-                        }
-                        h5, h6 {
-                            color: #0b1124;
-                            font-weight: 600;
-                            margin: 10px 0 5px 0;
-                            font-size: 12px;
-                        }
-                        p { 
-                            color: #3c445a; 
-                            line-height: 1.4;
-                            font-size: 10px;
-                            margin: 5px 0;
-                        }
-                        li {
-                            color: #3c445a;
-                            font-size: 10px;
-                            margin: 2px 0;
-                        }
-                        ul {
-                            padding-left: 15px;
-                            margin: 5px 0;
-                        }
-                        .service-modal-topic {
-                            margin-bottom: 15px;
-                            padding: 15px;
-                            background: #f8fafc;
-                            border-radius: 8px;
-                            border-left: 4px solid #641ff9;
-                            page-break-inside: avoid;
-                        }
-                        div[style*="background"] {
-                            padding: 10px;
-                            border-radius: 6px;
-                            margin: 8px 0;
-                        }
-                        div[style*="grid"] {
-                            display: grid;
-                            grid-template-columns: 1fr 1fr;
-                            gap: 10px;
-                            margin: 8px 0;
-                        }
-                    </style>
-                `;
-                
-                let contentHtml = `
-                    ${pdfStyles}
-                    <h3>${service.title}</h3>
-                `;
-                
+                let html = `<h3>${service.title}</h3>`;
                 service.topics.forEach(topic => {
-                    contentHtml += `
+                    html += `
                         <div class="service-modal-topic">
                             <h4>${topic.title}</h4>
-                            ${topic.description}
+                            <p>${topic.description}</p>
                         </div>
                     `;
                 });
+                content.innerHTML = html;
                 
-                const options = {
-                    margin: [0.5, 0.5, 0.5, 0.5],
-                    filename: `${service.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.pdf`,
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2, useCORS: true },
-                    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-                };
+                // Keep modal hidden but rendered
+                modal.style.display = 'block';
+                modal.style.visibility = 'hidden';
+                modal.style.position = 'absolute';
+                modal.style.top = '-9999px';
                 
-                html2pdf().from(contentHtml).set(options).save();
+                setTimeout(() => {
+                    const modalContent = document.getElementById('modalContent');
+                    
+                    // Add CSS to reset modal content positioning
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        #modalContent {
+                            margin: 0 !important;
+                            padding: 0 !important;
+                            position: static !important;
+                            transform: none !important;
+                        }
+                        #modalContent h3:first-child {
+                            margin-top: 0 !important;
+                            padding-top: 0 !important;
+                        }
+                    `;
+                    document.head.appendChild(style);
+                    
+                    const opt = {
+                        margin: [0.3, 0.5, 0.3, 0.5],
+                        filename: `${service.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.pdf`,
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { 
+                            scale: 2,
+                            useCORS: true,
+                            letterRendering: true,
+                            allowTaint: false,
+                            backgroundColor: '#ffffff',
+                            y: 0,
+                            scrollY: 0
+                        },
+                        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+                        pagebreak: { mode: ['avoid-all', 'css'], avoid: '.service-modal-topic' }
+                    };
+                    
+                    html2pdf().set(opt).from(modalContent).save().then(() => {
+                        document.head.removeChild(style);
+                        modal.style.display = 'none';
+                        modal.style.visibility = 'visible';
+                        modal.style.position = 'fixed';
+                        modal.style.top = '120px';
+                    });
+                }, 500);
             }
+            
+            // Topographic Logic Layers Background
+            document.addEventListener('DOMContentLoaded', function() {
+                const canvas = document.createElement('canvas');
+                canvas.className = 'topo-canvas';
+                document.body.appendChild(canvas);
+                
+                const ctx = canvas.getContext('2d');
+                let time = 0;
+                
+                function resize() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = 300;
+                }
+                
+                function drawWave(y, amplitude, frequency, phase, color, opacity) {
+                    ctx.strokeStyle = color;
+                    ctx.globalAlpha = opacity;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    
+                    for (let x = 0; x <= canvas.width; x += 2) {
+                        const waveY = y + Math.sin((x * frequency) + phase + time) * amplitude;
+                        if (x === 0) {
+                            ctx.moveTo(x, waveY);
+                        } else {
+                            ctx.lineTo(x, waveY);
+                        }
+                    }
+                    
+                    ctx.stroke();
+                }
+                
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    // Back layers (Purple) - further away
+                    drawWave(250, 15, 0.008, 0, '#641ff9', 0.3);
+                    drawWave(230, 12, 0.012, 1, '#641ff9', 0.4);
+                    drawWave(210, 18, 0.006, 2, '#641ff9', 0.35);
+                    drawWave(190, 10, 0.015, 3, '#641ff9', 0.45);
+                    
+                    // Middle layers (Blend)
+                    drawWave(170, 20, 0.009, 1.5, '#4a2fb8', 0.5);
+                    drawWave(150, 14, 0.011, 2.5, '#3d3fb0', 0.55);
+                    drawWave(130, 16, 0.007, 3.5, '#2f4fa8', 0.6);
+                    
+                    // Front layers (Cyan) - closer
+                    drawWave(110, 22, 0.010, 0.5, '#02c5f7', 0.65);
+                    drawWave(90, 18, 0.013, 1.8, '#02c5f7', 0.7);
+                    drawWave(70, 25, 0.008, 2.2, '#02c5f7', 0.75);
+                    drawWave(50, 12, 0.016, 4, '#02c5f7', 0.8);
+                    
+                    time += 0.02;
+                    requestAnimationFrame(animate);
+                }
+                
+                window.addEventListener('resize', resize);
+                resize();
+                animate();
+            });
         </script>
     </body>
 </html>
