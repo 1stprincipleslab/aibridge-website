@@ -212,130 +212,282 @@
     	<script src="js/popper.min.js"></script>
         <!-- Bootstrap 4 Js -->
         <script src="js/bootstrap.min.js"></script>
-        <!-- jsPDF for PDF generation -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <!-- html2pdf library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
         <!-- Custom Js -->
         <script src="js/custom.js"></script>
         <!-- Components Js -->
         <script src="js/components.js"></script>
         
+        <!-- Hidden container for PDF generation -->
+        <div id="pdfContainer" style="position: absolute; left: -9999px; width: auto; background: white; padding: 20px; visibility: hidden;"></div>
+        
         <script>
             function downloadResupplyCaseStudy() {
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF();
-                let yPos = 20;
+                const container = document.getElementById('pdfContainer');
                 
-                // Header
-                pdf.setFontSize(18);
-                pdf.setFont(undefined, 'bold');
-                pdf.text('RESUPPLY CASE STUDY', 20, yPos);
-                yPos += 15;
+                // Direct content copy instead of fetching
+                let caseStudyHTML = '<div style="font-family: Arial, sans-serif; line-height: 1.3; color: #333; width: 100%; margin: 0; padding: 10px;">';
                 
-                // Company info
-                pdf.setFontSize(12);
-                pdf.setFont(undefined, 'bold');
-                pdf.text('Resupply (Ravensdown)', 20, yPos);
-                yPos += 8;
-                pdf.setFontSize(10);
-                pdf.setFont(undefined, 'normal');
-                pdf.text('Agritech • E-commerce • New Zealand', 20, yPos);
-                yPos += 15;
+                // Hero section
+                caseStudyHTML += `
+                    <div style="text-align: center; margin-bottom: 20px; padding: 15px; border-bottom: 2px solid #641ff9;">
+                        <h3 style="color: #641ff9; margin-bottom: 3px; font-size: 16px;">Resupply (Ravensdown)</h3>
+                        <p style="color: #666; margin-bottom: 10px; font-size: 12px;">Agritech • E-commerce • New Zealand</p>
+                        <h1 style="font-size: 18px; color: #0b1124; margin-bottom: 8px;">Future-Proofing Agrotech Retail through AI & Shopify</h1>
+                        <p style="color: #3c445a; font-size: 12px;">How a leading NZ fertilizer company achieved $1M growth through composable architecture & AI-driven customer engagement.</p>
+                    </div>
+                `;
                 
-                // Project title
-                pdf.setFontSize(14);
-                pdf.setFont(undefined, 'bold');
-                pdf.text('Future-Proofing Agrotech Retail through AI & Shopify (Technical Outlook)', 20, yPos);
-                yPos += 12;
+                // Metrics section
+                caseStudyHTML += `
+                    <div style="display: flex; justify-content: space-around; background: #f8f9fa; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+                        <div style="text-align: center; flex: 1;">
+                            <div style="font-size: 16px; font-weight: 700; color: #641ff9; margin-bottom: 3px;">$2M</div>
+                            <div style="font-size: 10px; color: #666;">Revenue Target</div>
+                        </div>
+                        <div style="text-align: center; flex: 1;">
+                            <div style="font-size: 16px; font-weight: 700; color: #641ff9; margin-bottom: 3px;">30+</div>
+                            <div style="font-size: 10px; color: #666;">Features Deployed</div>
+                        </div>
+                        <div style="text-align: center; flex: 1;">
+                            <div style="font-size: 16px; font-weight: 700; color: #641ff9; margin-bottom: 3px;">Zero</div>
+                            <div style="font-size: 10px; color: #666;">Downtime Events</div>
+                        </div>
+                        <div style="text-align: center; flex: 1;">
+                            <div style="font-size: 16px; font-weight: 700; color: #641ff9; margin-bottom: 3px;">3</div>
+                            <div style="font-size: 10px; color: #666;">Environments</div>
+                        </div>
+                    </div>
+                `;
                 
-                // Description
-                pdf.setFontSize(10);
-                pdf.setFont(undefined, 'normal');
-                const description = 'How a leading NZ fertilizer company achieved $1M growth in less than a year, through composable architecture & AI-driven customer engagement.';
-                const descLines = pdf.splitTextToSize(description, 170);
-                descLines.forEach(line => {
-                    pdf.text(line, 20, yPos);
-                    yPos += 6;
-                });
-                yPos += 15;
+                // Section 1: Problem Statement
+                caseStudyHTML += `
+                    <div style="margin-bottom: 20px; padding: 15px; border-left: 4px solid #641ff9; background: #f8f9fa;">
+                        <h3 style="color: #0b1124; font-size: 16px; margin-bottom: 10px;">1. The Problem Statement</h3>
+                        <div style="color: #3c445a; font-size: 12px; line-height: 1.4;">
+                            <p style="margin-bottom: 10px;">A leading New Zealand fertilizer company struggled to scale its Shopify ecosystem for complex agricultural needs. The storefront suffered from inconsistent design, fragmented layouts, and poor mobile optimization due to the absence of reusable UI components.</p>
+                            <p style="margin-bottom: 10px;">Operationally, Shopify's default setup could not handle bulk fertilizer rules where pricing, discounting, and availability vary by region, customer type, and product mix. Key business functions such as bulk gift card generation, logistics coordination, and personalized recommendations were missing.</p>
+                            <div style="background: #e3f2fd; border: 1px solid #2196f3; border-radius: 6px; padding: 10px; margin: 10px 0; font-weight: 600; font-size: 11px;">Key Challenge: Manual processes and fragmented systems were preventing scalable growth.</div>
+                        </div>
+                    </div>
+                `;
                 
-                // Detailed content sections
-                const sections = [
-                    {
-                        title: 'The Problem Statement:',
-                        content: 'A leading New Zealand fertilizer company, expanding its agronomy commerce platform, struggled to scale its Shopify ecosystem for complex agricultural needs. The storefront suffered from inconsistent design, fragmented layouts, and poor mobile optimization due to the absence of reusable UI components. Product discovery was limited, with weak filtering and no semantic search for agronomy-specific queries.\n\nOperationally, Shopify\'s default setup could not handle bulk fertilizer rules where pricing, discounting, and availability vary by region, customer type, and product mix. The lack of standardized workflows, version control, and CI/CD pipelines led to production conflicts and rework. Key business functions such as bulk gift card generation, logistics coordination, and personalized recommendations were missing. Customers also lacked intelligent digital support for fertilizer selection and common queries, increasing strain on internal teams.'
-                    },
-                    {
-                        title: 'The Transformation Blueprint:',
-                        content: 'The company partnered with aibridge to modernize its Shopify ecosystem into a modular, scalable, and automation-first commerce platform tailored for agrotech. The engagement focused on five transformation pillars:\n\n1. Unified & Responsive UI/UX – A consistent design system and responsive frameworks delivered brand uniformity and seamless mobile/desktop usability.\n\n2. Dynamic Bento Architecture – Reusable "Bento blocks" enabled no-code merchandising, allowing marketing teams to update layouts without developer intervention.\n\n3. Configurable Pricing Engine – A centralized discount logic system handled complex rules across regions, customer types, and product mixes, eliminating manual errors.\n\n4. Custom Admin Applications – Bespoke extensions supported bulk gift card generation, Excel exports, and automated audit logging, improving transparency and efficiency.\n\n5. AI-Driven Engagement – An intelligent chatbot provided agronomy-specific answers, personalized recommendations, and self-service support, reducing strain on internal teams.\n\nThis blueprint empowered non-technical teams to manage storefront logic and content, while devs focused on governance, CI/CD, and scalability thus establishing a sustainable cycle of innovation.'
-                    },
-                    {
-                        title: 'Innovation Architecture:',
-                        content: 'The modernization followed a composable, iterative architecture — delivering rapid releases while ensuring stability and scalability. Capabilities were introduced, tested, and refined in short feedback cycles with production telemetry guiding improvements.\n\n• Frontend: Shopify Liquid with Polaris design system and responsive Theme Editor for modular, reusable UI.\n• Backend: Remix framework with Shopify Admin APIs, automated CI/CD via GitHub workflows, and Robot Framework for disciplined deployments.\n• Configuration: Metaobjects and metafields decoupled business logic, enabling low-code updates and environment-specific rules.\n• AI Layer: LangChain (ReAct Agent) with GPT-4o-mini, OpenSearch, and BGE Reranker powering contextual search and fertilizer recommendations.\n• Automation: RPA with OCR for logistics sync, workflows for bulk gift card generation and audit trails.\n\nThis incremental delivery model enabled continuous innovation—deploying 30+ features in the first year without major rework or downtime.'
-                    },
-                    {
-                        title: 'Implementation Process:',
-                        content: 'Development was restructured around GitHub version control with a disciplined three-environment setup (Dev, Pre-Prod, Production). Feature branches underwent peer review, staging validation, and weekly scheduled deployments with automated sanity checks.\n\nModular components were introduced to reduce engineering overhead:\n• Bento Blocks: Five layout types editable via Theme Editor, supporting full-width, split, and grid configurations.\n• Checkout Extension: "You may also like" block with PDP/Add-to-Cart logic.\n• Bulk Gift Card Generator: Secure code creation, Excel export, and audit trail.\n• Discount Engine: Store-specific rules, cart thresholds, exclusions, and caps.\n\nAutomation extended beyond the storefront, with RPA syncing Shopify orders to Mainchain logistics via OCR to extract tracking status and update Shopify metafields, tags, and audit logs. The AI chatbot, built on Agentic RAG, embedded fertilizer data into a vector database for precise retrieval and conversational responses. Langchain\'s AgentExecutor wrapped the chatbot with message history, safety guardrails, and streaming UI integration.'
-                    },
-                    {
-                        title: 'Improved Efficiencies & ROI:',
-                        content: 'Within its first operational year, the storefront is on track to exceed NZD $2M in revenue, with clear efficiency and experience gains across teams and customers:\n\n• Reduced engineering effort for campaign setup, gift cards, and discount configuration.\n• Accelerated deployments with near-zero downtime through CI/CD discipline.\n• Enhanced customer satisfaction via faster checkout, intuitive layouts, responsive AI support.\n• Empowered business teams to manage storefront logic and content directly via Metaobjects.\n\nThis transformation established a repeatable, data-driven development model, enabling continuous innovation without compromising stability or scalability.'
-                    }
-                ];
+                // Section 2: Transformation Blueprint
+                caseStudyHTML += `
+                    <div style="margin-bottom: 30px; padding: 20px; border-left: 4px solid #641ff9; background: #f8f9fa;">
+                        <h3 style="color: #0b1124; font-size: 18px; margin-bottom: 15px;">2. The Transformation Blueprint</h3>
+                        <div style="color: #3c445a; font-size: 14px; line-height: 1.6;">
+                            <p style="margin-bottom: 15px;">The company partnered with aibridge to modernize its Shopify ecosystem into a modular, scalable, and automation-first commerce platform tailored for agrotech. The engagement focused on five transformation pillars:</p>
+                            
+                            <div style="display: flex; justify-content: space-between; margin: 20px 0; gap: 10px; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 140px; text-align: center; background: white; border: 2px solid #641ff9; border-radius: 8px; padding: 15px; margin-bottom: 10px;">
+                                    <div style="background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin: 0 auto 10px;">1</div>
+                                    <div style="color: #000; font-size: 12px; font-weight: 700; margin-bottom: 8px;">Unified & Responsive UI/UX</div>
+                                    <p style="color: #000; font-size: 10px; font-weight: 600; margin: 0;">A consistent design system and responsive frameworks delivered brand uniformity and seamless mobile/desktop usability.</p>
+                                </div>
+                                <div style="flex: 1; min-width: 140px; text-align: center; background: white; border: 2px solid #641ff9; border-radius: 8px; padding: 15px; margin-bottom: 10px;">
+                                    <div style="background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin: 0 auto 10px;">2</div>
+                                    <div style="color: #000; font-size: 12px; font-weight: 700; margin-bottom: 8px;">Dynamic Bento Architecture</div>
+                                    <p style="color: #000; font-size: 10px; font-weight: 600; margin: 0;">Reusable "Bento blocks" enabled no-code merchandising, allowing marketing teams to update layouts without developer intervention.</p>
+                                </div>
+                                <div style="flex: 1; min-width: 140px; text-align: center; background: white; border: 2px solid #641ff9; border-radius: 8px; padding: 15px; margin-bottom: 10px;">
+                                    <div style="background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin: 0 auto 10px;">3</div>
+                                    <div style="color: #000; font-size: 12px; font-weight: 700; margin-bottom: 8px;">Configurable Pricing Engine</div>
+                                    <p style="color: #000; font-size: 10px; font-weight: 600; margin: 0;">A centralized discount logic system handled complex rules across regions, customer types, and product mixes, eliminating manual errors.</p>
+                                </div>
+                                <div style="flex: 1; min-width: 140px; text-align: center; background: white; border: 2px solid #641ff9; border-radius: 8px; padding: 15px; margin-bottom: 10px;">
+                                    <div style="background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin: 0 auto 10px;">4</div>
+                                    <div style="color: #000; font-size: 12px; font-weight: 700; margin-bottom: 8px;">Custom Admin Applications</div>
+                                    <p style="color: #000; font-size: 10px; font-weight: 600; margin: 0;">Bespoke extensions supported bulk gift card generation, Excel exports, and automated audit logging, improving transparency and efficiency.</p>
+                                </div>
+                                <div style="flex: 1; min-width: 140px; text-align: center; background: white; border: 2px solid #641ff9; border-radius: 8px; padding: 15px; margin-bottom: 10px;">
+                                    <div style="background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin: 0 auto 10px;">5</div>
+                                    <div style="color: #000; font-size: 12px; font-weight: 700; margin-bottom: 8px;">AI-Driven Engagement</div>
+                                    <p style="color: #000; font-size: 10px; font-weight: 600; margin: 0;">An intelligent chatbot provided agronomy-specific answers, personalized recommendations, and self-service support, reducing strain on internal teams.</p>
+                                </div>
+                            </div>
+                            
+                            <div style="background: #e3f2fd; border: 1px solid #2196f3; border-radius: 6px; padding: 15px; margin: 15px 0; font-weight: 600;">Impact: This blueprint empowered non-technical teams to manage storefront logic and content, while devs focused on governance, CI/CD, and scalability thus establishing a sustainable cycle of innovation.</div>
+                        </div>
+                    </div>
+                `;
                 
-                sections.forEach(section => {
-                    if (yPos > 240) {
-                        pdf.addPage();
-                        yPos = 20;
-                    }
+                // Section 3: Innovation Architecture
+                caseStudyHTML += `
+                    <div style="margin-bottom: 30px; padding: 20px; border-left: 4px solid #641ff9; background: #f8f9fa;">
+                        <h3 style="color: #0b1124; font-size: 18px; margin-bottom: 15px;">3. Innovation Architecture</h3>
+                        <div style="color: #3c445a; font-size: 14px; line-height: 1.6;">
+                            <p style="margin-bottom: 15px;">The modernization followed a composable, iterative architecture — delivering rapid releases while ensuring stability and scalability. Capabilities were introduced, tested, and refined in short feedback cycles with production telemetry guiding improvements.</p>
+                            
+                            <div style="background: #f0f9ff; border-radius: 12px; padding: 20px; margin: 20px 0; text-align: center;">
+                                <div style="margin-bottom: 20px;">
+                                    <div style="display: inline-block; background: white; color: #0b1124; padding: 12px 20px; border: 2px solid #641ff9; border-radius: 12px; font-weight: 700; font-size: 14px;">🛒 Shopify Platform</div>
+                                </div>
+                                <div style="width: 2px; height: 20px; background: linear-gradient(180deg, #641ff9, #02c5f7); margin: 0 auto;"></div>
+                                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
+                                    <div style="background: white; border: 2px solid #ff6b6b; border-radius: 12px; padding: 15px; min-width: 120px; text-align: center;">
+                                        <div style="font-size: 20px; margin-bottom: 8px;">🎨</div>
+                                        <div style="font-size: 12px; font-weight: 700; color: #0b1124; margin-bottom: 4px;">Frontend</div>
+                                        <div style="font-size: 10px; color: #1a1a1a; font-weight: 600;">Liquid + Polaris Design</div>
+                                    </div>
+                                    <div style="background: white; border: 2px solid #4ecdc4; border-radius: 12px; padding: 15px; min-width: 120px; text-align: center;">
+                                        <div style="font-size: 20px; margin-bottom: 8px;">⚙️</div>
+                                        <div style="font-size: 12px; font-weight: 700; color: #0b1124; margin-bottom: 4px;">Backend</div>
+                                        <div style="font-size: 10px; color: #1a1a1a; font-weight: 600;">Remix + CI/CD</div>
+                                    </div>
+                                    <div style="background: white; border: 2px solid #45b7d1; border-radius: 12px; padding: 15px; min-width: 120px; text-align: center;">
+                                        <div style="font-size: 20px; margin-bottom: 8px;">🔧</div>
+                                        <div style="font-size: 12px; font-weight: 700; color: #0b1124; margin-bottom: 4px;">Configuration</div>
+                                        <div style="font-size: 10px; color: #1a1a1a; font-weight: 600;">Metaobjects + Rules</div>
+                                    </div>
+                                    <div style="background: white; border: 2px solid #96ceb4; border-radius: 12px; padding: 15px; min-width: 120px; text-align: center;">
+                                        <div style="font-size: 20px; margin-bottom: 8px;">🤖</div>
+                                        <div style="font-size: 12px; font-weight: 700; color: #0b1124; margin-bottom: 4px;">AI Layer</div>
+                                        <div style="font-size: 10px; color: #1a1a1a; font-weight: 600;">LangChain + GPT</div>
+                                    </div>
+                                    <div style="background: white; border: 2px solid #feca57; border-radius: 12px; padding: 15px; min-width: 120px; text-align: center;">
+                                        <div style="font-size: 20px; margin-bottom: 8px;">🔄</div>
+                                        <div style="font-size: 12px; font-weight: 700; color: #0b1124; margin-bottom: 4px;">Automation</div>
+                                        <div style="font-size: 10px; color: #1a1a1a; font-weight: 600;">RPA + OCR</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <ul style="margin: 15px 0; padding-left: 20px;">
+                                <li style="margin-bottom: 8px;"><strong>Frontend:</strong> Shopify Liquid with Polaris design system and responsive Theme Editor for modular, reusable UI components delivering brand uniformity and seamless mobile/desktop usability.</li>
+                                <li style="margin-bottom: 8px;"><strong>Backend:</strong> Remix framework with Shopify Admin APIs, automated CI/CD via GitHub workflows, and Robot Framework for disciplined deployments with peer review and staging validation.</li>
+                                <li style="margin-bottom: 8px;"><strong>Configuration:</strong> Metaobjects and metafields decoupled business logic, enabling low-code updates and environment-specific rules for complex fertilizer pricing across regions and customer types.</li>
+                                <li style="margin-bottom: 8px;"><strong>AI Layer:</strong> LangChain (ReAct Agent) with GPT-4o-mini, OpenSearch, and BGE Reranker powering contextual search and agronomy-specific fertilizer recommendations with conversational support.</li>
+                                <li style="margin-bottom: 8px;"><strong>Automation:</strong> RPA with OCR for Mainchain logistics sync, workflows for bulk gift card generation, audit trails, and automated tracking status updates.</li>
+                            </ul>
+                            <div style="background: #e3f2fd; border: 1px solid #2196f3; border-radius: 6px; padding: 15px; margin: 15px 0; font-weight: 600;">Achievement: This incremental delivery model enabled continuous innovation—deploying 30+ features in the first year without major rework or downtime.</div>
+                        </div>
+                    </div>
+                `;
+                
+                // Section 4: Implementation Process
+                caseStudyHTML += `
+                    <div style="margin-bottom: 30px; padding: 20px; border-left: 4px solid #641ff9; background: #f8f9fa;">
+                        <h3 style="color: #0b1124; font-size: 18px; margin-bottom: 15px;">4. Implementation Process</h3>
+                        <div style="color: #3c445a; font-size: 14px; line-height: 1.6;">
+                            <p style="margin-bottom: 15px;">Development was restructured around GitHub version control with a disciplined three-environment setup (Dev, Pre-Prod, Production). Feature branches underwent peer review, staging validation, and weekly scheduled deployments with automated sanity checks.</p>
+                            <p style="margin-bottom: 15px;">Modular components were introduced to reduce engineering overhead:</p>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                                <div style="background: white; border-radius: 12px; padding: 20px; border-left: 4px solid #ff6b6b;">
+                                    <div style="background: #fff5f5; border: 2px solid #ff6b6b; border-radius: 8px; padding: 10px; margin-bottom: 10px; min-height: 60px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 9px; color: #000; font-weight: 600;">Full-Width Layout | Split View | Grid Config</div>
+                                    <h5 style="font-size: 14px; font-weight: 700; color: #0b1124; margin-bottom: 8px;">Bento Blocks</h5>
+                                    <p style="font-size: 11px; color: #3c445a; margin: 0;">Five layout types editable via Theme Editor, supporting full-width, split, and grid configurations for flexible merchandising.</p>
+                                </div>
+                                <div style="background: white; border-radius: 12px; padding: 20px; border-left: 4px solid #4ecdc4;">
+                                    <div style="background: #f0fdfc; border: 2px solid #4ecdc4; border-radius: 8px; padding: 10px; margin-bottom: 10px; min-height: 60px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                                        <div style="background: #4ecdc4; color: white; padding: 4px 8px; border-radius: 4px; font-size: 9px; font-weight: 600; margin-bottom: 6px;">Checkout Extension</div>
+                                        <div style="font-size: 9px; color: #000; font-weight: 600;">"You may also like" block with PDP/Add-to-Cart logic</div>
+                                    </div>
+                                    <h5 style="font-size: 14px; font-weight: 700; color: #0b1124; margin-bottom: 8px;">Checkout Extension</h5>
+                                    <p style="font-size: 11px; color: #3c445a; margin: 0;">Intelligent recommendation block with PDP/Add-to-Cart logic to boost conversion rates during checkout process.</p>
+                                </div>
+                                <div style="background: white; border-radius: 12px; padding: 20px; border-left: 4px solid #45b7d1;">
+                                    <div style="background: linear-gradient(135deg, #45b7d1, #3498db); border-radius: 8px; padding: 10px; margin-bottom: 10px; min-height: 60px; color: white; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                                        <div style="font-size: 10px; font-weight: 600; margin-bottom: 6px;">GIFT CARD</div>
+                                        <div style="font-size: 9px; font-weight: 600;">Bulk creation, secure codes, Excel export & audit trails</div>
+                                    </div>
+                                    <h5 style="font-size: 14px; font-weight: 700; color: #0b1124; margin-bottom: 8px;">Gift Card Generator</h5>
+                                    <p style="font-size: 11px; color: #3c445a; margin: 0;">Bulk gift card creation with secure code generation, Excel export capabilities, and comprehensive audit trails.</p>
+                                </div>
+                                <div style="background: white; border-radius: 12px; padding: 20px; border-left: 4px solid #96ceb4;">
+                                    <div style="background: #f0f9f7; border: 2px solid #96ceb4; border-radius: 8px; padding: 10px; margin-bottom: 10px; min-height: 60px; position: relative; display: flex; align-items: center; justify-content: center; text-align: center;">
+                                        <div style="position: absolute; top: -6px; right: 8px; background: #96ceb4; color: white; padding: 2px 6px; border-radius: 8px; font-size: 8px; font-weight: 600;">25% OFF</div>
+                                        <div style="font-size: 9px; color: #000; font-weight: 600;">Store-specific rules, cart thresholds, exclusions & caps</div>
+                                    </div>
+                                    <h5 style="font-size: 14px; font-weight: 700; color: #0b1124; margin-bottom: 8px;">Discount Engine</h5>
+                                    <p style="font-size: 11px; color: #3c445a; margin: 0;">Advanced pricing rules with store-specific logic, cart thresholds, product exclusions, and discount caps.</p>
+                                </div>
+                            </div>
+                            
+                            <p style="margin-bottom: 15px;">Automation extended beyond the storefront, with RPA syncing Shopify orders to Mainchain logistics via OCR to extract tracking status and update Shopify metafields, tags, and audit logs.</p>
+                            <p style="margin-bottom: 15px;">The AI chatbot, built on Agentic RAG, embedded fertilizer data into a vector database for precise retrieval and conversational responses. Langchain's AgentExecutor wrapped the chatbot with message history, safety guardrails, and streaming UI integration.</p>
+                        </div>
+                    </div>
+                `;
+                
+                // Section 5: Results & ROI
+                caseStudyHTML += `
+                    <div style="margin-bottom: 15px; padding: 12px; border-left: 3px solid #641ff9; background: #f8f9fa;">
+                        <h3 style="color: #0b1124; font-size: 14px; margin-bottom: 8px;">5. Results & ROI</h3>
+                        <div style="color: #3c445a; font-size: 11px; line-height: 1.3;">
+                            <div style="background: #e3f2fd; border: 1px solid #2196f3; border-radius: 4px; padding: 8px; margin: 8px 0; font-weight: 600; font-size: 10px;">Revenue Impact: On track to exceed NZD $2M in revenue with clear efficiency gains.</div>
+                            
+                            <div style="display: flex; gap: 0; width: 100%; margin: 12px 0;">
+                                <div style="flex: 1; background: white; border: 1px solid #e2e8f0; padding: 8px 6px; text-align: center; min-height: 50px; display: flex; flex-direction: column; justify-content: center;">
+                                    <div style="font-size: 12px; margin-bottom: 4px; color: #641ff9; font-weight: 700;">SPEED</div>
+                                    <div style="font-size: 9px; font-weight: 600; color: #3c445a; margin-bottom: 4px;">Engineering Efficiency</div>
+                                    <p style="font-size: 7px; color: #1a1a1a; font-weight: 500; margin: 0;">Reduced effort for campaigns</p>
+                                </div>
+                                <div style="flex: 1; background: white; border: 1px solid #e2e8f0; padding: 8px 6px; text-align: center; min-height: 50px; display: flex; flex-direction: column; justify-content: center;">
+                                    <div style="font-size: 12px; margin-bottom: 4px; color: #641ff9; font-weight: 700;">ZERO</div>
+                                    <div style="font-size: 9px; font-weight: 600; color: #3c445a; margin-bottom: 4px;">Zero Downtime</div>
+                                    <p style="font-size: 7px; color: #1a1a1a; font-weight: 500; margin: 0;">CI/CD discipline</p>
+                                </div>
+                                <div style="flex: 1; background: white; border: 1px solid #e2e8f0; padding: 8px 6px; text-align: center; min-height: 50px; display: flex; flex-direction: column; justify-content: center;">
+                                    <div style="font-size: 12px; margin-bottom: 4px; color: #641ff9; font-weight: 700;">HAPPY</div>
+                                    <div style="font-size: 9px; font-weight: 600; color: #3c445a; margin-bottom: 4px;">Customer Satisfaction</div>
+                                    <p style="font-size: 7px; color: #1a1a1a; font-weight: 500; margin: 0;">Faster checkout & AI</p>
+                                </div>
+                                <div style="flex: 1; background: white; border: 1px solid #e2e8f0; padding: 8px 6px; text-align: center; min-height: 50px; display: flex; flex-direction: column; justify-content: center;">
+                                    <div style="font-size: 12px; margin-bottom: 4px; color: #641ff9; font-weight: 700;">POWER</div>
+                                    <div style="font-size: 9px; font-weight: 600; color: #3c445a; margin-bottom: 4px;">Team Empowerment</div>
+                                    <p style="font-size: 7px; color: #1a1a1a; font-weight: 500; margin: 0;">Direct content management</p>
+                                </div>
+                            </div>
+                            
+                            <div style="background: #e3f2fd; border: 1px solid #2196f3; border-radius: 4px; padding: 8px; margin: 8px 0; font-weight: 600; font-size: 10px;">Long-term Value: Established repeatable, data-driven development model for continuous innovation.</div>
+                        </div>
+                    </div>
+                `;
+                
+                caseStudyHTML += '</div>';
+                
+                container.innerHTML = caseStudyHTML;
+                container.style.visibility = 'visible';
+                container.style.position = 'static';
+                container.style.left = 'auto';
+                container.style.top = '0';
+                container.style.transform = 'none';
+                
+                setTimeout(() => {
+                    const opt = {
+                        margin: [0.3, 0.3, 0.3, 0.3],
+                        filename: 'resupply_case_study.pdf',
+                        pagebreak: { mode: ['avoid-all', 'css'], avoid: 'img' },
+                        image: { type: 'jpeg', quality: 0.95 },
+                        html2canvas: { 
+                            scale: 0.75,
+                            useCORS: true,
+                            letterRendering: true,
+                            allowTaint: false,
+                            backgroundColor: '#ffffff',
+                            scrollX: 0,
+                            scrollY: 0
+                        },
+                        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+                    };
                     
-                    // Section title
-                    pdf.setFontSize(11);
-                    pdf.setFont(undefined, 'bold');
-                    const titleLines = pdf.splitTextToSize(section.title, 170);
-                    titleLines.forEach(line => {
-                        if (yPos > 270) {
-                            pdf.addPage();
-                            yPos = 20;
-                        }
-                        pdf.text(line, 20, yPos);
-                        yPos += 7;
+                    html2pdf().set(opt).from(container).toPdf().get('pdf').then(function (pdf) {
+                        pdf.save('resupply_case_study.pdf');
+                        container.innerHTML = '';
+                        container.style.visibility = 'hidden';
+                        container.style.position = 'absolute';
+                        container.style.left = '-9999px';
+                    }).catch(error => {
+                        console.error('PDF generation failed:', error);
+                        container.innerHTML = '';
+                        container.style.visibility = 'hidden';
+                        container.style.position = 'absolute';
+                        container.style.left = '-9999px';
                     });
-                    yPos += 5;
-                    
-                    // Section content
-                    pdf.setFontSize(9);
-                    pdf.setFont(undefined, 'normal');
-                    const paragraphs = section.content.split('\n\n');
-                    
-                    paragraphs.forEach(paragraph => {
-                        if (!paragraph.trim()) return;
-                        
-                        const lines = pdf.splitTextToSize(paragraph.trim(), 170);
-                        lines.forEach(line => {
-                            if (yPos > 275) {
-                                pdf.addPage();
-                                yPos = 20;
-                            }
-                            pdf.text(line, 20, yPos);
-                            yPos += 5;
-                        });
-                        yPos += 3;
-                    });
-                    
-                    yPos += 8;
-                });
-                
-                // Footer
-                const pageCount = pdf.internal.getNumberOfPages();
-                for (let i = 1; i <= pageCount; i++) {
-                    pdf.setPage(i);
-                    pdf.setFontSize(8);
-                    pdf.setFont(undefined, 'normal');
-                    pdf.text('aibridge - Resupply Case Study', 20, 285);
-                    pdf.text(`Page ${i} of ${pageCount}`, 170, 285);
-                }
-                
-                pdf.save('resupply_case_study.pdf');
+                }, 500);
             }
         </script>
     </body>
