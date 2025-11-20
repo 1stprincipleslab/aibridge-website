@@ -166,6 +166,30 @@
                 margin: 0;
                 line-height: 1.6;
             }
+            
+            .service-cta-btn {
+                background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%);
+                color: #fff;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 25px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                box-shadow: 0 4px 15px rgba(100, 31, 249, 0.3);
+                display: inline-block;
+                margin-top: 30px;
+            }
+            
+            .service-cta-btn:hover {
+                background: linear-gradient(267deg, #02c5f7 27.93%, #641ff9 99.79%);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(100, 31, 249, 0.4);
+                color: #fff;
+                text-decoration: none;
+            }
         </style>
         
         <!--[if lt IE 9]>
@@ -335,6 +359,7 @@
             const serviceData = {
                 'ai-teams': {
                     title: 'AI-Based Development Teams',
+                    ctaText: 'Let\'s Talk AI Development',
                     topics: [
                         {
                             title: 'What Makes a Development Team Truly AI-Native?',
@@ -397,6 +422,7 @@
                 },
                 'enterprise-arch': {
                     title: 'Enterprise Architecture',
+                    ctaText: 'Discuss Your Architecture Needs',
                     topics: [
                         {
                             title: 'Why Cloud-Native Isn\'t Enough — You Need AI-Native Architecture',
@@ -463,6 +489,7 @@
                 },
                 'custom-ai': {
                     title: 'Custom AI Solutions & LLM Fine-Tuning',
+                    ctaText: 'Explore Custom AI Solutions',
                     topics: [
                         {
                             title: 'Fine-Tuning LLMs for Domain-Specific Intelligence: What Most Teams Miss',
@@ -556,6 +583,7 @@
                 },
                 'ai-native': {
                     title: 'AI-Native Consultancy',
+                    ctaText: 'Experience AI-Native Consulting',
                     topics: [
                         {
                             title: 'What Is an AI-Native Consultancy — and Why It\'s a Game-Changer for Product Teams',
@@ -672,6 +700,7 @@
                 },
                 'rapid-prototyping': {
                     title: 'Rapid Prototyping',
+                    ctaText: 'Start Your Rapid Prototype',
                     topics: [
                         {
                             title: 'From Concept to Clickable Prototype in Days',
@@ -742,6 +771,7 @@
                 },
                 'fractional-cto-services': {
                     title: 'Fractional CTO Services',
+                    ctaText: 'Get Strategic Tech Leadership',
                     topics: [
                         {
                             title: 'Executive-Level Tech Leadership Without Full-Time Overhead',
@@ -841,6 +871,7 @@
                 },
                 'ai-advisory': {
                     title: 'AI Advisory & Roadmapping',
+                    ctaText: 'Plan Your AI Strategy',
                     topics: [
                         {
                             title: 'Practical AI Strategy Development',
@@ -965,6 +996,8 @@
                         </div>
                     `;
                 });
+                
+                html += `<div style="text-align: right; padding-bottom: 30px;"><a href="contact.html" class="service-cta-btn">${service.ctaText}</a></div>`;
                 
                 content.innerHTML = html;
                 modal.style.display = 'block';
