@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				</div>
 				<div class="col-lg-2 col-sm-6 col-12 footer-menu">
 					<div class="footer-item">
-						<h4>Site map</h4>
+						
 						<ul class="list-unstyled">
 							<li><a href="index.html">Home</a></li>
 							<li><a href="about.html">About us</a></li>
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				</div>
 				<div class="col-lg-2 col-sm-6 col-12 footer-menu">
 					<div class="footer-item">
-						<h4>Company</h4>
+						
 						<ul class="list-unstyled">
 							<li><a href="terms.html">Terms & Conditions</a></li>
 							<li><a href="policy.html">Privacy Policy</a></li>
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				</div>
 				<div class="col-lg-4 col-sm-6 col-12 footer-menu">
 					<div class="footer-item">
-						<h4>Subscribe Newsletter</h4>
+						
 						<div class="blog-sidebar" style="background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%); color: #fff;">
 							<h3 class="sidebar-title" style="color: #fff;">Stay Updated</h3>
 							<p style="color: #fff; margin-bottom: 20px;">Get the latest insights delivered to your inbox. No spam, just valuable content.</p>
