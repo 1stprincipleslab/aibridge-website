@@ -84,20 +84,7 @@
                 transition: all 0.3s ease;
             }
             
-            .service-download {
-                width: 35px;
-                height: 35px;
-                border-radius: 50%;
-                background: white;
-                color: #641ff9;
-                border: 2px solid #641ff9;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 14px;
-                transition: all 0.3s ease;
-                cursor: pointer;
-            }
+
             
             .service-item:hover .service-learn-more {
                 background: linear-gradient(267deg, #02c5f7 27.93%, #641ff9 99.79%);
@@ -105,10 +92,7 @@
                 box-shadow: 0 4px 12px rgba(100, 31, 249, 0.3);
             }
             
-            .service-download:hover {
-                background: #641ff9;
-                color: white;
-            }
+
             
 
             
@@ -182,6 +166,30 @@
                 margin: 0;
                 line-height: 1.6;
             }
+            
+            .service-cta-btn {
+                background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%);
+                color: #fff;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 25px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                box-shadow: 0 4px 15px rgba(100, 31, 249, 0.3);
+                display: inline-block;
+                margin-top: 30px;
+            }
+            
+            .service-cta-btn:hover {
+                background: linear-gradient(267deg, #02c5f7 27.93%, #641ff9 99.79%);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(100, 31, 249, 0.4);
+                color: #fff;
+                text-decoration: none;
+            }
         </style>
         
         <!--[if lt IE 9]>
@@ -234,7 +242,6 @@
 							</div>
 							<div class="service-buttons">
 								<button class="service-learn-more">Learn More</button>
-								<button class="service-download" onclick="downloadService('rapid-prototyping'); event.stopPropagation();"><i class="fa fa-download"></i></button>
 							</div>
 						</div>
 					</div>
@@ -249,7 +256,6 @@
 							</div>
 							<div class="service-buttons">
 								<button class="service-learn-more">Learn More</button>
-								<button class="service-download" onclick="downloadService('ai-teams'); event.stopPropagation();"><i class="fa fa-download"></i></button>
 							</div>
 						</div>
 					</div>
@@ -264,7 +270,6 @@
 							</div>
 							<div class="service-buttons">
 								<button class="service-learn-more">Learn More</button>
-								<button class="service-download" onclick="downloadService('fractional-cto-services'); event.stopPropagation();"><i class="fa fa-download"></i></button>
 							</div>
 						</div>
 					</div>
@@ -279,7 +284,6 @@
 							</div>
 							<div class="service-buttons">
 								<button class="service-learn-more">Learn More</button>
-								<button class="service-download" onclick="downloadService('enterprise-arch'); event.stopPropagation();"><i class="fa fa-download"></i></button>
 							</div>
 						</div>
 					</div>
@@ -294,7 +298,6 @@
 							</div>
 							<div class="service-buttons">
 								<button class="service-learn-more">Learn More</button>
-								<button class="service-download" onclick="downloadService('ai-advisory'); event.stopPropagation();"><i class="fa fa-download"></i></button>
 							</div>
 						</div>
 					</div>
@@ -309,7 +312,6 @@
 							</div>
 							<div class="service-buttons">
 								<button class="service-learn-more">Learn More</button>
-								<button class="service-download" onclick="downloadService('custom-ai'); event.stopPropagation();"><i class="fa fa-download"></i></button>
 							</div>
 						</div>
 					</div>
@@ -317,54 +319,6 @@
 			</div>
 		</section>
 
-		<!-- ========== Start Process ========== -->
-
-		<section class="roadmap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h3 class="main-title">Our Process</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="roadmap-items">
-                            <div class="roadmap-item left">
-                                <div class="roadmap-item-inner">
-                                    <h4>Co-Create the Vision</h4>
-                                    <p>We don’t write a brief  we co-design the opportunity. In joint workshops, we align on business goals, user context, and AI-readiness. It’s not discovery, it’s direction-setting  together.</p>
-                                </div>
-                            </div>
-                            <div class="roadmap-item right">
-                                <div class="roadmap-item-inner">
-                                    <h4>Prototype Fast, Validate Faster</h4>
-                                    <p>Ideas are only as good as their speed to insight. We build functional prototypes or AI PoCs in days, not weeks  rapidly testing what works, what doesn’t, and where value truly lies.</p>
-                                </div>
-                            </div>
-                            <div class="roadmap-item left">
-                                <div class="roadmap-item-inner">
-                                    <h4>Build with Velocity + Intelligence</h4>
-                                    <p>Our distributed squads use modern stacks, AI accelerators, and automation to move fast  but with intent. Every sprint is measurable, shippable, and guided by real feedback and real-world context.</p>
-                                </div>
-                            </div>
-                            <div class="roadmap-item right">
-                                <div class="roadmap-item-inner">
-                                    <h4>Scale What Matters</h4>
-                                    <p>Once validated, we scale. Whether it’s an LLM-powered product or a platform refactor, we focus on the 20% that drives 80% of the impact  without over-engineering.</p>
-                                </div>
-                            </div>
-							<div class="roadmap-item left">
-                                <div class="roadmap-item-inner">
-                                    <h4>Stay Adaptive</h4>
-                                    <p>Markets shift. So do we. Post-launch, we embed data loops, monitor performance, and refine continuously  keeping your solution relevant, resilient, and ready for what’s next.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-		<!-- ========== End Services ========== -->
 
         <!-- ========== Start Footer ========== -->
         <div id="footer-placeholder"></div>
@@ -387,8 +341,7 @@
     	<script src="js/popper.min.js"></script>
         <!-- Bootstrap 4 Js -->
         <script src="js/bootstrap.min.js"></script>
-        <!-- html2pdf for PDF generation -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
         <!-- Custom Js -->
         <script src="js/custom.js"></script>
         <!-- Components Js -->
@@ -406,6 +359,7 @@
             const serviceData = {
                 'ai-teams': {
                     title: 'AI-Based Development Teams',
+                    ctaText: 'Let\'s Talk AI Development',
                     topics: [
                         {
                             title: 'What Makes a Development Team Truly AI-Native?',
@@ -468,6 +422,7 @@
                 },
                 'enterprise-arch': {
                     title: 'Enterprise Architecture',
+                    ctaText: 'Discuss Your Architecture Needs',
                     topics: [
                         {
                             title: 'Why Cloud-Native Isn\'t Enough — You Need AI-Native Architecture',
@@ -534,6 +489,7 @@
                 },
                 'custom-ai': {
                     title: 'Custom AI Solutions & LLM Fine-Tuning',
+                    ctaText: 'Explore Custom AI Solutions',
                     topics: [
                         {
                             title: 'Fine-Tuning LLMs for Domain-Specific Intelligence: What Most Teams Miss',
@@ -627,6 +583,7 @@
                 },
                 'ai-native': {
                     title: 'AI-Native Consultancy',
+                    ctaText: 'Experience AI-Native Consulting',
                     topics: [
                         {
                             title: 'What Is an AI-Native Consultancy — and Why It\'s a Game-Changer for Product Teams',
@@ -743,6 +700,7 @@
                 },
                 'rapid-prototyping': {
                     title: 'Rapid Prototyping',
+                    ctaText: 'Start Your Rapid Prototype',
                     topics: [
                         {
                             title: 'From Concept to Clickable Prototype in Days',
@@ -813,6 +771,7 @@
                 },
                 'fractional-cto-services': {
                     title: 'Fractional CTO Services',
+                    ctaText: 'Get Strategic Tech Leadership',
                     topics: [
                         {
                             title: 'Executive-Level Tech Leadership Without Full-Time Overhead',
@@ -912,6 +871,7 @@
                 },
                 'ai-advisory': {
                     title: 'AI Advisory & Roadmapping',
+                    ctaText: 'Plan Your AI Strategy',
                     topics: [
                         {
                             title: 'Practical AI Strategy Development',
@@ -1037,6 +997,8 @@
                     `;
                 });
                 
+                html += `<div style="text-align: right; padding-bottom: 30px;"><a href="contact.html" class="service-cta-btn">${service.ctaText}</a></div>`;
+                
                 content.innerHTML = html;
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
@@ -1054,167 +1016,7 @@
                 }
             });
             
-            function downloadService(serviceId) {
-                const service = serviceData[serviceId];
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF();
-                
-                // Title
-                doc.setFontSize(18);
-                doc.setFont(undefined, 'bold');
-                doc.text(service.title, 20, 30);
-                
-                let yPosition = 50;
-                
-                service.topics.forEach(topic => {
-                    // Check if we need a new page
-                    if (yPosition > 250) {
-                        doc.addPage();
-                        yPosition = 30;
-                    }
-                    
-                    // Topic title
-                    doc.setFontSize(14);
-                    doc.setFont(undefined, 'bold');
-                    const titleLines = doc.splitTextToSize(topic.title, 170);
-                    titleLines.forEach(line => {
-                        doc.text(line, 20, yPosition);
-                        yPosition += 7;
-                    });
-                    yPosition += 5;
-                    
-                    // Parse HTML content to maintain structure
-                    const tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = topic.description;
-                    
-                    const elements = tempDiv.children;
-                    for (let i = 0; i < elements.length; i++) {
-                        const element = elements[i];
-                        
-                        if (element.tagName === 'P') {
-                            doc.setFontSize(10);
-                            doc.setFont(undefined, 'normal');
-                            const text = element.textContent.trim();
-                            if (text) {
-                                const lines = doc.splitTextToSize(text, 170);
-                                lines.forEach(line => {
-                                    if (yPosition > 280) {
-                                        doc.addPage();
-                                        yPosition = 20;
-                                    }
-                                    doc.text(line, 20, yPosition);
-                                    yPosition += 5;
-                                });
-                                yPosition += 3;
-                            }
-                        } else if (element.tagName === 'H5' || element.tagName === 'H6') {
-                            doc.setFontSize(12);
-                            doc.setFont(undefined, 'bold');
-                            const text = element.textContent.trim();
-                            if (text) {
-                                if (yPosition > 270) {
-                                    doc.addPage();
-                                    yPosition = 20;
-                                }
-                                doc.text(text, 20, yPosition);
-                                yPosition += 8;
-                            }
-                        } else if (element.tagName === 'UL') {
-                            doc.setFontSize(10);
-                            doc.setFont(undefined, 'normal');
-                            const listItems = element.querySelectorAll('li');
-                            listItems.forEach(li => {
-                                const text = li.textContent.trim();
-                                if (text) {
-                                    const lines = doc.splitTextToSize('• ' + text, 165);
-                                    lines.forEach(line => {
-                                        if (yPosition > 280) {
-                                            doc.addPage();
-                                            yPosition = 20;
-                                        }
-                                        doc.text(line, 25, yPosition);
-                                        yPosition += 5;
-                                    });
-                                }
-                            });
-                            yPosition += 3;
-                        }
-                    }
-                    
-                    yPosition += 10;
-                });
-                
-                doc.save(`${service.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.pdf`);
-            }
-            
-            function downloadService(serviceId) {
-                // Open modal invisibly for all service cards
-                const modal = document.getElementById('serviceModal');
-                const content = document.getElementById('modalContent');
-                
-                const service = serviceData[serviceId];
-                let html = `<h3>${service.title}</h3>`;
-                service.topics.forEach(topic => {
-                    html += `
-                        <div class="service-modal-topic">
-                            <h4>${topic.title}</h4>
-                            <p>${topic.description}</p>
-                        </div>
-                    `;
-                });
-                content.innerHTML = html;
-                
-                // Keep modal hidden but rendered
-                modal.style.display = 'block';
-                modal.style.visibility = 'hidden';
-                modal.style.position = 'absolute';
-                modal.style.top = '-9999px';
-                
-                setTimeout(() => {
-                    const modalContent = document.getElementById('modalContent');
-                    
-                    // Add CSS to reset modal content positioning
-                    const style = document.createElement('style');
-                    style.textContent = `
-                        #modalContent {
-                            margin: 0 !important;
-                            padding: 0 !important;
-                            position: static !important;
-                            transform: none !important;
-                        }
-                        #modalContent h3:first-child {
-                            margin-top: 0 !important;
-                            padding-top: 0 !important;
-                        }
-                    `;
-                    document.head.appendChild(style);
-                    
-                    const opt = {
-                        margin: [0.3, 0.5, 0.3, 0.5],
-                        filename: `${service.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.pdf`,
-                        image: { type: 'jpeg', quality: 0.98 },
-                        html2canvas: { 
-                            scale: 2,
-                            useCORS: true,
-                            letterRendering: true,
-                            allowTaint: false,
-                            backgroundColor: '#ffffff',
-                            y: 0,
-                            scrollY: 0
-                        },
-                        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
-                        pagebreak: { mode: ['avoid-all', 'css'], avoid: '.service-modal-topic' }
-                    };
-                    
-                    html2pdf().set(opt).from(modalContent).save().then(() => {
-                        document.head.removeChild(style);
-                        modal.style.display = 'none';
-                        modal.style.visibility = 'visible';
-                        modal.style.position = 'fixed';
-                        modal.style.top = '120px';
-                    });
-                }, 500);
-            }
+
             
             // Topographic Logic Layers Background
             document.addEventListener('DOMContentLoaded', function() {
