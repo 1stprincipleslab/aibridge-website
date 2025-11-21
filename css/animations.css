@@ -69,20 +69,7 @@ Author: AI Bridge
 
 /* ============================================
    BASE BODY GRADIENT BACKGROUND
-============================================ */
-
-body {
-    position: relative;
-    background: linear-gradient(135deg, 
-        #f0f4ff 0%, 
-        #fef3f8 25%, 
-        #fff9f0 50%, 
-        #f0fff4 75%, 
-        #f0f9ff 100%);
-    background-size: 400% 400%;
-    animation: gradientFlow 20s ease infinite;
-}
-
+============================================ 
 body::before {
     content: '';
     position: fixed;
@@ -98,6 +85,7 @@ body::before {
     pointer-events: none;
     z-index: 0;
 }
+    */
 
 /* ============================================
    FLOATING ORBS BACKGROUND
@@ -206,128 +194,12 @@ body::before {
 ============================================ */
 
 /* Home Section with Animated Gradient */
-.home {
-    position: relative;
-    background: linear-gradient(135deg, 
-        rgba(240, 244, 255, 0.9) 0%, 
-        rgba(254, 243, 248, 0.9) 50%, 
-        rgba(255, 249, 240, 0.9) 100%);
-    background-size: 200% 200%;
-    animation: gradientFlow 15s ease infinite;
-}
 
-.home::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(80px);
-    animation: floatingSlow 20s ease-in-out infinite;
-}
-
-.home::after {
-    content: '';
-    position: absolute;
-    bottom: -30%;
-    left: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(70px);
-    animation: floatingSlow 18s ease-in-out infinite reverse;
-}
 
 /* Features Section */
 .features {
     position: relative;
     overflow: hidden;
-}
-
-.features::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 0% 0%, rgba(167, 139, 250, 0.06) 0%, transparent 50%),
-        radial-gradient(circle at 100% 100%, rgba(96, 165, 250, 0.06) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Services Section */
-.services {
-    position: relative;
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.6) 0%, 
-        rgba(240, 249, 255, 0.6) 100%);
-}
-
-.services::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1000px;
-    height: 1000px;
-    background: radial-gradient(circle, rgba(147, 197, 253, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(100px);
-    animation: pulse 15s ease-in-out infinite;
-}
-
-/* About Section */
-.about {
-    position: relative;
-    background: linear-gradient(135deg, 
-        rgba(254, 243, 248, 0.5) 0%, 
-        rgba(255, 249, 240, 0.5) 100%);
-}
-
-.about::before {
-    content: '';
-    position: absolute;
-    top: 20%;
-    right: 10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(251, 146, 189, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(90px);
-    animation: floatingOrbs 18s ease-in-out infinite;
-}
-
-/* Roadmap Section */
-.roadmap {
-    position: relative;
-    background: linear-gradient(135deg, 
-        rgba(240, 249, 255, 0.7) 0%, 
-        rgba(243, 232, 255, 0.7) 100%);
-}
-
-/* FAQ Section */
-.faq {
-    position: relative;
-    overflow: hidden;
-}
-
-.faq::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 300px;
-    background: linear-gradient(to top, rgba(167, 139, 250, 0.05) 0%, transparent 100%);
-    pointer-events: none;
 }
 
 /* ============================================
@@ -442,21 +314,7 @@ body::before {
         inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
 }
 
-.main-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -200%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
-    animation: shimmer 3s infinite;
-}
+
 
 .main-btn:hover {
     background: linear-gradient(135deg, 
@@ -479,17 +337,6 @@ body::before {
         rgba(240, 244, 255, 0.8) 100%);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-}
-
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(to bottom, transparent 0%, rgba(167, 139, 250, 0.05) 100%);
-    pointer-events: none;
 }
 
 /* ============================================
@@ -521,7 +368,7 @@ body::before {
 
 /* ============================================
    RESPONSIVE ADJUSTMENTS
-============================================ */
+============================================ 
 
 @media (max-width: 991.98px) {
     .orb-1, .orb-2, .orb-3, .orb-4 {
@@ -535,6 +382,7 @@ body::before {
         opacity: 0.2;
     }
 }
+    */
 
 @media (max-width: 767.98px) {
     .orb-1, .orb-2, .orb-3, .orb-4 {
