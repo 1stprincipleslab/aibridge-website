@@ -1036,9 +1036,10 @@ select:-webkit-autofill:focus {
     padding-top: 120px;
 }
 
-.services .item:nth-of-type(n+4) .service-item {
+/*.services .item:nth-of-type(n+4) .service-item {
     margin-top: 30px;
 }
+    */
 
 .service-item {
     background: #ffffff;
@@ -1854,21 +1855,51 @@ select:-webkit-autofill:focus {
 	background-color: #f54033;
 }
 
+.cta-section {
+    background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%);
+    border-radius: 24px;
+    padding: 50px 30px;
+    text-align: center;
+    color: #fff;
+    margin: 60px 0;
+}
+
+.cta-section h3 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.cta-section .main-btn {
+    background: #fff;
+    color: #641ff9;
+    font-weight: 700;
+}
+
+.cta-section .main-btn:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+}
+
 /* --------------------------------------
    13. Footer
 -----------------------------------------*/
 
 .footer {
-    background: #ffffff;
+    background: #f6f7fb !important;
     margin-top: 120px;
-    border-top: 1px solid #edf0f7;
+   
 }
 
 .footer .footer-top { 
-    background: radial-gradient(1000px 300px at 10% 0%, #ffd3b6 0%, #ffb4e1 40%, #b9c6ff 80%), #ffffff;
-    background-size: 200% 200%;  /* Make gradient larger so animation looks smooth */
-    animation: gradientMove 8s ease-in-out infinite alternate;
-    
     padding-top: 80px;
     padding-bottom: 80px;
     border-bottom: 1px solid #edf0f7;
@@ -1914,7 +1945,7 @@ select:-webkit-autofill:focus {
 
 .footer .footer-top .footer-logo .my-logo {
 	position: relative;
-    top: -6px;
+    top: -25px;
     left: -4px;
 }
 
