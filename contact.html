@@ -26,6 +26,97 @@
             /* page-specific refinements for light theme */
             .contact .contact-info ul li { display:flex; gap:14px; margin-bottom:14px; }
             .contact .contact-info ul li i { color:#0b1124; margin-top:4px; }
+			.help-section {
+			background: transparent;     
+			padding: 40px 16px;
+			}
+
+			.help-card {
+			max-width: 960px;
+			margin: 0 auto;
+			background: #b7f6b4;        /* mint green */
+			border-radius: 28px;
+			padding: 28px 32px 32px;
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+			}
+
+			.help-title {
+			margin: 0 0 24px;
+			font-size: 24px;
+			color: #111;
+			}
+
+			.help-primary,
+			.help-secondary {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px;
+			}
+
+			.help-divider {
+			margin: 24px 0;
+			border-top: 1px dashed rgba(0, 0, 0, 0.15);
+			}
+
+			/* pills */
+
+			.pill {
+			border-radius: 999px;
+			padding: 10px 22px;
+			border: 1.5px solid #111;
+			background: transparent;
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			font-size: 14px;
+			color: #111;
+			cursor: pointer;
+			outline: none;
+			transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+			}
+
+			.pill-icon {
+			width: 28px;
+			height: 28px;
+			border-radius: 999px;
+			background: #111;
+			color: #b7f6b4;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 14px;
+			}
+
+			/* active (selected) state */
+
+			.pill-primary.active {
+			background: #111;
+			color: #b7f6b4;
+			}
+
+			.pill-primary.active .pill-icon {
+			background: #b7f6b4;
+			color: #111;
+			}
+
+			.pill-secondary.active {
+			background: #111;
+			color: #b7f6b4;
+			}
+
+			.pill-secondary.active .pill-icon {
+			background: #b7f6b4;
+			color: #111;
+			}
+
+			/* only show the active secondary group */
+			.help-secondary {
+			display: none;
+			}
+
+			.help-secondary.active {
+			display: flex;
+			}
         </style>
         
         <!--[if lt IE 9]>
@@ -53,6 +144,136 @@
 				</div>
 			</div>
 		</section>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+			  const primaryButtons = document.querySelectorAll('.pill-primary');
+			  const secondaryGroups = document.querySelectorAll('.help-secondary');
+			
+			  primaryButtons.forEach(button => {
+				button.addEventListener('click', () => {
+				  const target = button.dataset.target;
+				  const isAlreadyActive = button.classList.contains('active');
+			
+				  // if clicking an already active pill → deselect and hide all bottom rows
+				  if (isAlreadyActive) {
+					primaryButtons.forEach(b => b.classList.remove('active'));
+					secondaryGroups.forEach(group => group.classList.remove('active'));
+					return;
+				  }
+			
+				  // otherwise select this pill
+				  primaryButtons.forEach(b => b.classList.remove('active'));
+				  button.classList.add('active');
+			
+				  // show only the related bottom group
+				  secondaryGroups.forEach(group => {
+					group.classList.toggle('active', group.dataset.group === target);
+				  });
+				});
+			  });
+			
+			  // optional: keep only one selected in each bottom group
+			  document.querySelectorAll('.pill-secondary').forEach(btn => {
+				btn.addEventListener('click', () => {
+				  const group = btn.closest('.help-secondary');
+				  group.querySelectorAll('.pill-secondary').forEach(b => b.classList.remove('active'));
+				  btn.classList.add('active');
+				});
+			  });
+			});
+			</script>
+			
+			
+			<section class="help-section" style="margin-top: 10rem;">
+				<div class="help-card">
+				  <h2 class="help-title">How can we help you?*</h2>
+			  
+				  <!-- Top row: main services -->
+				  <div class="help-primary">
+					<button class="pill pill-primary" data-target="ai-dev">
+					  <span class="pill-icon">↺</span>
+					  <span>AI-Based Development</span>
+					</button>
+					<button class="pill pill-primary" data-target="rapid-proto">
+					  <span class="pill-icon">↺</span>
+					  <span>Rapid Prototyping</span>
+					</button>
+					<button class="pill pill-primary" data-target="fractional-cto">
+					  <span class="pill-icon">↺</span>
+					  <span>Fractional CTO</span>
+					</button>
+					<button class="pill pill-primary" data-target="enterprise-arch">
+					  <span class="pill-icon">↺</span>
+					  <span>Enterprise Architecture</span>
+					</button>
+				  </div>
+			  
+				  <div class="help-divider"></div>
+			  
+				  <!-- Bottom row groups (all hidden by default via CSS) -->
+				  <div class="help-secondary" data-group="ai-dev">
+					<button class="pill pill-secondary active">
+					  <span class="pill-icon">↺</span>
+					  <span>Machine Learning Models</span>
+					</button>
+					<button class="pill pill-secondary">
+					  <span class="pill-icon">↺</span>
+					  <span>LLM / Chatbot Integrations</span>
+					</button>
+					<button class="pill pill-secondary">
+					  <span class="pill-icon">↺</span>
+					  <span>AI Product Discovery</span>
+					</button>
+				  </div>
+			  
+				  <div class="help-secondary" data-group="rapid-proto">
+					<button class="pill pill-secondary active">
+					  <span class="pill-icon">↺</span>
+					  <span>MVP Design & Build</span>
+					</button>
+					<button class="pill pill-secondary">
+					  <span class="pill-icon">↺</span>
+					  <span>Clickable Prototypes</span>
+					</button>
+					<button class="pill pill-secondary">
+					  <span class="pill-icon">↺</span>
+					  <span>User Testing Sprints</span>
+					</button>
+				  </div>
+			  
+				  <div class="help-secondary" data-group="fractional-cto">
+					<button class="pill pill-secondary active">
+					  <span class="pill-icon">↺</span>
+					  <span>Technology Roadmapping</span>
+					</button>
+					<button class="pill pill-secondary">
+					  <span class="pill-icon">↺</span>
+					  <span>Team & Hiring Advisory</span>
+					</button>
+					<button class="pill pill-secondary">
+					  <span class="pill-icon">↺</span>
+					  <span>Architecture Review</span>
+					</button>
+				  </div>
+			  
+				  <div class="help-secondary" data-group="enterprise-arch">
+					<button class="pill pill-secondary active">
+					  <span class="pill-icon">↺</span>
+					  <span>Cloud Migration</span>
+					</button>
+					<button class="pill pill-secondary">
+					  <span class="pill-icon">↺</span>
+					  <span>Integration Platforms</span>
+					</button>
+					<button class="pill pill-secondary">
+					  <span class="pill-icon">↺</span>
+					  <span>Security & Compliance</span>
+					</button>
+				  </div>
+				</div>
+			  </section>
+			  
+		  
 
 		<!-- ========== Start Contact ========== -->
 		<section class="contact">
