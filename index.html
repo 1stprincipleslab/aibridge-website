@@ -94,13 +94,18 @@
             .right-box{
                 padding-top: 0px !important;
             }
+            .moving-list{
+                flex-wrap: wrap !important;
+                animation: none !important;
+                gap: 15px;
+            }
         }
             /* 1. Keyframes: Moves the duplicated content by 50% of its total width (the width of one set of cards). */
 @keyframes slideLoop {
  
   0% {
     /* Move left by the width of the original, non-duplicated content set */
-    transform: translateX(-50%);
+    transform: translateX(50%);
   }
 }
 
@@ -385,7 +390,7 @@
 				</div>
                 </div>
 				<a href="services.html">
-					<button style="background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%); color: #fff; border: none; padding: 10px 20px; border-radius: 15px; font-size: 16px; cursor: pointer; transition: background-color 0.3s; margin-top: 1rem;">
+					<button style="background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%); color: #fff; border: none; padding: 10px 20px; border-radius: 15px; font-size: 16px; cursor: pointer; transition: background-color 0.3s; margin-top: 1rem; display: none;">
 						Show More
 					</button>
 				</a>
