@@ -28,8 +28,13 @@
             .choose-item p { color: #3c445a; }
             
             @media (max-width: 991px) {
+                .about .row {
+                    display: flex;
+                    flex-direction: column-reverse;
+                }
                 .about-image {
-                    margin-top: 30px;
+                    margin-top: 0 !important;
+                    margin-bottom: 30px;
                 }
             }
         </style>
@@ -67,7 +72,7 @@
 				<div class="row align-items-center">
 					<div class="col-lg-6">
 						<div class="about-info">
-							<h4 class="sub-title">About aibridge</h4>
+
 							<h3 class="main-title">We're building the future  one AI-powered solution at a time.</h3>
 							<p>We're not your typical tech company. We're a collective of top-tier architects, engineers, and strategic thinkers working across New Zealand, India, and beyond  united by a simple mission: to harness the power of AI and global talent to deliver smarter, faster, and more impactful outcomes for our clients.</p>
 							<p>We specialize in building AI-native products, assembling high-performance development teams, and offering executive-level technology leadership through fractional CTO and architecture services. Whether you're a scaling startup or a modern enterprise, we help you move with clarity, velocity, and confidence.</p>
