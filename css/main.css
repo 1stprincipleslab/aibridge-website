@@ -1041,7 +1041,7 @@ select:-webkit-autofill:focus {
 -----------------------------------------*/
 
 .services {
-    padding-top: 120px;
+    padding-top: 70px;
 }
 
 /*.services .item:nth-of-type(n+4) .service-item {
@@ -1126,8 +1126,8 @@ select:-webkit-autofill:focus {
 -----------------------------------------*/
 
 .roadmap {
-    padding-top: 120px;
-    padding-bottom: 115px;
+    padding-top: 25px;
+    padding-bottom: 0px;
 }
 
 .roadmap .roadmap-items {
@@ -1526,7 +1526,7 @@ select:-webkit-autofill:focus {
 -----------------------------------------*/
 
 .faq {
-	padding-top: 120px;
+	padding-top: 0px;
 }
 
 .faq .card {
@@ -1866,7 +1866,7 @@ select:-webkit-autofill:focus {
     padding: 50px 30px;
     text-align: center;
     color: #fff;
-    margin: 60px 0;
+    margin: 40px 0px 0px 0px;
 }
 
 .cta-section h3 {
@@ -1905,7 +1905,7 @@ select:-webkit-autofill:focus {
 }
 
 .footer .footer-top { 
-    padding-top: 80px;
+    padding-top: 0px;
     padding-bottom: 0px;
     border-bottom: 1px solid #edf0f7;
 }
@@ -2723,7 +2723,7 @@ select:-webkit-autofill:focus {
 
     /*----- About ----*/
     .about {
-        padding-top: 90px;
+        padding-top: 65px;
     }
 
     .about .about-info {
@@ -2737,7 +2737,7 @@ select:-webkit-autofill:focus {
 
     /*----- Services ----*/
     .services {
-        padding-top: 90px;
+        padding-top: 40px;
     }
 
     .services .item:nth-of-type(n+2) .service-item {
@@ -2746,8 +2746,8 @@ select:-webkit-autofill:focus {
 
     /*----- Roadmap ----*/
     .roadmap {
-        padding-top: 90px;
-        padding-bottom: 42px;
+        padding-top: 40px;
+        padding-bottom: 25px;
     }
 
     .roadmap .roadmap-items {
@@ -2805,7 +2805,7 @@ select:-webkit-autofill:focus {
 
     /*----- FAQ ----*/
     .faq {
-        padding-top: 90px;
+        padding-top: 0px;
     }
 
     /*----- Blog ----*/

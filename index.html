@@ -29,6 +29,9 @@
         <![endif]-->
         <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
         <style>
+            .align-items-center {
+                background-image: url('tree.mp4');
+            }
             .bg-container {
           position: relative;
           width: 100%;
@@ -78,6 +81,9 @@
         }
         .services .service-more {
             margin-top: auto;
+        }
+        .cta-ix-section{
+            margin-top: 90px;
         }
         
         @media screen and (max-width: 733px) {
@@ -290,14 +296,10 @@
 							<a class="main-btn" href="about.html">Learn More <i class="fa fa-arrow-right"></i></a>
 						</div>
 					</div>
-					<div class="col-lg-6">
-                        <dotlottie-wc
-  src="https://lottie.host/705cc250-723d-4aa9-9fc8-ca44f134e032/TNJI8IynLr.lottie"
-  style="width: 500px;height: 500px"
-  autoplay
-  loop
-  class="animation-aboutus"
-></dotlottie-wc>
+					<div class="col-lg-6" style="display: flex; align-items: center;">
+                        <video class="about-video" style="width: 100%; border-radius: 12px;" autoplay muted loop>
+                            <source src="images/11904055_3840_2160_24fps.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
 						
 					</div>
 				</div>
@@ -563,7 +565,7 @@
 		<!-- ========== Start FAQ ========== -->
 
 		
-        <section class="cta-section">
+        <section class="cta-section cta-ix-section">
 			<div class="container">
 				<div class="row">
 					<div class="col-12">

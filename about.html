@@ -31,23 +31,12 @@
             .roadmap .roadmap-items:before {
                 height: calc(100% - 117px) !important;
             }
-            
-            /* Keep heading on single line */
-            .about .main-title {
-                white-space: nowrap;
-            }
-            
             /* Video styling */
             .about-video {
-                width: 80%;
+               
                 max-width: 800px;
                 height: 500px;
-                border-radius: 1px;
-            }
-            
-            /* Extend about section container downward */
-            .about {
-                padding-bottom: 80px !important;
+                border-radius: 15px;
             }
             
             @media (max-width: 991px) {
@@ -58,6 +47,17 @@
                 .about-image {
                     margin-top: 0 !important;
                     margin-bottom: 30px;
+                }
+            }
+            @media screen and (max-width: 733px) {
+                .about .main-title{
+                    font-size: 19px;
+                }
+                .about{
+                    padding-bottom: 0px;
+                }
+                .why-choose-us{
+                    padding-top: 0px !important;
                 }
             }
         </style>
@@ -92,11 +92,10 @@
 		<!-- ========== Start About ========== -->
 		<section class="about">
 			<div class="container">
+                <h3 class="main-title"><span class="sub-title" style="font-size: inherit; margin-bottom: 0;">aibridge</span>: Building the future, one AI-powered solution at a time.</h3>
 				<div class="row align-items-center">
 					<div class="col-lg-6">
 						<div class="about-info">
-
-							<h3 class="main-title"><span class="sub-title" style="font-size: inherit; margin-bottom: 0;">aibridge</span>: Building the future, one AI-powered solution at a time.</h3>
 							<p>We are a team of top-tier architects, engineers, and strategic thinkers united by a simple mission: to harness the power of AI and global talent to deliver smarter, faster, and more impactful outcomes for our clients.</p>
 							<p>We specialize in building AI-native products, assembling high-performance development teams, and offering executive-level technology leadership through fractional CTO and architecture services. Whether you're a scaling startup or a modern enterprise, we help you move with clarity, velocity, and confidence.</p>
 							<ul class="list-unstyled about-details">
@@ -107,7 +106,7 @@
 						</div>
 					</div>
 					<div class="col-lg-6">
-						<div class="about-image" style="text-align: center; padding: 40px; margin-top: 60px;">
+						<div class="about-image" style="text-align: center;">
 							<video class="about-video" autoplay muted loop>
 								<source src="tree.mp4" type="video/mp4">
 								Your browser does not support the video tag.
@@ -201,7 +200,7 @@
 
 		<!-- ========== Start FAQ ========== -->
 
-		<section class="faq">
+		<section class="faq" style="margin-top: -1rem;">
             <div class="container">
 				<div class="row">
 					<div class="col-12">
