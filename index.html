@@ -96,26 +96,38 @@
             }
             .moving-list{
                 flex-wrap: wrap !important;
-                animation: none !important;
                 gap: 15px;
+                overflow: visible;
+            }
+            .moving-list .group{
+                flex-wrap: wrap;
+                animation: none !important;
+                padding-right: 0px !important;
+                gap: 15px !important;
+            }
+            .moving-list .group[aria-hidden]{
+                display: none;
+            }
+            .services .item:nth-of-type(n+2) .service-item{
+                margin-top: 0px !important;
             }
         }
-            /* 1. Keyframes: Moves the duplicated content by 50% of its total width (the width of one set of cards). */
-@keyframes slideLoop {
- 
-  0% {
-    /* Move left by the width of the original, non-duplicated content set */
-    transform: translateX(50%);
-  }
+@keyframes moving-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
-
-
-
-.content .row.moving-list {
-  
-  animation: slideLoop 12s linear infinite;
+.moving-list {
+  overflow: hidden;
+  display: flex;
 }
-.content:hover .row.moving-list {
+.moving-list .group {
+  display: flex;
+  gap: 0;
+  padding-right: 71.5rem;
+  will-change: transform;
+  animation: moving-scroll 18s linear infinite;
+}
+.moving-list:hover .group {
   animation-play-state: paused;
 }
 .right-box .slide-img {
@@ -290,104 +302,192 @@
 					</div>
 				</div>
                 <div class="content">
-				<div class="row moving-list" style="flex-wrap: nowrap;">
-					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
-							
-							<h3 class="service-title">Rapid Prototyping</h3>
-							<p>Validate your ideas fast. We help you go from concept to clickable prototype in days not weeks. Ideal for MVPs, product-market fit testing, or stakeholder alignment.</p>
-						    <div class="service-more">
-								<a href="service.html">
-									Read more
-									<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
-										<path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
-									</svg>
-								</a>
-							</div>
-						</div>
-					</div>
-                    <div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
-							
-							<h3 class="service-title">AI Advisory & Roadmapping</h3>
-							<p>Not sure where to start with AI? We work with your leadership to define a practical AI roadmap that aligns with business outcomes from PoCs to full-scale implementation.</p>
-						    <div class="service-more">
-								<a href="service.html">
-									Read more
-									<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
-										<path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
-									</svg>
-								</a>
-							</div>
-						</div>
-					</div>
-                    <div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
-							
-							<h3 class="service-title">Custom AI Solutions & LLM Fine-Tuning</h3>
-							<p>We develop bespoke AI models, fine-tune large language models, and build domain-specific intelligence that gives your business a competitive edge — all with data privacy and performance at the core.</p>
-						    <div class="service-more">
-								<a href="service.html">
-									Read more
-									<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
-										<path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
-									</svg>
-								</a>
-							</div>
-						</div>
-					</div>
-                    <div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
-							
-							<h3 class="service-title">AI-Based Development</h3>
-							<p>Harness the power of artificial intelligence to create innovative solutions that drive business growth and efficiency.</p>
-						    <div class="service-more">
-								<a href="service.html">
-									Read more
-									<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
-										<path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
-									</svg>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
-							
-							<h3 class="service-title">IT Strategy & Architecture</h3>
-							<p>Expert guidance in developing and implementing robust IT strategies aligned with your business objectives.</p>
-						    <div class="service-more">
-								<a href="service.html">
-									Read more
-									<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
-										<path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
-									</svg>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item">
-							
-							<h3 class="service-title">Fractionalized CTO Services</h3>
-							<p>Access executive-level technology leadership and expertise on a flexible, as-needed basis.</p>
-						    <div class="service-more">
-								<a href="service.html">
-									Read more
-									<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
-										<path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
-									</svg>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
+                <div class="row moving-list" style="flex-wrap: nowrap;">
+                    <div class="group">
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">Rapid Prototyping</h3>
+                                <p>Validate your ideas fast. We help you go from concept to clickable prototype in days not weeks. Ideal for MVPs, product-market fit testing, or stakeholder alignment.</p>
+                                <div class="service-more">
+                                    <a href="services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">AI Advisory & Roadmapping</h3>
+                                <p>Not sure where to start with AI? We work with your leadership to define a practical AI roadmap that aligns with business outcomes from PoCs to full-scale implementation.</p>
+                                <div class="service-more">
+                                    <a href="services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">Custom AI Solutions & LLM Fine-Tuning</h3>
+                                <p>We develop bespoke AI models, fine-tune large language models, and build domain-specific intelligence that gives your business a competitive edge — all with data privacy and performance at the core.</p>
+                                <div class="service-more">
+                                    <a href="services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">AI-Based Development</h3>
+                                <p>Harness the power of artificial intelligence to create innovative solutions that drive business growth and efficiency.</p>
+                                <div class="service-more">
+                                    <a href="services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">IT Strategy & Architecture</h3>
+                                <p>Expert guidance in developing and implementing robust IT strategies aligned with your business objectives.</p>
+                                <div class="service-more">
+                                    <a href="services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">Fractionalized CTO Services</h3>
+                                <p>Access executive-level technology leadership and expertise on a flexible, as-needed basis.</p>
+                                <div class="service-more">
+                                    <a href="services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group" aria-hidden>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">Rapid Prototyping</h3>
+                                <p>Validate your ideas fast. We help you go from concept to clickable prototype in days not weeks. Ideal for MVPs, product-market fit testing, or stakeholder alignment.</p>
+                                <div class="service-more">
+                                    <a href="./services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">AI Advisory & Roadmapping</h3>
+                                <p>Not sure where to start with AI? We work with your leadership to define a practical AI roadmap that aligns with business outcomes from PoCs to full-scale implementation.</p>
+                                <div class="service-more">
+                                    <a href="services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">Custom AI Solutions & LLM Fine-Tuning</h3>
+                                <p>We develop bespoke AI models, fine-tune large language models, and build domain-specific intelligence that gives your business a competitive edge — all with data privacy and performance at the core.</p>
+                                <div class="service-more">
+                                    <a href="services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">AI-Based Development</h3>
+                                <p>Harness the power of artificial intelligence to create innovative solutions that drive business growth and efficiency.</p>
+                                <div class="service-more">
+                                    <a href="services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">IT Strategy & Architecture</h3>
+                                <p>Expert guidance in developing and implementing robust IT strategies aligned with your business objectives.</p>
+                                <div class="service-more">
+                                    <a href="services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 item">
+                            <div class="service-item">
+                                <h3 class="service-title">Fractionalized CTO Services</h3>
+                                <p>Access executive-level technology leadership and expertise on a flexible, as-needed basis.</p>
+                                <div class="service-more">
+                                    <a href="services.html">
+                                        Read more
+                                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
+                                            <path d="M20.33 12.75H3.5C3.09 12.75 2.75 12.41 2.75 12C2.75 11.59 3.09 11.25 3.5 11.25H20.33C20.74 11.25 21.08 11.59 21.08 12C21.08 12.41 20.74 12.75 20.33 12.75Z" fill="#292D32"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
 				<a href="services.html">
 					<button style="background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%); color: #fff; border: none; padding: 10px 20px; border-radius: 15px; font-size: 16px; cursor: pointer; transition: background-color 0.3s; margin-top: 1rem; display: none;">
@@ -471,7 +571,7 @@
         
         <!-- ========== Start Scroll To Top  ========== -->
         
-        <a href="#0" class="scroll-top">
+        <a href="#0" class="scroll-top active-nav nav-effect">
             <span><i class="fa fa-arrow-up"></i></span>
         </a>
         

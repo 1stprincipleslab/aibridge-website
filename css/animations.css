@@ -227,7 +227,6 @@ body::before {
     box-shadow: 
         0 20px 48px 0 rgba(147, 51, 234, 0.15),
         inset 0 1px 0 0 rgba(255, 255, 255, 1);
-    transform: translateY(-8px) scale(1.02);
 }
 
 .roadmap-item-inner {

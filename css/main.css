@@ -1059,7 +1059,6 @@ select:-webkit-autofill:focus {
 
 .service-item:hover {
     border: 1px solid #cfd7ff;
-    transform: translateY(-10px);
 }
 
 .services .service-item img {
@@ -1083,7 +1082,6 @@ select:-webkit-autofill:focus {
 
 .services .service-item .service-more {
     overflow: hidden;
-    display: none;
 }
 
 .services .service-item .service-more a {
@@ -2106,13 +2104,9 @@ select:-webkit-autofill:focus {
     border: 1px solid #121534;
     border-radius: 10px;
     z-index: 999;
-    -webkit-transition: all .7s linear;
-    -moz-transition: all .7s linear;
-    -o-transition: all .7s linear;
-    -ms-transition: all .7s linear;
-    transition: all .7s linear;
     overflow: hidden;
 }
+
 
 .scroll-top.active {
     bottom: 25px;
