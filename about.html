@@ -27,6 +27,29 @@
             .choose-item h3 { color: #0b1124; }
             .choose-item p { color: #3c445a; }
             
+            /* Reduce roadmap center line height to stop at last card */
+            .roadmap .roadmap-items:before {
+                height: calc(100% - 117px) !important;
+            }
+            
+            /* Keep heading on single line */
+            .about .main-title {
+                white-space: nowrap;
+            }
+            
+            /* Video styling */
+            .about-video {
+                width: 80%;
+                max-width: 800px;
+                height: 500px;
+                border-radius: 1px;
+            }
+            
+            /* Extend about section container downward */
+            .about {
+                padding-bottom: 80px !important;
+            }
+            
             @media (max-width: 991px) {
                 .about .row {
                     display: flex;
@@ -73,8 +96,8 @@
 					<div class="col-lg-6">
 						<div class="about-info">
 
-							<h3 class="main-title">We're building the future  one AI-powered solution at a time.</h3>
-							<p>We're not your typical tech company. We're a collective of top-tier architects, engineers, and strategic thinkers working across New Zealand, India, and beyond  united by a simple mission: to harness the power of AI and global talent to deliver smarter, faster, and more impactful outcomes for our clients.</p>
+							<h3 class="main-title"><span class="sub-title" style="font-size: inherit; margin-bottom: 0;">aibridge</span>: Building the future, one AI-powered solution at a time.</h3>
+							<p>We are a team of top-tier architects, engineers, and strategic thinkers united by a simple mission: to harness the power of AI and global talent to deliver smarter, faster, and more impactful outcomes for our clients.</p>
 							<p>We specialize in building AI-native products, assembling high-performance development teams, and offering executive-level technology leadership through fractional CTO and architecture services. Whether you're a scaling startup or a modern enterprise, we help you move with clarity, velocity, and confidence.</p>
 							<ul class="list-unstyled about-details">
 								<li><i class="fa fa-check"></i> <span>Technology should accelerate outcomes, not complicate them</span></li>
@@ -84,8 +107,11 @@
 						</div>
 					</div>
 					<div class="col-lg-6">
-						<div class="about-image" style="text-align: center; padding: 40px; margin-top: -60px;">
-							<img src="AI about us.jpg" alt="AI About Us" style="width: 100%; max-width: 500px; height: auto; border-radius: 12px;">
+						<div class="about-image" style="text-align: center; padding: 40px; margin-top: 60px;">
+							<video class="about-video" autoplay muted loop>
+								<source src="tree.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
 						</div>
 					</div>
 				</div>
@@ -185,15 +211,15 @@
                 <div class="row">
                     <div class="col-12">
                         <div id="accordion">
-                            <div class="card active">
+                            <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <h5>
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                         What kind of companies do you work with?
                                     </button>
                                     </h5>
                                 </div>
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
                                         We work with a mix of startups, scale-ups, and established enterprises  typically businesses that want to embed AI, accelerate development, or need strategic tech leadership. If you're building or modernizing a digital product, we can help.
                                     </div>
@@ -263,6 +289,20 @@
 		</section>
 
 		<!-- ========== End FAQ ========== -->
+
+		<!-- ========== Start CTA Section ========== -->
+		<section class="cta-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h3>Ready for Your Transformation?</h3>
+						<p>Let's discuss how we can help you achieve similar results for your business.</p>
+						<a href="contact.html" class="main-btn">Start Your Project</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ========== End CTA Section ========== -->
 
 		<!-- ========== Start Footer ========== -->
 		<div id="footer-placeholder"></div>

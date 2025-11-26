@@ -23,21 +23,23 @@
         <link rel="stylesheet" href="css/main.css">
         
         <style>
-            /* Topographic Logic Layers */
-            .topo-canvas {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 300px;
-                pointer-events: none;
-                z-index: -1;
-                opacity: 0.6;
-            }
+
             
             /* page-specific tweaks aligned to light theme */
             p, li { color: #3c445a !important; }
             h3 { color: #0b1124 !important; }
+            
+            /* CTA section white text */
+            .cta-section h3,
+            .cta-section p {
+                color: #fff !important;
+            }
+            
+            /* Footer newsletter white text */
+            .blog-sidebar h3,
+            .blog-sidebar p {
+                color: #fff !important;
+            }
             
             /* Service Modal Styles */
             .services-grid {
@@ -62,6 +64,7 @@
             
             .service-content {
                 flex-grow: 1;
+                padding-bottom: 60px;
             }
             
             .service-buttons {
@@ -232,7 +235,7 @@
 				</div>
 				<div class="row services-grid">
 					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item" onclick="openServiceModal('rapid-prototyping')">
+						<div class="service-item">
 							<div class="service-icon">
 								<i class="fa fa-flash"></i>
 							</div>
@@ -241,12 +244,12 @@
 								<p>Validate your ideas fast. We help you go from concept to clickable prototype in days not weeks. Ideal for MVPs, product-market fit testing, or stakeholder alignment.</p>
 							</div>
 							<div class="service-buttons">
-								<button class="service-learn-more">Learn More</button>
+								<a href="contact.html" class="service-learn-more">Start Your Rapid Prototype</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item" onclick="openServiceModal('ai-teams')">
+						<div class="service-item">
 							<div class="service-icon">
 								<i class="fa fa-users"></i>
 							</div>
@@ -255,12 +258,12 @@
 								<p>Build smarter products with our dedicated AI-powered development squads. We integrate advanced tools like LLMs, automation frameworks, and ML pipelines to scale solutions quickly and efficiently.</p>
 							</div>
 							<div class="service-buttons">
-								<button class="service-learn-more">Learn More</button>
+								<a href="contact.html" class="service-learn-more">Let's Talk AI Development</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item" onclick="openServiceModal('fractional-cto-services')">
+						<div class="service-item">
 							<div class="service-icon">
 								<i class="fa fa-briefcase"></i>
 							</div>
@@ -269,12 +272,12 @@
 								<p>Get executive-level tech leadership without the full-time overhead. We provide strategic oversight, vendor alignment, and product direction tailored to your growth stage.</p>
 							</div>
 							<div class="service-buttons">
-								<button class="service-learn-more">Learn More</button>
+								<a href="contact.html" class="service-learn-more">Get Strategic Tech Leadership</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item" onclick="openServiceModal('enterprise-arch')">
+						<div class="service-item">
 							<div class="service-icon">
 								<i class="fa fa-sitemap"></i>
 							</div>
@@ -283,12 +286,12 @@
 								<p>From cloud-native designs to secure, scalable ecosystems — we craft enterprise-grade architecture that supports innovation, governance, and long-term agility.</p>
 							</div>
 							<div class="service-buttons">
-								<button class="service-learn-more">Learn More</button>
+								<a href="contact.html" class="service-learn-more">Discuss Your Architecture Needs</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item" onclick="openServiceModal('ai-advisory')">
+						<div class="service-item">
 							<div class="service-icon">
 								<i class="fa fa-map"></i>
 							</div>
@@ -297,12 +300,12 @@
 								<p>Not sure where to start with AI? We work with your leadership to define a practical AI roadmap that aligns with business outcomes from PoCs to full-scale implementation.</p>
 							</div>
 							<div class="service-buttons">
-								<button class="service-learn-more">Learn More</button>
+								<a href="contact.html" class="service-learn-more">Plan Your AI Strategy</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6 item">
-						<div class="service-item" onclick="openServiceModal('custom-ai')">
+						<div class="service-item">
 							<div class="service-icon">
 								<i class="fa fa-cogs"></i>
 							</div>
@@ -311,7 +314,7 @@
 								<p>We develop bespoke AI models, fine-tune large language models, and build domain-specific intelligence that gives your business a competitive edge — all with data privacy and performance at the core.</p>
 							</div>
 							<div class="service-buttons">
-								<button class="service-learn-more">Learn More</button>
+								<a href="contact.html" class="service-learn-more">Explore Custom AI Solutions</a>
 							</div>
 						</div>
 					</div>
@@ -1029,66 +1032,7 @@
             
 
             
-            // Topographic Logic Layers Background
-            document.addEventListener('DOMContentLoaded', function() {
-                const canvas = document.createElement('canvas');
-                canvas.className = 'topo-canvas';
-                document.body.appendChild(canvas);
-                
-                const ctx = canvas.getContext('2d');
-                let time = 0;
-                
-                function resize() {
-                    canvas.width = window.innerWidth;
-                    canvas.height = 300;
-                }
-                
-                function drawWave(y, amplitude, frequency, phase, color, opacity) {
-                    ctx.strokeStyle = color;
-                    ctx.globalAlpha = opacity;
-                    ctx.lineWidth = 1;
-                    ctx.beginPath();
-                    
-                    for (let x = 0; x <= canvas.width; x += 2) {
-                        const waveY = y + Math.sin((x * frequency) + phase + time) * amplitude;
-                        if (x === 0) {
-                            ctx.moveTo(x, waveY);
-                        } else {
-                            ctx.lineTo(x, waveY);
-                        }
-                    }
-                    
-                    ctx.stroke();
-                }
-                
-                function animate() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    
-                    // Back layers (Purple) - further away
-                    drawWave(250, 15, 0.008, 0, '#641ff9', 0.3);
-                    drawWave(230, 12, 0.012, 1, '#641ff9', 0.4);
-                    drawWave(210, 18, 0.006, 2, '#641ff9', 0.35);
-                    drawWave(190, 10, 0.015, 3, '#641ff9', 0.45);
-                    
-                    // Middle layers (Blend)
-                    drawWave(170, 20, 0.009, 1.5, '#4a2fb8', 0.5);
-                    drawWave(150, 14, 0.011, 2.5, '#3d3fb0', 0.55);
-                    drawWave(130, 16, 0.007, 3.5, '#2f4fa8', 0.6);
-                    
-                    // Front layers (Cyan) - closer
-                    drawWave(110, 22, 0.010, 0.5, '#02c5f7', 0.65);
-                    drawWave(90, 18, 0.013, 1.8, '#02c5f7', 0.7);
-                    drawWave(70, 25, 0.008, 2.2, '#02c5f7', 0.75);
-                    drawWave(50, 12, 0.016, 4, '#02c5f7', 0.8);
-                    
-                    time += 0.02;
-                    requestAnimationFrame(animate);
-                }
-                
-                window.addEventListener('resize', resize);
-                resize();
-                animate();
-            });
+
         </script>
     </body>
 </html>
