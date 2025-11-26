@@ -28,11 +28,12 @@
             .contact .contact-info ul li i { color:#0b1124; margin-top:4px; }
 			.help-section {
 			background: transparent;     
-			padding: 40px 16px;
+			padding-top: 20px;
+			padding-bottom: 20px;
 			}
 
 			.help-card {
-			max-width: 960px;
+			max-width: 1140px;
 			margin: 0 auto;
 			background: linear-gradient(267deg, var(--color-primary-600) 15%, var(--color-accent-500) 100%);        /* mint green */
 			border-radius: 28px;
@@ -50,7 +51,7 @@
 			.help-secondary {
 			display: flex;
 			flex-wrap: wrap;
-			gap: 16px;
+			gap: 21px;
 			}
 
 			.help-divider {
@@ -117,6 +118,18 @@
 			.help-secondary.active {
 			display: flex;
 			}
+			.contact-info{
+				margin-top: 2.5rem;
+			}
+			@media screen and (max-width: 733px) {
+				.contact-row-items{
+					flex-direction: column-reverse;
+				}
+				.help-primary,
+			    .help-secondary {
+				   gap: 16px;
+			    }
+			}
         </style>
         
         <!--[if lt IE 9]>
@@ -182,11 +195,22 @@
 			  });
 			});
 			</script>
+
+			<section style="margin-top: 10rem;">
+				<div class="container">
+						<div class="top-section">
+							<div class="contact-info">
+								<h3 class="main-title">Considering a project</h3>
+								<p>Have questions about our services or want to discuss your project? We're here to help. Reach out to us through any of the following channels. Our team is ready to assist you with innovative solutions that keep you ahead of the curve.</p>
+							</div>
+						</div>
+					</div>
+			</section>
 			
 			
-			<section class="help-section" style="margin-top: 10rem;">
+			<section class="help-section" style="margin-top: 1rem;">
 				<div class="help-card">
-				  <h2 class="help-title">How can we help you?*</h2>
+				  <h2 class="help-title">How can we help you?</h2>
 			  
 				  <!-- Top row: main services -->
 				  <div class="help-primary">
@@ -278,11 +302,10 @@
 		<!-- ========== Start Contact ========== -->
 		<section class="contact">
 			<div class="container">
-				<div class="row">
+				<div class="row contact-row-items">
 					<div class="col-lg-6">
 						<div class="contact-info">
-							<h3 class="main-title">Considering a project</h3>
-							<p>Have questions about our services or want to discuss your project? We're here to help. Reach out to us through any of the following channels. Our team is ready to assist you with innovative solutions that keep you ahead of the curve.</p>
+							
 							<ul class="list-unstyled">
 								<li>
 									<i class="fa fa-map-marker"></i>
