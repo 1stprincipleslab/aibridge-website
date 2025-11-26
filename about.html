@@ -27,6 +27,11 @@
             .choose-item h3 { color: #0b1124; }
             .choose-item p { color: #3c445a; }
             
+            /* Reduce roadmap center line height to stop at last card */
+            .roadmap .roadmap-items:before {
+                height: calc(100% - 117px) !important;
+            }
+            
             @media (max-width: 991px) {
                 .about .row {
                     display: flex;
