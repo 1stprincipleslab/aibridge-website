@@ -32,6 +32,24 @@
                 height: calc(100% - 117px) !important;
             }
             
+            /* Keep heading on single line */
+            .about .main-title {
+                white-space: nowrap;
+            }
+            
+            /* Video styling */
+            .about-video {
+                width: 80%;
+                max-width: 800px;
+                height: 500px;
+                border-radius: 1px;
+            }
+            
+            /* Extend about section container downward */
+            .about {
+                padding-bottom: 80px !important;
+            }
+            
             @media (max-width: 991px) {
                 .about .row {
                     display: flex;
@@ -89,8 +107,11 @@
 						</div>
 					</div>
 					<div class="col-lg-6">
-						<div class="about-image" style="text-align: center; padding: 40px; margin-top: -60px;">
-							<img src="AI about us.jpg" alt="AI About Us" style="width: 100%; max-width: 500px; height: auto; border-radius: 12px;">
+						<div class="about-image" style="text-align: center; padding: 40px; margin-top: 60px;">
+							<video class="about-video" autoplay muted loop>
+								<source src="tree.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
 						</div>
 					</div>
 				</div>
