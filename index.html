@@ -150,15 +150,25 @@
   animation-play-state: paused;
 }
 .right-box .slide-img {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  opacity: 0;
+  transition: opacity 2.5s ease; /* smooth fade */
+  border-radius: 20px;
 }
 
 .right-box .slide-img.active {
-  display: block;
+  opacity: 1;
 }
-.slide-img{
-    border-radius: 20px;
+.right-box {
+  position: relative;
+  width: 100%;
+  height: 300px;
 }
+
 
 
         
@@ -208,9 +218,10 @@
 					 </div>
 					<div class="col-lg-6" >
 						<div class="right-box">
-                            <img src="images/image.png" alt="Home Illustration 1" class="slide-img" style="width:100%; height:300px;">
-                            <img src="images/image1.png" alt="Home Illustration 2" class="slide-img" style="width:100%; height: 300px;">
-                            <img src="images/image2.png" alt="Home Illustration 3" class="slide-img" style="width:100%; height: 300px;">
+                            <img src="images/image3.jpg" alt="Home Illustration 1" class="slide-img" style="width:100%; height:300px;">
+                            <img src="images/image1.jpg" alt="Home Illustration 2" class="slide-img" style="width:100%; height: 300px;">
+                            <img src="images/image2.jpg" alt="Home Illustration 3" class="slide-img" style="width:100%; height: 300px;">
+                            <img src="images/image.jpg" alt="Home Illustration 4" class="slide-img" style="width:100%; height: 300px;">
                           </div>
                           
 					</div>
