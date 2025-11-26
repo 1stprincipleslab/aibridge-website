@@ -53,7 +53,24 @@ function setSubmitButtonState(btn, state) {
   }
 }
 
-// 4) Collect form data safely
+// 4) Get selected toggle data
+function getSelectedToggles() {
+  const activePrimary = document.querySelector('.pill-primary.active');
+  const activeSecondary = document.querySelector('.pill-secondary.active');
+  
+  const primaryText = activePrimary ? activePrimary.querySelector('span:last-child').textContent.trim() : 'None selected';
+  const secondaryText = activeSecondary ? activeSecondary.querySelector('span:last-child').textContent.trim() : 'None selected';
+  
+  return {
+    primary: primaryText,
+    secondary: secondaryText,
+    combined: primaryText !== 'None selected' && secondaryText !== 'None selected' 
+      ? `${primaryText} → ${secondaryText}` 
+      : primaryText !== 'None selected' ? primaryText : 'No specific service selected'
+  };
+}
+
+// 5) Collect form data safely
 function collectFormData(form) {
   const nameInput = form.querySelector('input[name="name"]');
   const emailInput = form.querySelector('input[name="email"]');
@@ -65,17 +82,20 @@ function collectFormData(form) {
     ? serviceSelect.options[serviceSelect.selectedIndex].text
     : '';
 
+  const toggleData = getSelectedToggles();
+
   return {
     from_name: nameInput ? nameInput.value.trim() : '',
     from_email: emailInput ? emailInput.value.trim() : '',
     from_phone: phoneInput && phoneInput.value.trim() ? phoneInput.value.trim() : 'Not provided',
     service_type: serviceText,
+    selected_services_combined: toggleData.combined,
     message: messageInput ? messageInput.value.trim() : '',
     to_email: EMAIL_CONFIG.adminEmail // used by admin template "To" if set to {{to_email}}
   };
 }
 
-// 5) Send both emails (admin + user)
+// 6) Send both emails (admin + user)
 function sendEmails(formData) {
   const adminEmailPromise = emailjs.send(
     EMAIL_CONFIG.serviceID,
@@ -92,21 +112,25 @@ function sendEmails(formData) {
   return Promise.all([adminEmailPromise, userEmailPromise]);
 }
 
-// 6) Attach submit handler
+// 7) Attach submit handler
 document.addEventListener('DOMContentLoaded', function () {
+ 
   const contactForm = document.getElementById('contact-form');
   if (!contactForm) {
-    console.warn('contact-form not found on page.');
+    
     return;
   }
+  
 
   contactForm.addEventListener('submit', function (event) {
+   
     event.preventDefault();
 
     const submitBtn = this.querySelector('button[type="submit"]');
     setSubmitButtonState(submitBtn, 'loading');
 
     const formData = collectFormData(this);
+    
 
     sendEmails(formData)
       .then(() => {
