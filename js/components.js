@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				<div class="col-lg-4 col-sm-6 col-12 footer-menu">
 					<div class="footer-item">
 						
-						<div class="blog-sidebar" style="background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%); color: #fff;">
+						<div class="blog-sidebar" style="background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%); color: #fff;margin-top: -1rem;">
 							<h3 class="sidebar-title" style="color: #fff;">Stay Updated</h3>
 							<p style="color: #fff; margin-bottom: 20px;">Get the latest insights delivered to your inbox. No spam, just valuable content.</p>
 							<div class="footer-newsletter">
