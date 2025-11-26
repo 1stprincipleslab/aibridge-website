@@ -1148,7 +1148,7 @@ select:-webkit-autofill:focus {
     background: linear-gradient(267deg, #641ff9 27.93%, #02c5f7 99.79%, #c6bafd -31.69%, #b7a2fd -22.78%);
     border: 0.5px solid #27344c;
     width: 5px;
-    height: 108%;
+    height: 100%;
 }
 
 .roadmap-item {
