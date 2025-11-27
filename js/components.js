@@ -34,18 +34,41 @@ document.addEventListener('DOMContentLoaded', function() {
                 padding: 30px;
                 margin-bottom: 30px;
             }
+	.footer-legal {
+		padding: 5px 0;
+		text-align: center;
+		border: none;
+		background: transparent;
+	}
+	.footer-legal a {
+		color: #666;
+		text-decoration: none;
+		margin: 0 15px;
+		font-size: 14px;
+	}
+	.footer-legal a:hover {
+		color: #641ff9;
+	}
+	@media (max-width: 768px) {
+		.footer-legal {
+			padding: 3px 0;
+		}
+		.footer-legal a {
+			display: block;
+			margin: 2px 0;
+		}
+	}
 	</style>
 	<div class="footer-top">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-sm-6 col-12 footer-menu">
+			<div class="row align-items-center">
+				<div class="col-lg-3 col-md-6 col-12 footer-menu d-flex justify-content-center align-items-center" style="min-height: 200px;">
 					<div class="footer-logo">
 						<a class="my-logo" href="index.html" aria-label="aibridge"><img src="images/airbridge.png" alt="aibridge logo" style="height:40px; width:auto;"/></a>
 					</div>
 				</div>
-				<div class="col-lg-2 col-sm-6 col-12 footer-menu">
+				<div class="col-lg-5 col-md-6 col-12 footer-menu">
 					<div class="footer-item">
-						
 						<ul class="list-unstyled">
 							<li><a href="index.html">Home</a></li>
 							<li><a href="about.html">About us</a></li>
@@ -56,19 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-2 col-sm-6 col-12 footer-menu">
+				<div class="col-lg-4 col-md-12 col-12 footer-menu">
 					<div class="footer-item">
-						
-						<ul class="list-unstyled">
-							<li><a href="terms.html">Terms & Conditions</a></li>
-							<li><a href="policy.html">Privacy Policy</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 col-12 footer-menu">
-					<div class="footer-item">
-						
-						<div class="blog-sidebar" style="background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%); color: #fff;margin-top: -1rem;">
+						<div class="blog-sidebar" style="background: linear-gradient(135deg, #641ff9 0%, #02c5f7 100%); color: #fff;margin-top: 0;">
 							<h3 class="sidebar-title" style="color: #fff;">Stay Updated</h3>
 							<p style="color: #fff; margin-bottom: 20px;">Get the latest insights delivered to your inbox. No spam, just valuable content.</p>
 							<div class="footer-newsletter">
@@ -79,6 +92,12 @@ document.addEventListener('DOMContentLoaded', function() {
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="footer-legal">
+		<div class="container">
+			<a href="terms.html">Terms & Conditions</a>
+			<a href="policy.html">Privacy Policy</a>
 		</div>
 	</div>
 	<div class="footer-bottom text-center">

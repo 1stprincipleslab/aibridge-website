@@ -26,6 +26,15 @@
             /* page-specific refinements for light theme */
             .contact .contact-info ul li { display:flex; gap:14px; margin-bottom:14px; }
             .contact .contact-info ul li i { color:#0b1124; margin-top:4px; }
+            
+            @media screen and (max-width: 733px) {
+                section[style*="padding-top: 120px"] {
+                    padding-top: 90px !important;
+                }
+                .main-title {
+                    margin-top: 20px;
+                }
+            }
 			.help-section {
 			background: transparent;     
 			padding-top: 20px;
@@ -52,6 +61,17 @@
 			display: flex;
 			flex-wrap: wrap;
 			gap: 21px;
+			}
+			
+			@media screen and (min-width: 734px) {
+				.help-primary .pill-primary {
+					flex: 1;
+					max-width: none;
+					justify-content: space-between;
+				}
+				.help-secondary {
+					margin-top: 40px;
+				}
 			}
 
 			.help-divider {
@@ -110,13 +130,60 @@
 			color: #f8f5f5;
 			}
 
+			/* Secondary container styling */
+			.help-secondary-container {
+				position: relative;
+				margin-top: 20px;
+				padding-top: 20px;
+				display: none;
+			}
+			
+			.help-secondary-container.active {
+				display: block;
+			}
+			
+			.help-connector {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 2px;
+				height: 20px;
+				background: rgba(255, 255, 255, 0.4);
+				transition: left 0.3s ease;
+			}
+			
+			.help-secondary-label {
+				position: absolute;
+				top: 22px;
+				left: 50%;
+				transform: translateX(-50%);
+				color: rgba(255, 255, 255, 0.8);
+				font-size: 13px;
+				margin-bottom: 16px;
+				font-weight: 500;
+				transition: left 0.3s ease;
+				white-space: nowrap;
+			}
+			
+			.pill-expand {
+				margin-left: 8px;
+				font-size: 16px;
+				font-weight: bold;
+				transition: transform 0.2s ease;
+			}
+			
+			.pill-primary.active .pill-expand {
+				transform: rotate(45deg);
+			}
+
 			/* only show the active secondary group */
 			.help-secondary {
-			display: none;
+				display: none;
 			}
 
 			.help-secondary.active {
-			display: flex;
+				display: flex;
 			}
 			.contact-info{
 				margin-top: 2.5rem;
@@ -127,7 +194,85 @@
 				}
 				.help-primary,
 			    .help-secondary {
-				   gap: 16px;
+				   gap: 12px;
+			    }
+			    .help-primary {
+				   justify-content: center;
+			    }
+			    .help-secondary-label {
+				   font-size: 12px;
+				   margin-bottom: 12px;
+			    }
+			    .help-connector {
+				   height: 16px;
+			    }
+			    /* Mobile accordion style */
+			    .help-primary {
+				   display: block !important;
+			    }
+			    .primary-item {
+				   width: 100%;
+				   margin-bottom: 8px;
+			    }
+			    .primary-item .pill-primary {
+				   width: 100%;
+				   justify-content: space-between;
+			    }
+			    .mobile-dropdown {
+				   display: none;
+				   flex-direction: column;
+				   gap: 8px;
+				   margin-top: 8px;
+				   padding-left: 16px;
+			    }
+			    .primary-item.active .mobile-dropdown {
+				   display: flex;
+				   animation: slideDown 0.3s ease;
+			    }
+			    .mobile-dropdown .pill {
+				   width: 100%;
+				   font-size: 12px;
+				   padding: 6px 12px;
+			    }
+			    .help-secondary-container {
+				   display: none !important;
+			    }
+			}
+			
+			@keyframes slideDown {
+			  from {
+				opacity: 0;
+				max-height: 0;
+			  }
+			  to {
+				opacity: 1;
+				max-height: 200px;
+			  }
+			}
+			
+			/* Desktop: hide mobile dropdowns */
+			@media screen and (min-width: 734px) {
+			    .mobile-dropdown {
+				   display: none !important;
+			    }
+			    .primary-item {
+				   display: contents;
+			    }
+			    .pill {
+				   font-size: 13px;
+				   padding: 8px 16px;
+			    }
+			    .pill-icon {
+				   width: 24px;
+				   height: 24px;
+				   font-size: 12px;
+			    }
+			    .help-card {
+				   padding: 20px 16px 24px;
+			    }
+			    .help-title {
+				   font-size: 20px;
+				   text-align: center;
 			    }
 			}
         </style>
@@ -159,44 +304,88 @@
 		</section>
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
-			  const primaryButtons = document.querySelectorAll('.pill-primary');
-			  const secondaryGroups = document.querySelectorAll('.help-secondary');
-			
-			  primaryButtons.forEach(button => {
-				button.addEventListener('click', () => {
-				  const target = button.dataset.target;
-				  const isAlreadyActive = button.classList.contains('active');
-			
-				  // if clicking an already active pill → deselect and hide all bottom rows
-				  if (isAlreadyActive) {
+			  const primaryItems = document.querySelectorAll('.primary-item');
+			  
+			  primaryItems.forEach(item => {
+				const button = item.querySelector('.pill-primary');
+				button.addEventListener('click', (e) => {
+				  e.preventDefault();
+				  
+				  if (window.innerWidth <= 733) {
+					// Mobile behavior
+					const isActive = item.classList.contains('active');
+					
+					primaryItems.forEach(otherItem => {
+					  if (otherItem !== item) {
+						otherItem.classList.remove('active');
+						otherItem.querySelector('.pill-primary').classList.remove('active');
+					  }
+					});
+					
+					if (isActive) {
+					  item.classList.remove('active');
+					  button.classList.remove('active');
+					} else {
+					  item.classList.add('active');
+					  button.classList.add('active');
+					}
+				  } else {
+					// Desktop behavior
+					const target = button.dataset.target;
+					const isAlreadyActive = button.classList.contains('active');
+					const secondaryGroups = document.querySelectorAll('.help-secondary');
+					const secondaryContainer = document.querySelector('.help-secondary-container');
+					const primaryButtons = document.querySelectorAll('.pill-primary');
+					
+					if (isAlreadyActive) {
+					  primaryButtons.forEach(b => b.classList.remove('active'));
+					  secondaryGroups.forEach(group => group.classList.remove('active'));
+					  if (secondaryContainer) secondaryContainer.classList.remove('active');
+					  return;
+					}
+					
 					primaryButtons.forEach(b => b.classList.remove('active'));
-					secondaryGroups.forEach(group => group.classList.remove('active'));
-					return;
+					button.classList.add('active');
+					
+					if (secondaryContainer) secondaryContainer.classList.add('active');
+					secondaryGroups.forEach(group => {
+					  group.classList.toggle('active', group.dataset.group === target);
+					});
+					
+					// Position connector and label under active button
+					const connector = document.querySelector('.help-connector');
+					const label = document.querySelector('.help-secondary-label');
+					if (connector && label) {
+					  const buttonRect = button.getBoundingClientRect();
+					  const containerRect = button.closest('.help-primary').getBoundingClientRect();
+					  const buttonCenter = buttonRect.left + buttonRect.width / 2 - containerRect.left;
+					  
+					  connector.style.left = buttonCenter + 'px';
+					  label.style.left = buttonCenter + 'px';
+					}
 				  }
-			
-				  // otherwise select this pill
-				  primaryButtons.forEach(b => b.classList.remove('active'));
-				  button.classList.add('active');
-			
-				  // show only the related bottom group
-				  secondaryGroups.forEach(group => {
-					group.classList.toggle('active', group.dataset.group === target);
-				  });
 				});
 			  });
-			
-			  // optional: keep only one selected in each bottom group
+			  
 			  document.querySelectorAll('.pill-secondary').forEach(btn => {
-				btn.addEventListener('click', () => {
-				  const group = btn.closest('.help-secondary');
-				  group.querySelectorAll('.pill-secondary').forEach(b => b.classList.remove('active'));
+				btn.addEventListener('click', (e) => {
+				  e.preventDefault();
+				  
+				  if (btn.closest('.mobile-dropdown')) {
+					const dropdown = btn.closest('.mobile-dropdown');
+					dropdown.querySelectorAll('.pill-secondary').forEach(b => b.classList.remove('active'));
+				  } else {
+					const group = btn.closest('.help-secondary');
+					if (group) group.querySelectorAll('.pill-secondary').forEach(b => b.classList.remove('active'));
+				  }
+				  
 				  btn.classList.add('active');
 				});
 			  });
 			});
 			</script>
 
-			<section style="margin-top: 10rem;">
+			<section style="padding-top: 120px;">
 				<div class="container">
 						<div class="top-section">
 							<div class="contact-info">
@@ -214,85 +403,156 @@
 			  
 				  <!-- Top row: main services -->
 				  <div class="help-primary">
-					<button class="pill pill-primary" data-target="ai-dev">
-					  <span class="pill-icon">↺</span>
-					  <span>AI-Based Development</span>
-					</button>
-					<button class="pill pill-primary" data-target="rapid-proto">
-					  <span class="pill-icon">↺</span>
-					  <span>Rapid Prototyping</span>
-					</button>
-					<button class="pill pill-primary" data-target="fractional-cto">
-					  <span class="pill-icon">↺</span>
-					  <span>Fractional CTO</span>
-					</button>
-					<button class="pill pill-primary" data-target="enterprise-arch">
-					  <span class="pill-icon">↺</span>
-					  <span>Enterprise Architecture</span>
-					</button>
+					<div class="primary-item" data-target="ai-dev">
+					  <button class="pill pill-primary" data-target="ai-dev">
+						<span class="pill-icon">↺</span>
+						<span>AI-Based Development</span>
+						<span class="pill-expand">+</span>
+					  </button>
+					  <div class="mobile-dropdown">
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>Machine Learning Models</span>
+						</button>
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>LLM / Chatbot Integrations</span>
+						</button>
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>AI Product Discovery</span>
+						</button>
+					  </div>
+					</div>
+					<div class="primary-item" data-target="rapid-proto">
+					  <button class="pill pill-primary" data-target="rapid-proto">
+						<span class="pill-icon">↺</span>
+						<span>Rapid Prototyping</span>
+						<span class="pill-expand">+</span>
+					  </button>
+					  <div class="mobile-dropdown">
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>MVP Design & Build</span>
+						</button>
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>Clickable Prototypes</span>
+						</button>
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>User Testing Sprints</span>
+						</button>
+					  </div>
+					</div>
+					<div class="primary-item" data-target="fractional-cto">
+					  <button class="pill pill-primary" data-target="fractional-cto">
+						<span class="pill-icon">↺</span>
+						<span>Fractional CTO</span>
+						<span class="pill-expand">+</span>
+					  </button>
+					  <div class="mobile-dropdown">
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>Technology Roadmapping</span>
+						</button>
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>Team & Hiring Advisory</span>
+						</button>
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>Architecture Review</span>
+						</button>
+					  </div>
+					</div>
+					<div class="primary-item" data-target="enterprise-arch">
+					  <button class="pill pill-primary" data-target="enterprise-arch">
+						<span class="pill-icon">↺</span>
+						<span>Enterprise Architecture</span>
+						<span class="pill-expand">+</span>
+					  </button>
+					  <div class="mobile-dropdown">
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>Cloud Migration</span>
+						</button>
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>Integration Platforms</span>
+						</button>
+						<button class="pill pill-secondary">
+						  <span class="pill-icon">↺</span>
+						  <span>Security & Compliance</span>
+						</button>
+					  </div>
+					</div>
 				  </div>
 			  
-				  <div class="help-divider"></div>
-			  
-				  <!-- Bottom row groups (all hidden by default via CSS) -->
-				  <div class="help-secondary" data-group="ai-dev">
-					<button class="pill pill-secondary active">
-					  <span class="pill-icon">↺</span>
-					  <span>Machine Learning Models</span>
-					</button>
-					<button class="pill pill-secondary">
-					  <span class="pill-icon">↺</span>
-					  <span>LLM / Chatbot Integrations</span>
-					</button>
-					<button class="pill pill-secondary">
-					  <span class="pill-icon">↺</span>
-					  <span>AI Product Discovery</span>
-					</button>
-				  </div>
-			  
-				  <div class="help-secondary" data-group="rapid-proto">
-					<button class="pill pill-secondary active">
-					  <span class="pill-icon">↺</span>
-					  <span>MVP Design & Build</span>
-					</button>
-					<button class="pill pill-secondary">
-					  <span class="pill-icon">↺</span>
-					  <span>Clickable Prototypes</span>
-					</button>
-					<button class="pill pill-secondary">
-					  <span class="pill-icon">↺</span>
-					  <span>User Testing Sprints</span>
-					</button>
-				  </div>
-			  
-				  <div class="help-secondary" data-group="fractional-cto">
-					<button class="pill pill-secondary active">
-					  <span class="pill-icon">↺</span>
-					  <span>Technology Roadmapping</span>
-					</button>
-					<button class="pill pill-secondary">
-					  <span class="pill-icon">↺</span>
-					  <span>Team & Hiring Advisory</span>
-					</button>
-					<button class="pill pill-secondary">
-					  <span class="pill-icon">↺</span>
-					  <span>Architecture Review</span>
-					</button>
-				  </div>
-			  
-				  <div class="help-secondary" data-group="enterprise-arch">
-					<button class="pill pill-secondary active">
-					  <span class="pill-icon">↺</span>
-					  <span>Cloud Migration</span>
-					</button>
-					<button class="pill pill-secondary">
-					  <span class="pill-icon">↺</span>
-					  <span>Integration Platforms</span>
-					</button>
-					<button class="pill pill-secondary">
-					  <span class="pill-icon">↺</span>
-					  <span>Security & Compliance</span>
-					</button>
+				  <!-- Secondary options with connecting line -->
+				  <div class="help-secondary-container">
+					<div class="help-connector"></div>
+					<div class="help-secondary-label">Specific areas:</div>
+					
+					<div class="help-secondary" data-group="ai-dev">
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>Machine Learning Models</span>
+					  </button>
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>LLM / Chatbot Integrations</span>
+					  </button>
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>AI Product Discovery</span>
+					  </button>
+					</div>
+					
+					<div class="help-secondary" data-group="rapid-proto">
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>MVP Design & Build</span>
+					  </button>
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>Clickable Prototypes</span>
+					  </button>
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>User Testing Sprints</span>
+					  </button>
+					</div>
+					
+					<div class="help-secondary" data-group="fractional-cto">
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>Technology Roadmapping</span>
+					  </button>
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>Team & Hiring Advisory</span>
+					  </button>
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>Architecture Review</span>
+					  </button>
+					</div>
+					
+					<div class="help-secondary" data-group="enterprise-arch">
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>Cloud Migration</span>
+					  </button>
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>Integration Platforms</span>
+					  </button>
+					  <button class="pill pill-secondary">
+						<span class="pill-icon">↺</span>
+						<span>Security & Compliance</span>
+					  </button>
+					</div>
 				  </div>
 				</div>
 			  </section>
@@ -318,7 +578,7 @@
 									<i class="fa fa-phone"></i>
 									<div>
 										<h4>Phone</h4>
-										<p>+640221247971 (NZ)</p>
+										<p>+64 221247971 </p>
 									</div>
 								</li>
 								<li>

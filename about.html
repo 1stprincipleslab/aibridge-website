@@ -27,16 +27,53 @@
             .choose-item h3 { color: #0b1124; }
             .choose-item p { color: #3c445a; }
             
+            /* Equal height cards for Why Choose Us */
+            .why-choose-us .row {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .why-choose-us .item {
+                display: flex;
+            }
+            .why-choose-us .choose-item {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+            .why-choose-us .choose-item h3 {
+                margin-bottom: 15px;
+            }
+            .about .main-title {
+                margin-bottom: 30px;
+            }
+            
             /* Reduce roadmap center line height to stop at last card */
             .roadmap .roadmap-items:before {
                 height: calc(100% - 117px) !important;
             }
-            /* Video styling */
-            .about-video {
-               
+            /* Video slideshow styling */
+            .about-video-container {
+                position: relative;
                 max-width: 800px;
                 height: 500px;
+                margin: 0 auto;
+            }
+            .about-video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
                 border-radius: 15px;
+                opacity: 0;
+                transition: opacity 1s ease;
+                object-fit: cover;
+            }
+            .about-video.active {
+                opacity: 1;
+            }
+            .about-video:first-child {
+                position: relative;
             }
             
             @media (max-width: 991px) {
@@ -55,6 +92,10 @@
                 }
                 .about{
                     padding-bottom: 0px;
+                    padding-top: 90px;
+                }
+                .about .main-title {
+                    margin-top: 20px;
                 }
                 .why-choose-us{
                     padding-top: 0px !important;
@@ -93,7 +134,7 @@
 		<section class="about">
 			<div class="container">
                 <h3 class="main-title"><span class="sub-title" style="font-size: inherit; margin-bottom: 0;">aibridge</span>: Building the future, one AI-powered solution at a time.</h3>
-				<div class="row align-items-center">
+				<div class="row align-items-center" style="margin-top: -20px;">
 					<div class="col-lg-6">
 						<div class="about-info">
 							<p>We are a team of top-tier architects, engineers, and strategic thinkers united by a simple mission: to harness the power of AI and global talent to deliver smarter, faster, and more impactful outcomes for our clients.</p>
@@ -107,10 +148,20 @@
 					</div>
 					<div class="col-lg-6">
 						<div class="about-image" style="text-align: center;">
-							<video class="about-video" autoplay muted loop>
-								<source src="tree.mp4" type="video/mp4">
-								Your browser does not support the video tag.
-							</video>
+							<div class="about-video-container">
+								<video class="about-video" autoplay muted loop playsinline webkit-playsinline>
+									<source src="aboutus1.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+								<video class="about-video" autoplay muted loop playsinline webkit-playsinline>
+									<source src="aboutus2.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+								<video class="about-video" autoplay muted loop playsinline webkit-playsinline>
+									<source src="aboutus3.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -327,5 +378,37 @@
 		<script src="js/custom.js"></script>
 		<!-- Components Js -->
 		<script src="js/components.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				// About video slideshow
+				const aboutVideos = document.querySelectorAll('.about-video-container .about-video');
+				if (aboutVideos.length) {
+					let aboutIndex = 0;
+					
+					// Pause all videos initially
+					aboutVideos.forEach((video, index) => {
+						if (index !== 0) {
+							video.pause();
+						}
+					});
+					
+					aboutVideos[aboutIndex].classList.add('active');
+					
+					setInterval(function () {
+						// Pause current video
+						aboutVideos[aboutIndex].pause();
+						aboutVideos[aboutIndex].classList.remove('active');
+						
+						// Move to next video
+						aboutIndex = (aboutIndex + 1) % aboutVideos.length;
+						
+						// Play and show next video
+						aboutVideos[aboutIndex].currentTime = 0;
+						aboutVideos[aboutIndex].play();
+						aboutVideos[aboutIndex].classList.add('active');
+					}, 8000); // change every 8 seconds
+				}
+			});
+		</script>
 	</body>
 </html>

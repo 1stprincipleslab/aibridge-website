@@ -85,6 +85,12 @@
         .cta-ix-section{
             margin-top: 90px;
         }
+        .home-content {
+            text-align: center;
+        }
+        .home-content .my-btn {
+            margin-top: 30px;
+        }
         
         @media screen and (max-width: 733px) {
             .animation-aboutus{
@@ -129,6 +135,16 @@
             .home .home-content h1{
                 font-size: 24px !important;
             }
+            /* Consistent spacing from header to first content line on mobile */
+            .home {
+                padding-top: 90px;
+            }
+            .about {
+                padding-top: 90px;
+            }
+            .about .main-title {
+                margin-top: 20px;
+            }
             
         }
 @keyframes moving-scroll {
@@ -149,7 +165,7 @@
 .moving-list:hover .group {
   animation-play-state: paused;
 }
-.right-box .slide-img {
+.right-box .slide-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -158,15 +174,131 @@
   opacity: 0;
   transition: opacity 2.5s ease; /* smooth fade */
   border-radius: 20px;
+  object-fit: cover;
 }
 
-.right-box .slide-img.active {
+.right-box .slide-video.active {
   opacity: 1;
 }
 .right-box {
   position: relative;
   width: 100%;
   height: 300px;
+}
+.about-video-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.about-video-container .slide-about-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 2.5s ease;
+  border-radius: 12px;
+}
+.about-video-container .slide-about-video.active {
+  opacity: 1;
+}
+.about-video-container .slide-about-video:first-child {
+  position: relative;
+}
+
+/* Mobile accordion for features */
+@media screen and (max-width: 768px) {
+  .features .aibridge-cards {
+    display: block;
+  }
+  .features .item {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .features .feature-item {
+    width: 100%;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  .features .feature-item .feature-title {
+    position: relative;
+    padding-right: 30px;
+    width: 100%;
+    display: block;
+  }
+  .features .feature-item .feature-title:after {
+    content: '+';
+    position: absolute;
+    right: 15px;
+    top: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #641ff9;
+  }
+  .features .feature-item.active .feature-title:after {
+    content: '-';
+  }
+  .features .feature-item p {
+    display: none;
+    margin-top: 15px;
+    animation: slideDown 0.3s ease;
+  }
+  .features .feature-item.active p {
+    display: block;
+  }
+  .features .feature-item:hover {
+    border: 1px solid #edf0f7;
+    transform: none;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+/* Services read more always visible */
+.services .service-item .service-more a {
+  transform: translateX(0) !important;
+}
+.services .service-item .service-more a svg {
+  display: none;
+}
+
+/* Services blur effect on edges */
+.services .content {
+  position: relative;
+}
+.services .content::before,
+.services .content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.services .content::before {
+  left: -20px;
+  background: linear-gradient(to right, #f6f7fb 0%, #f6f7fb 15%, rgba(246, 247, 251, 0.9) 40%, transparent 100%);
+}
+.services .content::after {
+  right: -20px;
+  background: linear-gradient(to left, #f6f7fb 0%, #f6f7fb 15%, rgba(246, 247, 251, 0.6) 40%, transparent 100%);
+}
+
+@media screen and (max-width: 733px) {
+  .services .content::before,
+  .services .content::after {
+    display: none;
+  }
 }
 
 
@@ -178,17 +310,56 @@
     <body>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-              const slides = document.querySelectorAll('.right-box .slide-img');
-              if (!slides.length) return;
-            
-              let index = 0;
-              slides[index].classList.add('active');
-            
-              setInterval(function () {
-                slides[index].classList.remove('active');
-                index = (index + 1) % slides.length;
+              // Hero video slideshow
+              const slides = document.querySelectorAll('.right-box .slide-video');
+              if (slides.length) {
+                let index = 0;
                 slides[index].classList.add('active');
-              }, 3000); // change every 3 seconds
+              
+                setInterval(function () {
+                  slides[index].classList.remove('active');
+                  index = (index + 1) % slides.length;
+                  slides[index].classList.add('active');
+                }, 3000);
+              }
+              
+              // About video slideshow
+              const aboutSlides = document.querySelectorAll('.about-video-container .slide-about-video');
+              if (aboutSlides.length) {
+                let aboutIndex = 0;
+                aboutSlides[aboutIndex].classList.add('active');
+              
+                setInterval(function () {
+                  aboutSlides[aboutIndex].classList.remove('active');
+                  aboutIndex = (aboutIndex + 1) % aboutSlides.length;
+                  aboutSlides[aboutIndex].classList.add('active');
+                }, 4000); // change every 4 seconds
+              }
+              
+              // Mobile accordion for features
+              function initMobileAccordion() {
+                const featureItems = document.querySelectorAll('.features .feature-item');
+                featureItems.forEach(item => {
+                  const title = item.querySelector('.feature-title');
+                  if (title) {
+                    title.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      if (window.innerWidth <= 768) {
+                        // Close all other items
+                        featureItems.forEach(otherItem => {
+                          if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                          }
+                        });
+                        // Toggle current item
+                        item.classList.toggle('active');
+                      }
+                    });
+                  }
+                });
+              }
+              
+              initMobileAccordion();
             });
             </script>
             
@@ -206,11 +377,10 @@
 					<div class="col-lg-6">
 						<div class="home-content">
                             <h1>Your partner in digital innovation and growth</h1>
-                            <p>Add –Building the future, one AI-powered solution at a time.</p>
 							
 							<div class="my-btn">
-								<a href="contact.html" class="main-btn"><i class="fa fa-rocket"></i> <span>Get Started</span></a>
-								<a href="about.html" class="main-btn custom-btn"><span>Learn More</span> <i class="fa fa-arrow-right"></i></a>
+								<a href="contact.html" class="main-btn"><i class="fa fa-rocket"></i> <span>Lets Talk</span></a>
+								<a href="services.html" class="main-btn custom-btn"><span>How can we help</span> <i class="fa fa-arrow-right"></i></a>
 							</div>
 							<div class="home-facts">
 							</div>
@@ -218,10 +388,18 @@
 					 </div>
 					<div class="col-lg-6" >
 						<div class="right-box">
-                            <img src="images/image3.jpg" alt="Home Illustration 1" class="slide-img" style="width:100%; height:300px;">
-                            <img src="images/image1.jpg" alt="Home Illustration 2" class="slide-img" style="width:100%; height: 300px;">
-                            <img src="images/image2.jpg" alt="Home Illustration 3" class="slide-img" style="width:100%; height: 300px;">
-                            <img src="images/image.jpg" alt="Home Illustration 4" class="slide-img" style="width:100%; height: 300px;">
+                            <video class="slide-video" autoplay muted loop playsinline webkit-playsinline style="width:100%; height:300px;">
+                                <source src="hero1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <video class="slide-video" autoplay muted loop playsinline webkit-playsinline style="width:100%; height:300px;">
+                                <source src="hero2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <video class="slide-video" autoplay muted loop playsinline webkit-playsinline style="width:100%; height:300px;">
+                                <source src="hero3.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                           </div>
                           
 					</div>
@@ -298,7 +476,7 @@
 						<div class="about-info">
                             <h4 class="sub-title">About aibridge</h4>
 						    
-						    <p>aibridge is on a mission to redefine IT Services with Innovation. We are committed to redefining the possibilities in IT services, specializing in AI-based development, IT Strategy & Architecture Advisory, and Fractionalized CTO Services. We are committed to redefining the possibilities in IT services, specializing in AI-based development, IT Strategy & Architecture Advisory, and Fractionalized CTO Services.</p>
+						    <p>aibridge is on a mission to redefine IT Services with Innovation. We are committed to redefining the possibilities in IT services, specializing in AI-based development, IT Strategy &amp; Architecture Advisory, and Fractionalized CTO Services.</p>
 							<ul class="list-unstyled about-details">
 								<li><i class="fa fa-check"></i> <span>Strategic IT partnership for business growth.</span></li>
 							    <li><i class="fa fa-check"></i> <span>Cutting-edge AI solutions and methodologies.</span></li>
@@ -308,10 +486,20 @@
 						</div>
 					</div>
 					<div class="col-lg-6" style="display: flex; align-items: center;">
-                        <video class="about-video" style="width: 100%; border-radius: 12px;" autoplay muted loop>
-                            <source src="images/11904055_3840_2160_24fps.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-						
+                        <div class="about-video-container" style="width: 100%;">
+                            <video class="slide-about-video" style="width: 100%;" autoplay muted loop playsinline webkit-playsinline>
+                                <source src="images/11904055_3840_2160_24fps.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <video class="slide-about-video" style="width: 100%;" autoplay muted loop playsinline webkit-playsinline>
+                                <source src="about2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <video class="slide-about-video" style="width: 100%;" autoplay muted loop playsinline webkit-playsinline>
+                                <source src="about3.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
 					</div>
 				</div>
 			</div>
@@ -336,7 +524,7 @@
                                 <h3 class="service-title">Rapid Prototyping</h3>
                                 <p>Validate your ideas fast. We help you go from concept to clickable prototype in days not weeks. Ideal for MVPs, product-market fit testing, or stakeholder alignment.</p>
                                 <div class="service-more">
-                                    <a href="services.html">
+                                    <a href="services.html#rapid-prototyping">
                                         Read more
                                         <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
@@ -351,7 +539,7 @@
                                 <h3 class="service-title">AI Advisory & Roadmapping</h3>
                                 <p>Not sure where to start with AI? We work with your leadership to define a practical AI roadmap that aligns with business outcomes from PoCs to full-scale implementation.</p>
                                 <div class="service-more">
-                                    <a href="services.html">
+                                    <a href="services.html#ai-advisory">
                                         Read more
                                         <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
@@ -366,7 +554,7 @@
                                 <h3 class="service-title">Custom AI Solutions & LLM Fine-Tuning</h3>
                                 <p>We develop bespoke AI models, fine-tune large language models, and build domain-specific intelligence that gives your business a competitive edge — all with data privacy and performance at the core.</p>
                                 <div class="service-more">
-                                    <a href="services.html">
+                                    <a href="services.html#custom-ai-solutions">
                                         Read more
                                         <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
@@ -381,7 +569,7 @@
                                 <h3 class="service-title">AI-Based Development</h3>
                                 <p>Harness the power of artificial intelligence to create innovative solutions that drive business growth and efficiency.</p>
                                 <div class="service-more">
-                                    <a href="services.html">
+                                    <a href="services.html#ai-development">
                                         Read more
                                         <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
@@ -396,7 +584,7 @@
                                 <h3 class="service-title">IT Strategy & Architecture</h3>
                                 <p>Expert guidance in developing and implementing robust IT strategies aligned with your business objectives.</p>
                                 <div class="service-more">
-                                    <a href="services.html">
+                                    <a href="services.html#enterprise-architecture">
                                         Read more
                                         <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
@@ -411,7 +599,7 @@
                                 <h3 class="service-title">Fractionalized CTO Services</h3>
                                 <p>Access executive-level technology leadership and expertise on a flexible, as-needed basis.</p>
                                 <div class="service-more">
-                                    <a href="services.html">
+                                    <a href="services.html#fractional-cto">
                                         Read more
                                         <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
@@ -428,7 +616,7 @@
                                 <h3 class="service-title">Rapid Prototyping</h3>
                                 <p>Validate your ideas fast. We help you go from concept to clickable prototype in days not weeks. Ideal for MVPs, product-market fit testing, or stakeholder alignment.</p>
                                 <div class="service-more">
-                                    <a href="./services.html">
+                                    <a href="services.html#rapid-prototyping">
                                         Read more
                                         <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.4311 18.8211C14.2411 18.8211 14.0511 18.7511 13.9011 18.6011C13.6111 18.3111 13.6111 17.8311 13.9011 17.5411L19.4411 12.0011L13.9011 6.46109C13.6111 6.17109 13.6111 5.69109 13.9011 5.40109C14.1911 5.11109 14.6711 5.11109 14.9611 5.40109L21.0311 11.4711C21.3211 11.7611 21.3211 12.2411 21.0311 12.5311L14.9611 18.6011C14.8111 18.7511 14.6211 18.8211 14.4311 18.8211Z" fill="#292D32"></path>
