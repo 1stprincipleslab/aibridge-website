@@ -56,16 +56,49 @@ function setSubmitButtonState(btn, state) {
 // 4) Get selected toggle data
 function getSelectedToggles() {
   const activePrimary = document.querySelector('.pill-primary.active');
-  const activeSecondary = document.querySelector('.pill-secondary.active');
+  let activeSecondary = null;
+  let primaryText = 'None selected';
+  let secondaryText = 'None selected';
   
-  const primaryText = activePrimary ? activePrimary.querySelector('span:last-child').textContent.trim() : 'None selected';
-  const secondaryText = activeSecondary ? activeSecondary.querySelector('span:last-child').textContent.trim() : 'None selected';
+  if (activePrimary) {
+    // Get primary text (skip the icon and expand symbol)
+    const primarySpans = activePrimary.querySelectorAll('span');
+    primaryText = primarySpans.length >= 2 ? primarySpans[1].textContent.trim() : 'None selected';
+    
+    // Get the target group for this primary toggle
+    const targetGroup = activePrimary.dataset.target;
+    
+    if (targetGroup) {
+      // Check for active secondary in desktop view
+      const desktopSecondaryGroup = document.querySelector(`.help-secondary[data-group="${targetGroup}"]`);
+      if (desktopSecondaryGroup) {
+        activeSecondary = desktopSecondaryGroup.querySelector('.pill-secondary.active');
+      }
+      
+      // If no desktop secondary found, check mobile dropdown
+      if (!activeSecondary) {
+        const primaryItem = activePrimary.closest('.primary-item');
+        if (primaryItem) {
+          const mobileDropdown = primaryItem.querySelector('.mobile-dropdown');
+          if (mobileDropdown) {
+            activeSecondary = mobileDropdown.querySelector('.pill-secondary.active');
+          }
+        }
+      }
+    }
+  }
+  
+  if (activeSecondary) {
+    // Get secondary text (skip the icon)
+    const secondarySpans = activeSecondary.querySelectorAll('span');
+    secondaryText = secondarySpans.length >= 2 ? secondarySpans[1].textContent.trim() : 'None selected';
+  }
   
   return {
     primary: primaryText,
     secondary: secondaryText,
     combined: primaryText !== 'None selected' && secondaryText !== 'None selected' 
-      ? `${primaryText} → ${secondaryText}` 
+      ? `${primaryText} - ${secondaryText}` 
       : primaryText !== 'None selected' ? primaryText : 'No specific service selected'
   };
 }
