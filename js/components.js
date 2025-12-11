@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	<div class="footer-top">
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-lg-3 col-md-6 col-12 footer-menu d-flex justify-content-center align-items-center" style="min-height: 200px;">
+				<div class="col-lg-3 col-md-6 col-12 footer-menu d-flex justify-content-center align-items-center">
 					<div class="footer-logo">
 						<a class="my-logo" href="index.html" aria-label="aibridge"><img src="images/airbridge.png" alt="aibridge logo" style="height:40px; width:auto;"/></a>
 					</div>

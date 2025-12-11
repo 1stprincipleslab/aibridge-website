@@ -704,7 +704,6 @@ select:-webkit-autofill:focus {
 	color: #0b1124;
     font-size: 24px;
     font-weight: 700;
-    text-transform: capitalize;
     margin-bottom: 10px;
     line-height: 1.2;
     text-align: left;
@@ -1029,7 +1028,7 @@ select:-webkit-autofill:focus {
 .about .main-btn {
     font-size: 16px;
     padding: 16px 38px;
-    margin-top: 44px;
+    margin-top: 30px;
 }
 
 .about .main-btn i {
@@ -1928,9 +1927,7 @@ select:-webkit-autofill:focus {
 	z-index: 1;
 }
 
-.footer .footer-top .footer-logo { 
-	margin-bottom: 20px;
-}
+
 
 .footer .footer-top .footer-logo a {
     font-size: 24px;
@@ -2723,11 +2720,11 @@ select:-webkit-autofill:focus {
 
     /*----- About ----*/
     .about {
-        padding-top: 65px;
+        padding-top: 30px;
     }
 
     .about .about-info {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     .about .about-image {
@@ -2737,7 +2734,7 @@ select:-webkit-autofill:focus {
 
     /*----- Services ----*/
     .services {
-        padding-top: 40px;
+        padding-top: 30px;
     }
 
     .services .item:nth-of-type(n+2) .service-item {
@@ -2746,7 +2743,7 @@ select:-webkit-autofill:focus {
 
     /*----- Roadmap ----*/
     .roadmap {
-        padding-top: 40px;
+        padding-top: 30px;
         padding-bottom: 25px;
     }
 
@@ -2762,14 +2759,14 @@ select:-webkit-autofill:focus {
 
     .roadmap-item {
         margin-left: 44px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
         padding: 0;
         width: 100%;
     }
 
     .roadmap-item.right {
         margin-top: 0;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .roadmap-item::before,
@@ -2827,7 +2824,7 @@ select:-webkit-autofill:focus {
 
     /*----- Footer ----*/
     .footer {
-        margin-top: 90px;
+        margin-top: 40px;
     }
 
     .footer .footer-top {
