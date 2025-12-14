@@ -1164,7 +1164,7 @@ select:-webkit-autofill:focus {
 
 .roadmap-item.right {
     margin-top: 90px;
-    margin-bottom: -130px;
+    margin-bottom: -10px;
 }
 
 .roadmap-item::before {
