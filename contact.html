@@ -185,6 +185,18 @@
 			.help-secondary.active {
 				display: flex;
 			}
+			
+			/* Desktop: Right-align sub-options for last two toggles */
+			@media screen and (min-width: 734px) {
+				.help-secondary-container .help-secondary[data-group="fractional-cto"],
+				.help-secondary-container .help-secondary[data-group="enterprise-arch"] {
+					direction: rtl !important;
+				}
+				.help-secondary-container .help-secondary[data-group="fractional-cto"] .pill,
+				.help-secondary-container .help-secondary[data-group="enterprise-arch"] .pill {
+					direction: ltr !important;
+				}
+			}
 			.contact-info{
 				margin-top: 2.5rem;
 			}
@@ -371,15 +383,33 @@
 				btn.addEventListener('click', (e) => {
 				  e.preventDefault();
 				  
-				  if (btn.closest('.mobile-dropdown')) {
-					const dropdown = btn.closest('.mobile-dropdown');
-					dropdown.querySelectorAll('.pill-secondary').forEach(b => b.classList.remove('active'));
+				  // Desktop: Allow toggle on/off for secondary buttons
+				  if (window.innerWidth > 733) {
+					const isActive = btn.classList.contains('active');
+					
+					if (btn.closest('.mobile-dropdown')) {
+					  const dropdown = btn.closest('.mobile-dropdown');
+					  dropdown.querySelectorAll('.pill-secondary').forEach(b => b.classList.remove('active'));
+					} else {
+					  const group = btn.closest('.help-secondary');
+					  if (group) group.querySelectorAll('.pill-secondary').forEach(b => b.classList.remove('active'));
+					}
+					
+					if (!isActive) {
+					  btn.classList.add('active');
+					}
 				  } else {
-					const group = btn.closest('.help-secondary');
-					if (group) group.querySelectorAll('.pill-secondary').forEach(b => b.classList.remove('active'));
+					// Mobile: Keep existing behavior
+					if (btn.closest('.mobile-dropdown')) {
+					  const dropdown = btn.closest('.mobile-dropdown');
+					  dropdown.querySelectorAll('.pill-secondary').forEach(b => b.classList.remove('active'));
+					} else {
+					  const group = btn.closest('.help-secondary');
+					  if (group) group.querySelectorAll('.pill-secondary').forEach(b => b.classList.remove('active'));
+					}
+					
+					btn.classList.add('active');
 				  }
-				  
-				  btn.classList.add('active');
 				});
 			  });
 			});
